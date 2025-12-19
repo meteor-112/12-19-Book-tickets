@@ -4,13 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>booking-step-1</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
+    .btn-outline-golden {
+      color: #d4a473;
+      border: 1px solid #d4a473;
+      background-color: transparent;
+    }
+
+    .btn-golden:hover,
+    .btn-golden:focus {
+      background-color: #b88a5d;
+      border-color: #b88a5d;
+      color: black;
+    }
+
     .theme-color {
       color: #d4a473;
+    }
+
+
+    .fa-solid.fa-circle {
+
+      font-size: 10px;
+    }
+
+    .check-circle {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      color: #d4a473;
+      background-color: #d4a473;
+      z-index: 99;
+
     }
 
     .zone-label {
@@ -40,107 +69,114 @@
 </head>
 
 <body class="bg-black">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 bg-success">
-        <div class="text-start mb-4 text-white">
-          <h2 class="">The Galactic Tour 2024</h2>
-          <p>台北小巨蛋 · 2024年12月24日 · 19:30</p>
-        </div>
+
+  <main class="container">
+    <!-- 進度條 -->
+    <section class="py-2 mb-2">
+      <div class="text-area d-flex justify-content-between mb-2">
+        <div class="section-now text-white">步驟1/3：選擇座位</div>
+        <div class="section-next text-white-50">下一步：填寫資料</div>
       </div>
-
-    </div>
-
-   
-    <div class="row">
-      <!-- 左側：座位圖與區域 -->
-      <div class="col-md-8 rounded-5">
-        <div class="mb-3 ">
-           <button class="shadow-sm rounded-5 btn btn-outline-primary gap-2 theme-colortheme"
-              type="button"> 全部
+      <div class="progress bg-dark" role="progressbar">
+        <div class="progress-bar w-25 theme-color"></div>
+      </div>
+    </section>
+    <section class="row">
+      <!-- 左半邊內容 -->
+      <div class="col-md-8 text-white">
+        <h2 class="fw-bold flex">The Galactic Tour 2024</h2>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋&nbsp;·&nbsp;
+            <i class="fa-regular fa-calendar"></i>&nbsp;2024年12月24日&nbsp;·&nbsp;19:30
+          </p>
+          <div class="d-flex align-items-start gap-2">
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+              <i class="fa-solid fa-circle"></i>&nbsp;可選位
             </button>
-          <span class="zone-label text-warning ms-3">VIP ($5800)</span>
-          <span class="zone-label text-danger ms-3">A區 ($4800)</span>
-          <span class="zone-label text-primary ms-3">B區 ($3800)</span>
-        </div>
-
-        <!-- 座位圖 -->
-        <div class="border p-3 bg-white ">
-          <h5 class="text-center">STAGE</h5>
-          <div class="text-center my-3">
-            <div class="seat-circle vip"></div>
-            <div class="seat-circle vip"></div>
-            <div class="seat-circle vip"></div>
-          </div>
-          <div class="text-center my-3">
-            <div class="seat-circle zone-a"></div>
-            <div class="seat-circle zone-a"></div>
-            <div class="seat-circle zone-a"></div>
-          </div>
-          <div class="text-center my-3">
-            <div class="seat-circle zone-b"></div>
-            <div class="seat-circle zone-b"></div>
-            <div class="seat-circle zone-b"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右側：票券摘要與價格 -->
-      <div class="col-md-4 rounded-5">
-        <div class="bg-white p-3 border">
-          <div class="alert alert-warning text-center">
-            保留時間倒數 <strong>09:42</strong>
-          </div>
-          <h5>我的票券</h5>
-          <ul class="list-group mb-3">
-            <li class="list-group-item">
-              <strong>VIP ZONE</strong><br>第一排, 4號 <span class="float-end">$5,800</span>
-            </li>
-            <li class="list-group-item">
-              <strong>ZONE A</strong><br>A區, 5號 <span class="float-end">$4,800</span>
-            </li>
-          </ul>
-
-          <h6>加購項目</h6>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="tshirt">
-            <label class="form-check-label" for="tshirt">
-              紀念T恤 · 現場領取 - L Size +$800
-            </label>
-          </div>
-
-          <h6>價格明細</h6>
-          <ul class="list-group mb-3">
-            <li class="list-group-item">票價小計 (2張) <span class="float-end">$10,600</span></li>
-            <li class="list-group-item">手續費 <span class="float-end">$100</span></li>
-            <li class="list-group-item fw-bold">總金額 <span class="float-end">$10,700</span></li>
-          </ul>
-
-          <div class="d-grid">
-            <button class="shadow-sm rounded-5 btn btn-warning d-flex justify-content-center align-items-center gap-2"
-              type="button"> 下一步:付款資訊
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+              <i class="fa-solid fa-circle"></i>&nbsp;已選
+            </button>
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+              <i class="fa-solid fa-circle"></i>&nbsp;已售出
             </button>
           </div>
         </div>
+
+        <div class="d-flex gap-2">
+          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
+            <i class="fa-solid fa-circle"></i>&nbsp;全部
+          </button>
+          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
+            <i class="fa-solid fa-circle"></i>&nbsp;VIP ($5800)
+          </button>
+          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
+            <i class="fa-solid fa-circle"></i>&nbsp;A區 ($4800)
+          </button>
+          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
+            <i class="fa-solid fa-circle"></i>&nbsp;B區 ($3800)
+          </button>
+        </div>
+        <div class="bg-white">
+          <div class="text-center my-3">
+            <div class="seat-circle vip"></div>
+            <div class="seat-circle vip"></div>
+            <div class="seat-circle vip"></div>
+          </div>
+          <div class="text-center my-3">
+            <div class="seat-circle zone-a"></div>
+            <div class="seat-circle zone-a"></div>
+            <div class="seat-circle zone-a"></div>
+          </div>
+          <div class="text-center my-3">
+            <div class="seat-circle zone-b"></div>
+            <div class="seat-circle zone-b"></div>
+            <div class="seat-circle zone-b"></div>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <!-- 底部資訊 -->
-    <footer class="mt-5 text-center text-muted small">
-      <hr>
-      <p>TicketMastery 為您提供最精彩的現場演出體驗。安全、快速、便捷的購票管道。</p>
-      <p>©2024 TicketMastery. All rights reserved.</p>
-      <div class="row">
-        <div class="col-md-4">關於我們：公司簡介｜人才招募</div>
-        <div class="col-md-4">協助：客服中心｜常見問題｜退票與退款</div>
-        <div class="col-md-4">關注我們：Facebook｜Instagram</div>
-      </div>
-    </footer>
-  </div>
-  </div>
-
-
-
+      <!-- 右半邊 -->
+      <div class="col-md-4 text-white border-start border-white">
+        <div class="d-flex justify-content-between justify-content-center py-2">
+          <span>保留時間剩餘</span>
+          <span><i class="fa-regular fa-clock"></i>&nbsp;09:42</span>
+        </div>
+        <!-- 我的票券 -->
+        <div class="bg-dark bg-gradient p-3">
+          <h4>我的票券</h4>
+          <div class="bg-black px-5 py-3 mb-4 rounded-pill">
+            <div class="border-start border-5 border-white ">
+              <div class="ms-4">
+                <span class="fs-6 fw-bold">VIP ZONE</span>
+                <br><span>第一排, 4號</span>
+                <br><span class="fs-6">一般票</span>
+                <span class="float-end">$5,800</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-black px-5 py-3 rounded-pill mb-5">
+            <div class="border-start border-5 border-white ">
+              <div class="ms-4">
+                <span class="fs-6 fw-bold">VIP ZONE</span>
+                <br><span>第一排, 4號</span>
+                <br><span class="fs-6">一般票</span>
+                <span class="float-end">$5,800</span>
+              </div>
+            </div>
+          </div>
+          <div class="ps-4">
+            <h6>加購項目</h6>
+            <div class="form-check px-5 ">
+              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+              <label class="form-check-label" for="radioDefault1">
+                <span class="">紀念T恤<br><span>現場領取 - L Size</span></span>
+              </label>
+              <span class="float-end">+$800</span>
+            </div>
+          </div>
+        </div>
+        
+  </main>
 
 </body>
 
