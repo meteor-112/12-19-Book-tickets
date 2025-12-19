@@ -9,10 +9,6 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-        .card-text {
-            color: darkgray;
-        }
-
         /* 文字顏色: */
         .text-golden {
             color: #d4a473;
@@ -34,12 +30,27 @@
             color: black;
         }
 
+        /* 已售罄按鈕樣式 */
+        .btn-sold-out {
+            background-color: #3d3d3d !important;
+            /* 深灰色背景 */
+            border-color: #3d3d3d !important;
+            color: white !important;
+            /* 淺灰色文字 */
+            cursor: not-allowed;
+            /* 滑鼠游標顯示禁用圖示 */
+            pointer-events: none;
+            /* 徹底禁用點擊事件 */
+            box-shadow: none !important;
+            /* 移除陰影 */
+        }
+
         /* 邊框 */
         .border-golden {
             border-color: #d4a473;
         }
 
-        /* 背景 */
+        /* 背景（金） */
         .bg-golden {
             background-color: #d4a473;
         }
@@ -47,6 +58,11 @@
         /* 帶有透明度的背景 (用於圖片上的標籤，如日期標籤) */
         .bg-golden-light {
             background-color: rgba(212, 164, 115, 0.2) !important;
+        }
+
+        /* 背景（深灰） */
+        .bg-gray {
+            background-color: #1d1917;
         }
 
         /* 外框按鈕 (只有邊框是金色) */
@@ -57,40 +73,282 @@
         }
 
         .btn-outline-golden:hover {
-            background-color:#d4a473;
+            background-color: #d4a473;
             color: black;
+        }
+
+
+        /* 卡片顏色 */
+        .card {
+            background-color: #292524;
+        }
+
+        .card-img-top {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            /* 設定為 4/3 也可以設定成1:1 or 16/9 */
+            object-fit: cover;
+            /* 確保圖片充滿容器且不變形 */
+        }
+
+        /* 卡片文字 */
+        .card-text {
+            color: darkgray;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-gray">
     <main class="container">
+        <!-- ⬇ 卡片區 -->
         <section>
-            <!-- ⬇ 卡片 -->
-            <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1548778052-311f4bc2b502?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        class="card-img-top" alt="...">
-                    <div class="position-absolute">12月12日</div>
-                </div>
-                <div class="card-body bg-black text-light">
-                    <small class="card-subtitle text-golden">流行</small>
-                    <h5 class="card-title fw-bold">The Eras Tour</h5>
-                    <p class="card-text mb-2">Taylor Swift</p>
-                    <p class="card-text">
-                        <i class="bi bi-geo-alt"></i>
-                        台北大巨蛋
-                    </p>
-                    <!-- ⬇ 按鈕 -->
-                    <div class="d-grid gap-2">
-                        <button
-                            class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
-                            type="button"> 立即購票
-                            <i class="fs-4 bi-ticket-perforated"></i>
-                        </button>
+            <div class="row g-4">
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1548778052-311f4bc2b502?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                8月24日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">The Eras Tour</h5>
+                            <p class="card-text mb-2">Taylor Swift</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北大巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1512671584073-0ed5878c5679?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZHBsYXl8ZW58MHx8MHx8fDA%3D"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                11月11日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">搖滾</small>
+                            <h5 class="card-title fw-bold">Music of the Spheres</h5>
+                            <p class="card-text mb-2">Coldplay</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                高雄巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://media.gq.com.tw/photos/6847b40484588bde7d58872b/1:1/w_630,h_630,c_limit/485671990_1239939200834553_4634830752852304792_n.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                9月15日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Chromatica Ball</h5>
+                            <p class="card-text mb-2">Lady Gaga</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北小巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-sold-out d-flex justify-content-center align-items-center gap-2"
+                                    type="button" disabled>
+                                    <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                    已售罄
+                                    <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://media6.imgyb.xyz/media/v1/image/e9f3001b8a87078f108d18f02cc6145b.png"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                10月02日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">節奏藍調</small>
+                            <h5 class="card-title fw-bold">Renaissance Tour</h5>
+                            <p class="card-text mb-2">Beyoncé</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                桃園體育場
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                12月18日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">節奏藍調</small>
+                            <h5 class="card-title fw-bold">After Hours</h5>
+                            <p class="card-text mb-2">The Weeknd</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                南港展覽館
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.biosmonthly.com/storage/upload/article/tw_article_coverphoto_20200304150618_s4c.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                1月20日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Love on Tour</h5>
+                            <p class="card-text mb-2">Harry Styles</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北流行音樂中心
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F38694690-89e5-4cf1-9fae-024db86c8a30.jpg?source=next-article&fit=scale-down&quality=highest&width=700&dpr=1"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                2月14日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Mathematics Tour</h5>
+                            <p class="card-text mb-2">Ed Sheeran</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                Legacy臺北
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card shadow overflow-hidden rounded-5" style="width: 18rem; border: none;">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.classicpopmag.com/wp-content/uploads/2023/01/2c0e6305765ecc5ab2d7950746094e7e-madonna-albums-my-music.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                3月30日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Celebration Tour</h5>
+                            <p class="card-text mb-2">Madonna</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                Zepp新北
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <div class="d-grid gap-2">
+                                    <button
+                                        class="shadow-sm rounded-5 btn btn-sold-out d-flex justify-content-center align-items-center gap-2"
+                                        type="button" disabled>
+                                        <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                        已售罄
+                                        <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
