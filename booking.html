@@ -7,90 +7,160 @@
     <title>填寫訂購人資料</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <style>
+    <link rel="stylesheet" href="./css/booking.css">
+    <!-- <style>
+        /* 分隔線 */
+        .border-b{
+            border-bottom: 1px solid rgb(74 68 62);
+        }
+        /* 主題色 */
         .theme-color {
-            color: #d4a473;
             background-color: #d4a473;
         }
-        .progress{
+        /* 主題色-文字 */
+        span{
+            color: #d4a473;
+        }
+        /* 進度條-高度 */
+        .progress {
             height: 8px
         }
-    </style>
+
+        /* 背景色 */
+        .bg-color {
+            background-color: rgb(38 35 25);
+        }
+
+        /* 次要背景色 */
+        .box-bg-color {
+            background-color: #332f2b;
+        }
+
+        /* 外框 */
+        .box-border {
+            border: 1px solid rgb(74 68 62);
+        }
+
+        /* 次要字體色 */
+        .text-secondary-color {
+            color: rgb(168 162 158);
+        }
+
+        /* 輸入框預設文字 */
+        .input-bg::placeholder {
+            color: rgb(168 162 158);
+        }
+
+        /* 輸入框樣式 */
+        .input-bg,
+        .input-bg:hover,
+        .input-bg:focus {
+            background-color: rgb(42 38 34);
+            color: #fff;
+            border: 1px solid rgb(74 68 62);
+        }
+
+        /* 輸入框樣式-focus */
+        .input-bg:focus {
+            border: 1px solid #d4a473;
+            box-shadow: none;
+        }
+
+
+        /* 按鈕 一般狀態 */
+        .btn.btn-outline-golden,
+        .btn.btn-outline-golden:hover {
+            padding: 12px 16px;
+            color: rgb(168 162 158);
+            border: 1px solid rgb(74 68 62);
+        }
+        /* 按鈕 hover變色 */
+        .btn.btn-outline-golden:hover {
+            background-color: rgb(255 255 255 / 0.05);
+        }
+
+        /* radio 被選中時（真正的 active） */
+        .btn-check:checked+.btn-outline-golden {
+            color: #fff;
+            background-color: rgb(212 163 115 / 0.1);
+            border-color: #d4a473;
+        }
+    </style> -->
 </head>
 
-<body class="bg-black">
+<body class="bg-color">
     <nav></nav>
 
     <main class="container">
-        <section class="py-2 mb-2">
+        <section class="py-2 mb-4">
             <div class="text-area d-flex justify-content-between mb-2">
                 <div class="section-now text-white">步驟2/3：填寫資料</div>
-                <div class="section-next text-white-50">下一步：確認付款</div>
+                <div class="section-next text-secondary-color">下一步：確認付款</div>
             </div>
-            <div class="progress bg-dark" role="progressbar">
+            <div class="progress box-bg-color" role="progressbar">
                 <div class="progress-bar w-75 theme-color"></div>
             </div>
         </section>
 
         <section class="row">
-            <div class="left col-8 bg-success">
-                <div class="title fs-4 fw-bold">填寫訂購人資料</div>
-                <div class="information bg-primary p-4 mb-3 ">
+            <div class="left col-8">
+                <div class="title fs-3 fw-bold text-white mb-4">填寫訂購人資料</div>
+                <div class="information box-bg-color box-border rounded-5 p-4 mb-3 ">
                     <form class="row g-3">
-                        <div class="header">聯絡人資訊</div>
-                        <hr class="my-2">
+                        <div class="header text-white fs-4 border-b pb-2">聯絡人資訊</div>
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">真實姓名</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="請輸入姓名">
+                            <label for="inputEmail4" class="form-label text-secondary-color">真實姓名</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputName"
+                                placeholder="請輸入姓名">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">手機號碼</label>
-                            <input type="text" class="form-control" id="inputPhone" placeholder="09-xx-xx">
+                            <label for="inputPassword4" class="form-label text-secondary-color">手機號碼</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputPhone"
+                                placeholder="09-xx-xx">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">電子郵件</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="123@mail.com">
-                            <div class="form-text" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
+                            <label for="inputAddress" class="form-label text-secondary-color">電子郵件</label>
+                            <input type="email" class="form-control input-bg rounded-5" id="inputEmail"
+                                placeholder="123@mail.com">
+                            <div class="form-text text-secondary-color" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
                         </div>
                     </form>
                 </div>
-                <div class="payment  bg-warning p-4">
+                <div class="payment p-4 box-bg-color box-border rounded-5 mb-3">
                     <form class="row g-3">
-                        <div class="header">付款方式</div>
-                        <hr class="my-2">
+                        <div class="header text-white fs-4 border-b pb-2">付款方式</div>
                         <div class="btn-group gap-4" role="group">
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
                                 checked>
-                            <label class="btn btn-outline-primary rounded-5" for="btnradio1">信用卡</label>
+                            <label class="btn rounded-5 btn-outline-golden" for="btnradio1">信用卡</label>
 
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary rounded-5" for="btnradio2">Line Pay</label>
+                            <label class="btn rounded-5 btn-outline-golden" for="btnradio2">Line Pay</label>
 
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                            <label class="btn btn-outline-primary rounded-5" for="btnradio3">超商代碼</label>
+                            <label class="btn rounded-5 btn-outline-golden " for="btnradio3">超商代碼</label>
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">信用卡號碼</label>
-                            <input type="text" class="form-control" id="inputNumber" placeholder="0000 0000 0000 0000">
+                            <label for="inputAddress" class="form-label text-secondary-color">信用卡號碼</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputNumber" placeholder="0000 0000 0000 0000">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">有效期限(MM/YY)</label>
-                            <input type="text" class="form-control" id="inputDate" placeholder="MM/YY">
+                            <label for="inputEmail4" class="form-label text-secondary-color">有效期限(MM/YY)</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputDate" placeholder="MM/YY">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">(CVC/CVV)</label>
-                            <input type="text" class="form-control" id="inputCVC" placeholder="123">
+                            <label for="inputPassword4" class="form-label text-secondary-color">CVC/CVV</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputCVC" placeholder="123">
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">持卡人姓名</label>
-                            <input type="text" class="form-control" id="inputName2" placeholder="同信用卡正面姓名">
+                            <label for="inputAddress" class="form-label text-secondary-color">持卡人姓名</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputName2" placeholder="同信用卡正面姓名">
                         </div>
                     </form>
                 </div>
 
                 <input type="checkbox" name="" id="agree">
-                <label for="agree">隱私權條款</label>
+                <label for="agree" class="text-secondary-color">我已閱讀並同意 <span>服務條款</span> 與 <span>隱私權政策</span>。我了解訂單一經確認後即無法修改座位。</label>
             </div>
             <div class="right col-4 bg-warning"></div>
         </section>
