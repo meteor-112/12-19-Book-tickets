@@ -38,43 +38,61 @@
       font-size: 10px;
     }
 
-    .check-circle {
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-      color: #d4a473;
-      background-color: #d4a473;
-      z-index: 99;
-
+    .stage-shape-top {
+      height: 120px;
+      width: 90%;
+      border-radius: 400px 400px 0 0;
     }
 
-    .zone-label {
-      font-weight: bold;
+    .stage-shape-down {
+      width: 90%;
     }
 
     .seat-circle {
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      display: inline-block;
       margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vip-text-color {
+      color: gold;
     }
 
     .vip {
       background-color: gold;
     }
 
+    .vip-border {
+      border: 2px solid gold;
+    }
+
+    .zone-a-text-color {
+      color: pink;
+    }
+
     .zone-a {
       background-color: pink;
+    }
+
+    .zone-a-border {
+      border: 2px solid pink;
     }
 
     .zone-b {
       background-color: lightblue;
     }
+
+    .zone-b-text-color {
+      color: lightblue;
+    }
   </style>
 </head>
 
-<body class="bg-black">
+<body class="bg-dark">
 
   <main class="container">
     <!-- 進度條 -->
@@ -89,25 +107,25 @@
     </section>
     <section class="row">
       <!-- 左半邊內容 -->
-      <div class="col-md-8 text-white">
+      <div class="col-lg-8 text-white">
         <h2 class="fw-bold flex">The Galactic Tour 2024</h2>
         <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋&nbsp;·&nbsp;
             <i class="fa-regular fa-calendar"></i>&nbsp;2024年12月24日&nbsp;·&nbsp;19:30
           </p>
           <div class="d-flex align-items-start gap-2">
-            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
               <i class="fa-solid fa-circle"></i>&nbsp;可選位
             </button>
-            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
               <i class="fa-solid fa-circle"></i>&nbsp;已選
             </button>
-            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center " type="button">
+            <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
               <i class="fa-solid fa-circle"></i>&nbsp;已售出
             </button>
           </div>
         </div>
-
+        <!-- 選位btn -->
         <div class="d-flex gap-2">
           <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
             <i class="fa-solid fa-circle"></i>&nbsp;全部
@@ -122,34 +140,47 @@
             <i class="fa-solid fa-circle"></i>&nbsp;B區 ($3800)
           </button>
         </div>
-        <div class="bg-white">
-          <div class="text-center my-3">
-            <div class="seat-circle vip"></div>
-            <div class="seat-circle vip"></div>
-            <div class="seat-circle vip"></div>
+        <!-- 座位要用程式做 -->
+        <div class="w-100 bg-black py-4 my-4 d-flex justify-content-center flex-wrap">
+          <div class="stage-shape-top bg-black bg-gradient text-white d-flex align-items-center justify-content-center
+          border-bottom">
+            <span class="fs-3 fw-bold">STAGE</span>
           </div>
-          <div class="text-center my-3">
-            <div class="seat-circle zone-a"></div>
-            <div class="seat-circle zone-a"></div>
-            <div class="seat-circle zone-a"></div>
-          </div>
-          <div class="text-center my-3">
-            <div class="seat-circle zone-b"></div>
-            <div class="seat-circle zone-b"></div>
-            <div class="seat-circle zone-b"></div>
+          <div class="stage-shape-down bg-black bg-gradient">
+            <div class="text-center my-3 fw-bold">
+              <span class="vip-text-color">VTP ZONE</span>
+              <div class="d-flex justify-content-center">
+                <div class="seat-circle vip"></div>
+                <div class="seat-circle vip"></div>
+                <div class="seat-circle vip "><i class="fa-solid fa-check"></i></div>
+                <div class="seat-circle vip-border"></div>
+                <div class="seat-circle bg-secondary bg-gradient"></div>
+              </div>
+            </div>
+            <div class="text-center my-3 fw-bold">
+              <span class="zone-a-text-color">ZONE A</span>
+              <div class="d-flex justify-content-center">
+                <div class="seat-circle zone-a"></div>
+                <div class="seat-circle zone-a"></div>
+                <div class="seat-circle zone-a "><i class="fa-solid fa-check"></i></div>
+                <div class="seat-circle zone-a-border"></div>
+                <div class="seat-circle bg-secondary bg-gradient"></div>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
       <!-- 右半邊 -->
-      <div class="col-md-4 text-white border-start border-white">
+      <div class="col-lg-4 text-white border-start border-white">
         <div class="d-flex justify-content-between justify-content-center py-2">
           <span>保留時間剩餘</span>
           <span><i class="fa-regular fa-clock"></i>&nbsp;09:42</span>
         </div>
         <!-- 我的票券 -->
         <div class="bg-dark bg-gradient p-3">
-          <h4>我的票券</h4>
+          <h5>我的票券</h5>
+          <!-- 選到的位置要用程式做會跟著變vip或zone-a或 zone-b 的資料跟顏色-->
           <div class="bg-black px-5 py-3 mb-4 rounded-pill">
             <div class="border-start border-5 border-white ">
               <div class="ms-4">
@@ -197,11 +228,12 @@
           </div>
           <div class="d-grid gap-2">
             <button class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
-              type="button"> 下一步 : 付款資訊
-              <i class="fa-solid fa-arrow-right-long"></i>
+              type="button">
+              下一步 : 付款資訊<i class="fa-solid fa-arrow-right-long"></i>
             </button>
           </div>
         </div>
+      </div>
     </section>
   </main>
 
