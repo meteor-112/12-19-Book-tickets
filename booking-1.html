@@ -9,6 +9,10 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
+    .theme-color {
+      color: #d4a473;
+    }
+
     .zone-label {
       font-weight: bold;
     }
@@ -36,102 +40,102 @@
 </head>
 
 <body class="bg-black">
-  <main>
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-12 bg-success">
-          <div class="text-start mb-4 text-white">
-            <h2 class="">The Galactic Tour 2024</h2>
-            <p>台北小巨蛋 · 2024年12月24日 · 19:30</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row ">
-        <!-- 左側：座位圖與區域 -->
-        <div class="col-md-8 rounded-5">
-          <div class="mb-3 ">
-            <span class="zone-label text-warning">全部顯示</span>
-            <span class="zone-label text-warning ms-3">VIP ($5800)</span>
-            <span class="zone-label text-danger ms-3">A區 ($4800)</span>
-            <span class="zone-label text-primary ms-3">B區 ($3800)</span>
-          </div>
-
-          <!-- 座位圖 -->
-          <div class="border p-3 bg-white ">
-            <h5 class="text-center">STAGE</h5>
-            <div class="text-center my-3">
-              <div class="seat-circle vip"></div>
-              <div class="seat-circle vip"></div>
-              <div class="seat-circle vip"></div>
-            </div>
-            <div class="text-center my-3">
-              <div class="seat-circle zone-a"></div>
-              <div class="seat-circle zone-a"></div>
-              <div class="seat-circle zone-a"></div>
-            </div>
-            <div class="text-center my-3">
-              <div class="seat-circle zone-b"></div>
-              <div class="seat-circle zone-b"></div>
-              <div class="seat-circle zone-b"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 右側：票券摘要與價格 -->
-        <div class="col-md-4 round">
-          <div class="bg-white p-3 border">
-            <div class="alert alert-warning text-center">
-              保留時間倒數 <strong>09:42</strong>
-            </div>
-            <h5>我的票券</h5>
-            <ul class="list-group mb-3">
-              <li class="list-group-item">
-                <strong>VIP ZONE</strong><br>第一排, 4號 <span class="float-end">$5,800</span>
-              </li>
-              <li class="list-group-item">
-                <strong>ZONE A</strong><br>A區, 5號 <span class="float-end">$4,800</span>
-              </li>
-            </ul>
-
-            <h6>加購項目</h6>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="tshirt">
-              <label class="form-check-label" for="tshirt">
-                紀念T恤 · 現場領取 - L Size +$800
-              </label>
-            </div>
-
-            <h6>價格明細</h6>
-            <ul class="list-group mb-3">
-              <li class="list-group-item">票價小計 (2張) <span class="float-end">$10,600</span></li>
-              <li class="list-group-item">手續費 <span class="float-end">$100</span></li>
-              <li class="list-group-item fw-bold">總金額 <span class="float-end">$10,700</span></li>
-            </ul>
-
-            <div class="d-grid">
-              <button class="shadow-sm rounded-5 btn btn-warning d-flex justify-content-center align-items-center gap-2"
-                type="button"> 下一步:付款資訊
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-  </main>
-
-
-  <!-- 底部資訊 -->
-  <footer class="mt-5 text-center text-muted small">
-    <hr>
-    <p>TicketMastery 為您提供最精彩的現場演出體驗。安全、快速、便捷的購票管道。</p>
-    <p>©2024 TicketMastery. All rights reserved.</p>
+  <div class="container py-5">
     <div class="row">
-      <div class="col-md-4">關於我們：公司簡介｜人才招募</div>
-      <div class="col-md-4">協助：客服中心｜常見問題｜退票與退款</div>
-      <div class="col-md-4">關注我們：Facebook｜Instagram</div>
+      <div class="col-12 bg-success">
+        <div class="text-start mb-4 text-white">
+          <h2 class="">The Galactic Tour 2024</h2>
+          <p>台北小巨蛋 · 2024年12月24日 · 19:30</p>
+        </div>
+      </div>
+
     </div>
-  </footer>
+
+   
+    <div class="row">
+      <!-- 左側：座位圖與區域 -->
+      <div class="col-md-8 rounded-5">
+        <div class="mb-3 ">
+           <button class="shadow-sm rounded-5 btn btn-outline-primary gap-2 theme-colortheme"
+              type="button"> 全部
+            </button>
+          <span class="zone-label text-warning ms-3">VIP ($5800)</span>
+          <span class="zone-label text-danger ms-3">A區 ($4800)</span>
+          <span class="zone-label text-primary ms-3">B區 ($3800)</span>
+        </div>
+
+        <!-- 座位圖 -->
+        <div class="border p-3 bg-white ">
+          <h5 class="text-center">STAGE</h5>
+          <div class="text-center my-3">
+            <div class="seat-circle vip"></div>
+            <div class="seat-circle vip"></div>
+            <div class="seat-circle vip"></div>
+          </div>
+          <div class="text-center my-3">
+            <div class="seat-circle zone-a"></div>
+            <div class="seat-circle zone-a"></div>
+            <div class="seat-circle zone-a"></div>
+          </div>
+          <div class="text-center my-3">
+            <div class="seat-circle zone-b"></div>
+            <div class="seat-circle zone-b"></div>
+            <div class="seat-circle zone-b"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右側：票券摘要與價格 -->
+      <div class="col-md-4 rounded-5">
+        <div class="bg-white p-3 border">
+          <div class="alert alert-warning text-center">
+            保留時間倒數 <strong>09:42</strong>
+          </div>
+          <h5>我的票券</h5>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <strong>VIP ZONE</strong><br>第一排, 4號 <span class="float-end">$5,800</span>
+            </li>
+            <li class="list-group-item">
+              <strong>ZONE A</strong><br>A區, 5號 <span class="float-end">$4,800</span>
+            </li>
+          </ul>
+
+          <h6>加購項目</h6>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="tshirt">
+            <label class="form-check-label" for="tshirt">
+              紀念T恤 · 現場領取 - L Size +$800
+            </label>
+          </div>
+
+          <h6>價格明細</h6>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">票價小計 (2張) <span class="float-end">$10,600</span></li>
+            <li class="list-group-item">手續費 <span class="float-end">$100</span></li>
+            <li class="list-group-item fw-bold">總金額 <span class="float-end">$10,700</span></li>
+          </ul>
+
+          <div class="d-grid">
+            <button class="shadow-sm rounded-5 btn btn-warning d-flex justify-content-center align-items-center gap-2"
+              type="button"> 下一步:付款資訊
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部資訊 -->
+    <footer class="mt-5 text-center text-muted small">
+      <hr>
+      <p>TicketMastery 為您提供最精彩的現場演出體驗。安全、快速、便捷的購票管道。</p>
+      <p>©2024 TicketMastery. All rights reserved.</p>
+      <div class="row">
+        <div class="col-md-4">關於我們：公司簡介｜人才招募</div>
+        <div class="col-md-4">協助：客服中心｜常見問題｜退票與退款</div>
+        <div class="col-md-4">關注我們：Facebook｜Instagram</div>
+      </div>
+    </footer>
   </div>
   </div>
 
