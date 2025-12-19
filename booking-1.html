@@ -22,13 +22,19 @@
       color: black;
     }
 
+    .btn-golden {
+      background-color: #d4a473;
+      border-color: #d4a473;
+      color: black;
+      /* 金色背景_配黑字 */
+    }
+
     .theme-color {
       color: #d4a473;
     }
 
 
     .fa-solid.fa-circle {
-
       font-size: 10px;
     }
 
@@ -164,18 +170,39 @@
               </div>
             </div>
           </div>
-          <div class="ps-4">
-            <h6>加購項目</h6>
-            <div class="form-check px-5 ">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-              <label class="form-check-label" for="radioDefault1">
-                <span class="">紀念T恤<br><span>現場領取 - L Size</span></span>
-              </label>
-              <span class="float-end">+$800</span>
-            </div>
+          <h6>加購項目</h6>
+          <div class="form-check px-5 mb-5">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+            <label class="form-check-label" for="radioDefault1">
+              <span class="">紀念T恤<br><span>現場領取 - L Size</span></span>
+            </label>
+            <span class="float-end">+$800</span>
+          </div>
+
+        </div>
+        <!-- 結帳明細區 -->
+        <div class="bg-black p-3">
+          <h6>加購項目</h6>
+          <div class="d-flex d-flex justify-content-between">
+            <span>票價小計(2張)</span>
+            <span>$10,600</span>
+          </div>
+          <div class="d-flex d-flex justify-content-between">
+            <span>手續費</span>
+            <span>$100</span>
+          </div>
+          <div class="d-flex d-flex justify-content-between mb-3">
+            <span>總金額</span>
+            <span>$10,700</span>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+              type="button"> 下一步 : 付款資訊
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
           </div>
         </div>
-        
+    </section>
   </main>
 
 </body>
