@@ -1,0 +1,93 @@
+        /* 文字顏色: */
+        .text-golden {
+            color: #d4a473;
+        }
+
+        /* 按鈕顏色 */
+        .btn-golden {
+            background-color: #d4a473;
+            border-color: #d4a473;
+            color: black;
+            /* 金色背景_配黑字 */
+        }
+
+        /* 按鈕 (Hover) */
+        .btn-golden:hover,
+        .btn-golden:focus {
+            background-color: #b88a5d;
+            border-color: #b88a5d;
+            color: black;
+        }
+
+        /* 已售罄按鈕樣式 */
+        .btn-sold-out {
+            background-color: #3d3d3d !important;
+            /* 深灰色背景 */
+            border-color: #3d3d3d !important;
+            color: white !important;
+            /* 淺灰色文字 */
+            cursor: not-allowed;
+            /* 滑鼠游標顯示禁用圖示 */
+            pointer-events: none;
+            /* 徹底禁用點擊事件 */
+            box-shadow: none !important;
+            /* 移除陰影 */
+        }
+
+        /* 邊框 */
+        .border-golden {
+            border-color: #d4a473;
+        }
+
+        /* 背景（金） */
+        .bg-golden {
+            background-color: #d4a473;
+        }
+
+        /* 帶有透明度的背景 (用於圖片上的標籤，如日期標籤) */
+        .bg-golden-light {
+            background-color: rgba(212, 164, 115, 0.2) !important;
+        }
+
+        /* 背景（深灰） */
+        .bg-gray {
+            background-color: #1d1917;
+        }
+
+        /* 外框按鈕 (只有邊框是金色) */
+        .btn-outline-golden {
+            color: #d4a473;
+            border: 1px solid #d4a473;
+            background-color: transparent;
+        }
+
+        .btn-outline-golden:hover {
+            background-color: #d4a473;
+            color: black;
+        }
+
+
+        /* 卡片顏色 */
+        .card {
+            background-color: #292524;
+        }
+
+        .card-img-top {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            /* 設定為 4/3 也可以設定成1:1 or 16/9 */
+            object-fit: cover;
+            /* 確保圖片充滿容器且不變形 */
+        }
+
+        /* 卡片文字 */
+        .card-text {
+            color: darkgray;
+        }
+
+        /* radio 被選中時（真正的 active） */
+        .btn-check:checked+.btn-outline-golden {
+            color: #fff;
+            background-color: rgb(212 163 115 / 0.1);
+            border-color: #d4a473;
+        }
