@@ -59,7 +59,6 @@
             box-shadow: none;
         }
 
-
         /* 按鈕 一般狀態 */
         .btn.btn-outline-golden,
         .btn.btn-outline-golden:hover {
@@ -92,4 +91,8 @@
             border-color: #d4a473;
             color: black;
             /* 金色背景_配黑字 */
+        }
+        .icon-shadow{
+            width: 80px;
+            height: 80px;
         }
