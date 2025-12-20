@@ -90,10 +90,22 @@
             border: 0.3px solid #765433;
         }
 
+        /* 搜尋區 */
+        .search {
+            width: 60%;
 
-        /* radio 被選中時（真正的 active） */
-        .btn-check:checked+.btn-outline-golden {
-            color: #fff;
-            background-color: rgb(212 163 115 / 0.1);
-            border-color: #d4a473;
+            /* tag 一般狀態 */
+            .btn.btn-tag,
+            .btn.btn-tag:hover {
+                color: #fff;
+                border: 1px solid rgb(74 68 62);
+                background-color: rgb(42 38 34);
+            }
+
+            /* tag check */
+            .btn-check:checked+.btn-tag {
+                color: #000;
+                background-color: #d4a473;
+                border-color: #d4a473;
+            }
         }
