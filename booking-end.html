@@ -14,6 +14,7 @@
 <body class="bg-color">
     <nav></nav>
     <main class="container">
+        <!-- 進度條 -->
         <section class="py-2 mb-4">
             <div class="text-area d-flex justify-content-between mb-2">
                 <div class="section-now text-white">步驟3/3：訂票完成</div>
@@ -23,22 +24,30 @@
                 <div class="progress-bar w-100 theme-color"></div>
             </div>
         </section>
+        <!-- 訂票成功 -->
         <section class="d-flex flex-column align-items-center">
-            <div
-                class="icon-shadow position-relative d-flex align-items-center justify-content-center rounded-circle mb-2">
+            <!-- icon -->
+            <div class="icon-shadow position-relative d-flex align-items-center justify-content-center rounded-circle mb-2">
                 <i class="fa-solid fa-circle-check fs-1 theme-text z-1"></i>
             </div>
             <div class="fs-1 text-white fw-bold">恭喜！訂票成功</div>
             <div class="text-secondary-color mb-3">凖備好享受您的精彩夜晚了嗎？</div>
+            
+            <!-- 訂票編號 -->
             <div class="text-secondary-color box-bg-color box-border rounded-5 px-md-3 py-md-2 mb-5">
                 訂票編號&nbsp&nbsp<span class="text-white fw-bold">#8829302</span>
             </div>
         </section>
+
+        <!-- 卡片區 -->
         <section class="card box-bg-color box-border rounded-5 overflow-hidden">
+            <!-- 上半部 -->
             <div class="row g-0 border-b">
-                <div class="col-md-5 overflow-hidden" style="max-height: 300px;">
+                <!-- 圖片(左) -->
+                <div class="col-md-5 overflow-hidden" style="max-height: 280px;">
                     <img src="./img/unnamed.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
                 </div>
+                <!-- 活動資訊(右) -->
                 <div class="col-md-7">
                     <div class="card-body">
                         <div class=" text-start p-3">
@@ -52,9 +61,11 @@
                     </div>
                 </div>
             </div>
+            <!-- 下半部 -->
             <div class="p-4">
+                <!-- 座位資訊與付款詳情 -->
                 <div class="row border-b">
-                    <div class="col-md-6 text-secondary-color">座位資訊
+                    <div class="col-md-6 text-secondary-color px-4">座位資訊
                         <div class="d-flex gap-2 text-center py-2">
                             <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                 <div class="text-secondary-color">區域</div>
@@ -70,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 text-secondary-color">付款詳情
+                    <div class="col-md-6 text-secondary-color px-4">付款詳情
                         <div class="d-flex justify-content-between border-b py-2">
                             <div class="text-secondary-color">
                                 <div>票價(x2)</div>
@@ -87,6 +98,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 底部 -->
                 <div class="row pt-4">
                     <div class="col-lg-6 text-secondary-color"><i class="fa-regular fa-envelope"></i>&nbsp電子票券與收據已發送至 <span class="text-white">user@example.com</span></div>
                     <a href="" class="col-lg-6 text-lg-end theme-text fw-bold link-offset-2 link-underline link-underline-opacity-0"><i class="fa-solid fa-download"></i>下載電子票券</a>
@@ -94,6 +106,7 @@
             </div>
         </section>
 
+        <!-- 按鈕區 -->
         <section class="d-flex gap-4 justify-content-center p-4">
             <button class="rounded-5 btn btn-golden px-3 py-2"
                 type="button"><i class="fa-solid fa-ticket"></i>&nbsp查看我的訂單
@@ -103,6 +116,7 @@
             </button>
         </div>
     </main>
+
     <footer></footer>
 
 
