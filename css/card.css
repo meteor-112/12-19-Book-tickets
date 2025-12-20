@@ -36,7 +36,7 @@
 
         /* 邊框 */
         .border-golden {
-            border-color: #d4a473;
+            border:1px solid #d4a473;
         }
 
         /* 背景（金） */
@@ -91,3 +91,5 @@
             background-color: rgb(212 163 115 / 0.1);
             border-color: #d4a473;
         }
+
+        
