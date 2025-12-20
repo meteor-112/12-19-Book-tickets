@@ -3,3 +3,47 @@
     height: 55px;
     border-radius: 50% !important; /* 強制圓形 */
 }
+
+.card-color{
+    background-color: #292524;
+}
+
+/* 當 card-event 被 hover 時，改變自身邊框與內部 icon-circle */
+.card-event:hover {
+    border-color: #d4a473 !important;
+}
+
+.card-event:hover .icon-circle {
+    background-color: #d4a473 !important;
+    color: #292524 !important; /* 這裡填你的背景深色 */
+}
+
+/* 為了讓變色平滑，加在原本類別或通用類別上 */
+.card-event, .icon-circle {
+    transition: all 0.3s ease;
+}
+
+.detail-text{
+    color: #d2cbcf;
+}
+
+/* 通用的放大過渡類別 */
+.hover-zoom {
+    transition: transform 0.5s ease;
+}
+
+/* 當容器被 hover，內部的 .hover-zoom 就放大 */
+.hover-box:hover .hover-zoom {
+    transform: scale(1.1);
+}
+
+/* 遮罩ㄉ效果 */
+.hover-mask {
+    transition: opacity 0.5s ease; /* 0.5秒淡出 */
+    z-index: 1; /* 確保在圖片上方 */
+}
+
+/* 當外層容器被 Hover 時，遮罩透明度變 0 */
+.hover-box:hover .hover-mask {
+    opacity: 0;
+}

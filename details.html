@@ -16,14 +16,14 @@
 
 <body class="bg-gray">
     <!-- ⬇大圖 -->
-    <header class="container position-relative my-5">
+    <header class="container position-relative my-5 hover-box">
         <!-- ↓ 圖片設定 -->
         <!-- radio是為了讓圖片不管怎樣都維持在16:9，雖然老師沒教但很好用 -->
         <div class="ratio ratio-21x9 overflow-hidden rounded-5">
             <!-- ↓ 淺灰遮罩 -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50" style="z-index: 1;"></div>
             <!-- ↓ 只是圖片 -->
-            <img class="object-fit-cover"
+            <img class="object-fit-cover hover-zoom"
                 src="https://scontent.ftpe12-1.fna.fbcdn.net/v/t1.6435-9/42615075_2446813522212064_4251965671115587584_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9eae26&_nc_ohc=DuDCOGocruUQ7kNvwGEVl6H&_nc_oc=Adn6PdxZcVB0nRodG0gSVZPunquLdEE4L9FjxEvcltURAD4u07RD92wJoW4KCGL7-9lEf364KlLiE7duKtg5me6a&_nc_zt=23&_nc_ht=scontent.ftpe12-1.fna&_nc_gid=jjHmSxZW7wzPl6jDBKg5mw&oh=00_AfnBCaw5ux2ShrEx7ubV3akov04lH_RC3175-sywQUGiKw&oe=696DB371"
                 alt="">
         </div>
@@ -59,6 +59,116 @@
             </div>
         </div>
     </header>
+    <main class="container mt-5">
+        <section class="row g-4">
+            <div class="col-lg-8 col-12">
+                <h3 class="text-white">活動詳情</h3>
+                <p class="card-text fw-light mb-4">演出前你需要知道的一切資訊。</p>
+                <!-- 三張卡片 -->
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+
+                    <div class="col">
+                        <div class="card h-100 card-color p-4 rounded-5 card-border card-event">
+                            <div class="card-body p-0">
+                                <div class="mb-3 d-flex justify-content-start">
+                                    <i class="bi bi-calendar3 bg-golden-light text-golden rounded-circle d-flex justify-content-center align-items-center fs-5 icon-circle"
+                                        style="width: 48px; height: 48px;"></i>
+                                </div>
+                                <h6 class="card-title text-white mb-2">日期與時間</h6>
+                                <p class="m-0 text-golden small fw-light">2024年12月25日(週六)</p>
+                                <p class="m-0 card-text small fw-light">18:00 開放入場</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 card-color p-4 rounded-5 card-border card-event">
+                            <div class="card-body p-0">
+                                <div class="mb-3 d-flex justify-content-start">
+                                    <i class="bi bi-geo-alt bg-golden-light text-golden rounded-circle d-flex justify-content-center align-items-center fs-5 icon-circle"
+                                        style="width: 48px; height: 48px;"></i>
+                                </div>
+                                <h6 class="card-title text-white mb-2">場地</h6>
+                                <p class="m-0 text-golden small fw-light">臺北小巨蛋</p>
+                                <p class="m-0 card-text small fw-light">台北市松山區南京東路四段2號</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 card-color p-4 rounded-5 card-border card-event">
+                            <div class="card-body p-0">
+                                <div class="mb-3 d-flex justify-content-start">
+                                    <i class="bi bi-shield-check bg-golden-light text-golden rounded-circle d-flex justify-content-center align-items-center fs-5 icon-circle"
+                                        style="width: 48px; height: 48px;"></i>
+                                </div>
+                                <h6 class="card-title text-white mb-2">主辦單位</h6>
+                                <p class="m-0 text-golden small fw-light">Live Nation Taiwan</p>
+                                <p class="m-0 card-text small fw-light">認證主辦方</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="border-golden border-1 opacity-50 mt-5">
+
+                <div class="my-5 text-white">
+                    <h4 class="mb-4">藝人介紹</h4>
+                    <p class="detail-text fw-light mb-4">
+                        加入我們，共度一個難忘的音樂與光影之夜。這位多白金銷量藝人將帶來他迄今為止在台灣最盛大的演出，演唱最新專輯《Dawn FM》中的熱門曲目，以及粉絲最愛的《Blinding
+                        Lights》和《Starboy》。
+                    </p>
+                    <p class="detail-text fw-light mb-0">
+                        本次巡演採用最先進的舞台製作，旨在讓觀眾沉浸在電影般的體驗中。千萬不要錯過親眼目睹這一代最具影響力藝人現場演出的機會。
+                    </p>
+
+                    <!-- 兩張卡片（勸不要打開 很複雜）-->
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-6">
+                            <!-- ↓鎖圖片比例用 -->
+                            <div
+                                class="ratio ratio-16x9 hover-box overflow-hidden rounded-4 position-relative card-hover">
+                                <img class="hover-zoom"
+                                    src="https://images.unsplash.com/photo-1580806198549-c698036b70bd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fCVFNiVCQyU5NCVFNSU5NCVCMSVFNiU5QyU4M3xlbnwwfHwwfHx8MA%3D%3D"
+                                    alt="巡演體驗">
+                                <!-- ↓這素遮罩（灰） -->
+                                <div
+                                    class="hover-mask position-absolute bottom-0 start-0 w-100 h-100 bg-dark bg-opacity-25">
+                                </div>
+                                <div class="position-absolute bottom-0 start-0 p-4 d-flex align-items-end">
+                                    <h5 class="text-white mb-0">巡演體驗</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div
+                                class="ratio ratio-16x9 hover-box overflow-hidden rounded-4 position-relative card-hover">
+                                <img src="https://riffmedia.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/08/28171715/The-Weeknd-Lead.jpg"
+                                    class="hover-zoom object-fit-cover w-100 h-100 transition-img" alt="現場演出">
+                                <!-- ↓這素遮罩（灰） -->
+                                <div
+                                    class="hover-mask position-absolute bottom-0 start-0 w-100 h-100 bg-dark bg-opacity-25">
+                                </div>
+                                <div class="position-absolute bottom-0 start-0 p-4 d-flex align-items-end">
+                                    <h5 class="text-white mb-0">現場演出</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <div class="p-4 rounded-5 bg-dark border border-secondary sticky-top" style="top: 20px;">
+                    <h5 class="text-white">選擇票種</h5>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
 
 

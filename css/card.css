@@ -36,7 +36,7 @@
 
         /* 邊框 */
         .border-golden {
-            border:1px solid #d4a473;
+            border: 1px solid #d4a473;
         }
 
         /* 背景（金） */
@@ -85,11 +85,15 @@
             color: darkgray;
         }
 
+        /* 邊框 */
+        .card-border {
+            border: 0.3px solid #765433;
+        }
+
+
         /* radio 被選中時（真正的 active） */
         .btn-check:checked+.btn-outline-golden {
             color: #fff;
             background-color: rgb(212 163 115 / 0.1);
             border-color: #d4a473;
         }
-
-        
