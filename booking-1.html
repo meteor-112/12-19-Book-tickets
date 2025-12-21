@@ -235,7 +235,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <!-- bootstrap的用js做hover文字效果→初始化設定 -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -244,6 +244,7 @@
   </script>
 
   <script>
+    // 左半邊的座位點擊
     const vipContainer = document.querySelector('#vip-container');
     const vipBtn = document.querySelector('#vip-btn');
     const zoneAContainer = document.querySelector('#zone-a-container');
@@ -258,7 +259,6 @@
       const vipRow = Math.floor(i / 10) + 1;
       const vipSeatNumber = i + 1;
       const vipHoverText = `VIP區第 ${vipRow} 排 ${vipSeatNumber} 號座位`;
-      // 做球
       if (i === 0 || i === 9) {
         vipContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
       } else {
@@ -292,22 +292,29 @@
     // zone-a區
     zoneAContainer.innerHTML = '';
     for (let j = 0; j < Number(20); j++) {
+      // 第幾排 = /10
       const aRow = Math.floor(j / 10) + 1;
       const aSeatNumber = j + 1;
       const aHoverText = `A區第 ${aRow} 排 ${aSeatNumber} 號座位`;
-      // 做球
+      // 做球一排１０顆
+      // 第11顆跟第12顆被預定(作假的)，被預訂的球加上灰色不能點的效果
+      // 可以點的加上該區塊的顏色
+      // data-bs-toggle="tooltip" data-bs-placement="top" title="${vipHoverText} = bootstrap的預設JS
       if (j === 10 || j === 11) {
         zoneAContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient zone-a-seat booked"></div>`
       } else { zoneAContainer.innerHTML += `<div class="seat-circle zone-a zone-a-seat" data-bs-toggle="tooltip" data-bs-placement="top" title="${aHoverText}"></div>` }
     };
     const zoneASeatAll = document.querySelectorAll('.zone-a-seat');
-    // 打勾效果
     for (let j = 0; j < zoneASeatAll.length; j++) {
       // console.log(zoneASeatAll[i]);
       zoneASeatAll[j].addEventListener('click', function () {
+        // 感覺這裡可以改裡面外面重複宣告兩次
+        // 但裡面沒放就印不出來==我想到再改
         const aRow = Math.floor(j / 10) + 1;
         const aSeatNumber = j + 1;
         console.log(`你選擇了A區第${aRow}排的第${aSeatNumber}號座位`);
+        // 做打勾效果
+        // 如果已經被打勾了點第二次會被取消
         if (zoneASeatAll[j].classList.contains('theme-color')) {
           zoneASeatAll[j].classList.remove('theme-color');
           zoneASeatAll[j].innerHTML = ''
@@ -338,8 +345,6 @@
     const zoneBSeatAll = document.querySelectorAll('.zone-b-seat');
     // 打勾效果
     for (let k = 0; k < zoneBSeatAll.length; k++) {
-      // console.log(zoneBSeatAll[i]);
-
       zoneBSeatAll[k].addEventListener('click', function () {
         const bRow = Math.floor(k / 10) + 1;
         const bSeatNumber = k + 1;
@@ -359,17 +364,13 @@
     console.log(zoneBSeatAll);
 
 
-
     // vipBtn.addEventListener('click', function () {
     //   vipContainer.innerHTML = '';
-
     // });
-
-
   </script>
 
 
-  <script>
+  <!-- <script>
     vipBtn.addEventListener('click', function () {
       vipContainer.innerHTML = '';
       for (let i = 0; i < Number(10); i++) {
@@ -398,7 +399,7 @@
       };
       console.log(vipSeatAll);
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
