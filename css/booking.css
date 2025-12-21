@@ -93,6 +93,7 @@
             border-color: #b88a5d;
             color: black;
         }
+
         /* 按鈕-active */
         .btn.btn-golden:active {
             background-color: transparent;
@@ -105,4 +106,86 @@
             width: 80px;
             height: 80px;
             background-color: #d4a37354;
+        }
+
+        /* ===============協助頁面========================== */
+        /* 大圖 */
+        .bg-img {
+            background-color: pink;
+            width: 100%;
+            /* height: 200px; */
+            background-image: url("../img/bg-img.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            padding: 100px 20px;
+
+        }
+
+        /* 大圖遮罩 */
+        .bg-img::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: #3a2d20;
+            opacity: 60%;
+            z-index: -1;
+        }
+
+        /* 文字輸入框高度 */
+        #inputMessage {
+            height: 120px;
+        }
+
+        /* select 本體-取消原生箭頭 */
+        .form-select {
+            background-image: none;
+        }
+
+        /* 自訂箭頭 */
+        .select-icon {
+            position: absolute;
+            right: 16px;
+            top: 44px;
+            pointer-events: none;
+            color: #ffffff;
+        }
+
+        /* Q&A 默認不顯示 */
+        .answer {
+            display: none;
+        }
+
+        /* Q&A switch-按下打開 */
+        #switch-1:checked~.answer,
+        #switch-2:checked~.answer,
+        #switch-3:checked~.answer,
+        #switch-4:checked~.answer {
+            display: block;
+        }
+
+        /* chevron-隱藏 */
+        #switch-1+label .fa-chevron-up,
+        #switch-2+label .fa-chevron-up,
+        #switch-3+label .fa-chevron-up,
+        #switch-4+label .fa-chevron-up,
+        #switch-1:checked+label .fa-chevron-down,
+        #switch-2:checked+label .fa-chevron-down,
+        #switch-3:checked+label .fa-chevron-down,
+        #switch-4:checked+label .fa-chevron-down {
+            display: none;
+        }
+
+        /* chevron-顯示 */
+        #switch-1:checked+label .fa-chevron-up,
+        #switch-2:checked+label .fa-chevron-up,
+        #switch-3:checked+label .fa-chevron-up,
+        #switch-4:checked+label .fa-chevron-up {
+            display: flex;
+        }
+
+        /* Q&A的hover效果 */
+        .question:hover {
+            background-color: #3D3A36;
         }
