@@ -455,7 +455,7 @@
   </script>
 
   <script>
-    // localStorage.removeItem('infoData');
+    localStorage.removeItem('infoData');
     function updateSummary() {
       const vipSeats = document.querySelectorAll('.vip-seat.theme-color');
       const aSeats = document.querySelectorAll('.zone-a-seat.theme-color');
@@ -514,7 +514,7 @@
 
       localStorage.setItem('infoData', JSON.stringify(infoData));
       console.clear();
-      console.log('目前選擇的座位資訊：', infoData);
+      // console.log('目前選擇的座位資訊：', infoData);
     }
 
   </script>
