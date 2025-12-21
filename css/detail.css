@@ -130,3 +130,47 @@ main hr {
 }
 
 
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ 解決爆版問題 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+/* 自定義響應式調整 */
+@media (max-width: 768px) {
+    .hero-content {
+        /* 手機版將 margin 縮小，並確保內容不會貼邊 */
+        margin-left: 1.5rem !important;
+        margin-right: 1.5rem !important;
+        width: calc(100% - 3rem);
+    }
+
+    .hero-content h1 {
+        font-size: 2rem !important;
+        /* 強制手機版標題不要爆出去 */
+    }
+
+    .hero-content p {
+        width: 100% !important;
+        /* 手機版文字寬度撐滿 */
+        font-size: 0.9rem;
+    }
+}
+
+/* 針對圖片比例的響應式微調 */
+.hero-ratio {
+    --bs-aspect-ratio: 100%;
+    /* 手機版預設接近正方形或較高 */
+}
+
+@media (min-width: 576px) {
+    .hero-ratio {
+        --bs-aspect-ratio: 75%;
+    }
+
+    /* 4:3 */
+}
+
+@media (min-width: 992px) {
+    .hero-ratio {
+        --bs-aspect-ratio: 42.8%;
+    }
+
+    /* 21:9 */
+}

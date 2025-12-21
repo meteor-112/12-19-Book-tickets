@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-TW">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>演唱會詳情 - TicketMaster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4a373",
+                        "background-light": "#f5f5f4",
+                        "background-dark": "#1c1917",
+                        "surface-dark": "#292524",
+                        "border-dark": "#44403c",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1c1917;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #44403c;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4a373;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#1c1917] dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
+    <header
+        class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-[#292524] bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 py-4 lg:px-10">
+        <div class="mx-auto flex h-14 max-w-7xl items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-3 text-gray-900 dark:text-white group" href="#">
+                    <div
+                        class="flex size-10 items-center justify-center rounded-full bg-primary text-background-dark transition-transform group-hover:scale-110">
+                        <span class="material-symbols-outlined text-2xl font-bold">confirmation_number</span>
+                    </div>
+                    <h2 class="text-xl font-bold leading-tight tracking-tight">TicketMastery</h2>
+                </a>
+                <nav class="hidden md:flex items-center gap-8 pl-8">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">歌手</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">音樂節</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">劇院</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">運動</a>
+                </nav>
+            </div>
+            <div class="flex items-center justify-end gap-6 flex-1 lg:flex-none">
+                <label class="hidden lg:flex relative w-64 items-center">
+                    <span
+                        class="material-symbols-outlined absolute left-3 text-gray-500 dark:text-[#a8a29e]">search</span>
+                    <input
+                        class="w-full rounded-full border-none bg-gray-100 dark:bg-[#292524] py-2.5 pl-10 pr-4 text-sm text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-[#a8a29e] focus:ring-2 focus:ring-primary"
+                        placeholder="搜尋藝人、活動或場館..." type="text" />
+                </label>
+                <div class="flex gap-4 items-center">
+                    <a class="hidden sm:flex items-center gap-1 text-sm font-bold text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                        <span>我的票券</span>
+                    </a>
+                    <div class="h-6 w-px bg-gray-200 dark:bg-white/10 hidden sm:block"></div>
+                    <div class="flex gap-3">
+                        <button
+                            class="hidden sm:flex items-center justify-center rounded-full bg-gray-200 dark:bg-[#292524] px-6 py-2.5 text-sm font-bold hover:bg-gray-300 dark:hover:bg-[#44403c] transition-colors">
+                            登入
+                        </button>
+                        <button
+                            class="flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-background-dark text-sm font-bold hover:bg-[#c98348] hover:shadow-[0_0_15px_rgba(217,142,79,0.4)] transition-all">
+                            註冊
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 w-full max-w-[1280px] mx-auto px-4 md:px-10 py-5 flex flex-col gap-10">
+        <section class="@container">
+            <div
+                class="w-full relative rounded-3xl overflow-hidden min-h-[560px] flex flex-col justify-end p-8 md:p-12 group">
+                <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+                    data-alt="Dark moody concert stage with artist performing in silhouette against bright lights"
+                    style='background-image: linear-gradient(to top, rgba(28,25,23, 1) 0%, rgba(28,25,23, 0.2) 60%, rgba(28,25,23, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzxTwkDtuIXDvmnQPZRjXGhBEFTWQ3ZKVM7JD643An1MDgVnQcbk2M7CU0tASXNRuGC07H2aA6PQor_T-EpP9pCLAZVbqZ95r9a80nymtXA4coz02WmzgRLMywU0g10_UibVG46ezKAOVxWB3VHh_Q09iW-A1Oyxyv6mjMOgT8g2a8kH95BOCZ9R4YzIH89SW0ps_Z5aphmPEZpaL-US8lFHRypnJzJQ0mcGbZyvhws8EgYDTgYjLgUJOVsfuhe7AI7RMcdjq0_iBL");'>
+                </div>
+                <div class="relative z-10 flex flex-col gap-6 max-w-3xl">
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">世界巡迴</span>
+                        <span
+                            class="px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">熱賣中</span>
+                    </div>
+                    <div class="flex flex-col gap-2 text-left">
+                        <h1 class="text-white text-4xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight">
+                            The Weeknd: <br />
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-stone-400">After
+                                Hours Til Dawn</span>
+                        </h1>
+                        <p class="text-stone-300 text-lg md:text-xl font-normal leading-relaxed mt-2 max-w-xl">
+                            體驗全球現象級的現場演出。台北站將帶來合成器流行金曲與震撼視覺效果，絕不能錯過。
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4 md:gap-6 text-white/90 font-medium">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">calendar_today</span>
+                            <span>2024年12月25日 • 19:30</span>
+                        </div>
+                        <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <span>台北小巨蛋, 台灣</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 pt-4">
+                        <button
+                            class="flex items-center justify-center rounded-full h-12 md:h-14 px-8 bg-primary text-background-dark text-base md:text-lg font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,163,115,0.3)]">
+                            立即購票
+                        </button>
+                        <button
+                            class="flex items-center justify-center rounded-full h-12 md:h-14 w-12 md:w-14 bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors backdrop-blur-sm">
+                            <span class="material-symbols-outlined">share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-8 flex flex-col gap-10">
+                <div>
+                    <div class="flex flex-col gap-4 mb-8">
+                        <h2 class="text-white text-3xl font-bold tracking-tight">活動詳情</h2>
+                        <p class="text-stone-400">演出前你需要知道的一切資訊。</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div
+                            class="flex flex-col gap-4 rounded-2xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                                <span class="material-symbols-outlined">calendar_month</span>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-lg font-bold mb-1">日期與時間</h3>
+                                <p class="text-primary text-sm">2024年12月25日 (週六)</p>
+                                <p class="text-stone-400 text-sm">18:00 開放入場</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-4 rounded-2xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-lg font-bold mb-1">場地</h3>
+                                <p class="text-primary text-sm">台北小巨蛋</p>
+                                <p class="text-stone-400 text-sm">台北市松山區南京東路四段2號</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-4 rounded-2xl border border-border-dark bg-surface-dark p-6 hover:border-primary/50 transition-colors group">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                                <span class="material-symbols-outlined">verified_user</span>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-lg font-bold mb-1">主辦單位</h3>
+                                <p class="text-primary text-sm">Live Nation Taiwan</p>
+                                <p class="text-stone-400 text-sm">認證主辦方</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 py-8 border-t border-border-dark">
+                    <div class="flex flex-col gap-4">
+                        <h2 class="text-white text-3xl font-bold tracking-tight">藝人介紹</h2>
+                        <div class="prose prose-invert max-w-none text-stone-300">
+                            <p>
+                                加入我們，共度一個難忘的音樂與光影之夜。這位多白金銷量藝人將帶來他迄今為止在台灣最盛大的演出，演唱最新專輯《Dawn FM》中的熱門曲目，以及粉絲最愛的《Blinding
+                                Lights》和《Starboy》。
+                            </p>
+                            <p class="mt-4">
+                                本次巡演採用最先進的舞台製作，旨在讓觀眾沉浸在電影般的體驗中。千萬不要錯過親眼目睹這一代最具影響力藝人現場演出的機會。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="group relative rounded-2xl overflow-hidden aspect-video">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10">
+                            </div>
+                            <div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Concert crowd with laser lights show"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzfog_CClr4C0cbie8lied6iF3JH0SE-wooPTQirCdJI7XbP9cJ-PWlYWP8W17g2suQlTZqRUO2G12Lc0-vNjDFyiNkqsV8v-45TzIUpp3dFp4MpJelWI9hEFckIpp-NDDY2QoBNfs6afToRjaGrs-LEGYqXb8b9LBxl1U5vPSJZZd21HsgHv6lXeufC4xR4FupB6j6wm4i15bYSIJVMCnCscqrbG-Uvf-fhxAp7R46UFyEuASgOGAS5rT-gnrVgxGp8X0PZgc9igA");'>
+                            </div>
+                            <div class="absolute bottom-4 left-4 z-20">
+                                <p class="text-white font-bold text-lg drop-shadow-md">巡演體驗</p>
+                            </div>
+                        </div>
+                        <div class="group relative rounded-2xl overflow-hidden aspect-video">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10">
+                            </div>
+                            <div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Artist singing with microphone on stage"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvXPrrGz3WhUP-x-aH8nMOt436jN1YeZCf1wbwUm-6ZAgOKjXmvcpdZrDQK9qx0JyRfFnGggvu6jOf450j2fdteq-0KOxEfJcc0jHJ1KJQXh0V6umRDaJER2A3l8I6WLvy6RhK4FlJlx5wwCCVQOddsgCKRulVAIxGh6JQ_gZYa6SdRr6e-o5njewBq9OZb4Ul_hDtGKFHQI9r7UNJamYdOYZCe-vL63qd6p-KqqKT_No05BU0qdNguCwRhH4CB4feXm9QU3DoNALW");'>
+                            </div>
+                            <div class="absolute bottom-4 left-4 z-20">
+                                <p class="text-white font-bold text-lg drop-shadow-md">現場演出</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-4">
+                <div class="sticky top-28 flex flex-col gap-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-white text-2xl font-bold">選擇票種</h3>
+                        <a class="text-primary text-sm font-bold hover:underline" href="#">查看座位圖</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div
+                            class="relative overflow-hidden rounded-2xl border border-primary bg-surface-dark p-5 shadow-lg shadow-primary/5 transition-transform hover:-translate-y-1">
+                            <div
+                                class="absolute top-0 right-0 bg-primary text-background-dark text-xs font-bold px-3 py-1 rounded-bl-xl">
+                                最超值</div>
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="text-white text-lg font-bold">VIP 套票</h4>
+                                    <p class="text-primary text-sm mt-1">剩餘少量</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-white text-2xl font-black">$8,800</p>
+                                    <p class="text-stone-500 text-xs">每張</p>
+                                </div>
+                            </div>
+                            <ul class="flex flex-col gap-2 mb-5">
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-primary text-sm">check</span>前排座位</li>
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-primary text-sm">check</span>見面會資格</li>
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-primary text-sm">check</span>VIP 休息室</li>
+                            </ul>
+                            <button
+                                class="w-full h-10 rounded-full bg-primary text-background-dark font-bold text-sm hover:brightness-110 transition-all">選擇</button>
+                        </div>
+                        <div
+                            class="rounded-2xl border border-border-dark bg-surface-dark p-5 transition-transform hover:-translate-y-1 hover:border-stone-500">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="text-white text-lg font-bold">A 區</h4>
+                                    <p class="text-[#84a98c] text-sm mt-1">熱賣中</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-white text-2xl font-black">$5,800</p>
+                                    <p class="text-stone-500 text-xs">每張</p>
+                                </div>
+                            </div>
+                            <ul class="flex flex-col gap-2 mb-5">
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-stone-500 text-sm">check</span>極佳視野</li>
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-stone-500 text-sm">check</span>優先入場</li>
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-stone-500 text-sm">check</span>電子票券</li>
+                            </ul>
+                            <button
+                                class="w-full h-10 rounded-full bg-transparent border border-stone-600 text-white font-bold text-sm hover:bg-white hover:text-background-dark hover:border-white transition-all">選擇</button>
+                        </div>
+                        <div
+                            class="rounded-2xl border border-border-dark bg-surface-dark p-5 transition-transform hover:-translate-y-1 hover:border-stone-500">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="text-white text-lg font-bold">B 區</h4>
+                                    <p class="text-[#d4a373] text-sm mt-1">即將售罄</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-white text-2xl font-black">$3,800</p>
+                                    <p class="text-stone-500 text-xs">每張</p>
+                                </div>
+                            </div>
+                            <ul class="flex flex-col gap-2 mb-5">
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-stone-500 text-sm">check</span>標準座位</li>
+                                <li class="text-stone-300 text-xs flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-stone-500 text-sm">check</span>電子票券</li>
+                            </ul>
+                            <button
+                                class="w-full h-10 rounded-full bg-transparent border border-stone-600 text-white font-bold text-sm hover:bg-white hover:text-background-dark hover:border-white transition-all">選擇</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="flex flex-col gap-6 py-8 border-t border-border-dark">
+            <h2 class="text-white text-2xl font-bold">你可能也會喜歡</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="group flex flex-col gap-3 cursor-pointer">
+                    <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Abstract colorful stage lights"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCczHFoXCGwrUZu7nfiPhLTxPaOEavRy6MogQ-gdi1nY2YG5h7nVpG-l3n1PXxWysS2VBaH2HoIlKPUy2oKdcaWBd7Xy9SvXNVJ0sF_-lrysPVbnGAwJ1zGWlZBJUTxThSB-XW1itUkIGZdrlQWZdNPMbqclfGRGbWIa0sRxgObLqO0ocJ8U5huWr2_374O8rJwrGDgbCYtXUHEpgFK4a1AVWw89XjUehkyDh_ejzMkonrw44cwCk4nIw9oPZIAFall35gthSsBGa2d");'>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold group-hover:text-primary transition-colors">霓虹之夜音樂節</h3>
+                        <p class="text-stone-500 text-sm">11月15日 • 高雄</p>
+                    </div>
+                </div>
+                <div class="group flex flex-col gap-3 cursor-pointer">
+                    <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Guitarist performing on stage"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdlKXtoRr15i9YC_4uCYUNyAq9a1MozqLbZTeI3Z7yzlIEkVFfZWJ2hkrSxox0DjEeqSnbidoJ4kltDeZHIwXdSWSChgC8aEhUc1rGN268ywsUMqSA1mpgtv4DMtlU06nYp614O8SshNtzGUajuP3xiYCqmKqZmExlCN2SCLV4rzJvcQJAj-n-NociIvr8IAK67-t2jpzwk5PgrCfePdbw-WTG0HHGahnNk-yQwIiYOZ-v5GygKbEXGIGWnx55L9ULtBMloa8ztbhC");'>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold group-hover:text-primary transition-colors">搖滾重生</h3>
+                        <p class="text-stone-500 text-sm">1月20日 • 台中</p>
+                    </div>
+                </div>
+                <div class="group flex flex-col gap-3 cursor-pointer">
+                    <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="DJ mixing music at a club"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP0Rz4S5bFZ0HthBSiWDZGJXG4MihoBPyvCP5q_memvV4vfHaf3pOo0MCztCDWgt7RUWRF95nld5p8kfwO1VbA1hf3qUXfkNCLHviVqmdCM9QetgVTBRPKgHhJaMicTaHmOl_42Jb-9U-seD3oa6oo-genqc2GklP-khQhE4J-MdnHpBhHDVwQjKN_KxTJlXqR8CpRpMx-ih7uuhOD2xh-241kWFxKxcwYVswqXB6QSFS2M7X3bWD6GT_u2FZ4SjSZH1P-lLOk9JwF");'>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold group-hover:text-primary transition-colors">電音夢境</h3>
+                        <p class="text-stone-500 text-sm">12月31日 • 台北</p>
+                    </div>
+                </div>
+                <div class="group flex flex-col gap-3 cursor-pointer">
+                    <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Jazz band silhouette"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJwnmOHGASraUpKjCEauP96pkYWqSfrCvpQrMxf6KRgzp7xu7pSnGhm0OHJPRHrKXqIu7ih0otbc88S7fqdA-mAoR2rWJOIUImuGptSoTPW2gImD5Fh6UjzFgCDxBlQ997uYpBmM2HNmVxRSb7QmuZgIOMbTYAMpqVKWG8K_5f2pHA0wh134KB4xTVeHxTCQ8EhR-Aw7xiFWccxfX0PtEx_byOTfUvIQlLkHx_JgXM9MJJhfb7qavJHR1b-zfhF1ohU-5BIKInq9RY");'>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold group-hover:text-primary transition-colors">爵士藍調之夜</h3>
+                        <p class="text-stone-500 text-sm">2月14日 • 台北</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div
+        class="lg:hidden fixed bottom-0 left-0 w-full z-40 bg-background-dark/95 backdrop-blur-md border-t border-border-dark p-4 flex items-center justify-between gap-4">
+        <div class="flex flex-col">
+            <span class="text-white font-bold text-sm">The Weeknd</span>
+            <span class="text-primary text-xs">起價 $3,800</span>
+        </div>
+        <button class="bg-primary text-background-dark font-bold rounded-full px-6 py-2.5 text-sm">立即購票</button>
+    </div>
+    <footer class="border-t border-gray-200 dark:border-[#292524] bg-white dark:bg-background-dark py-12 px-6">
+        <div class="mx-auto max-w-7xl flex flex-col md:flex-row justify-between gap-10">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2 text-gray-900 dark:text-white">
+                    <div class="flex size-8 items-center justify-center rounded-full bg-primary text-background-dark">
+                        <span class="material-symbols-outlined text-lg font-bold">confirmation_number</span>
+                    </div>
+                    <span class="text-lg font-bold">TicketMastery</span>
+                </div>
+                <p class="max-w-xs text-sm text-gray-500 dark:text-gray-400">
+                    為您連結最精彩的現場演出體驗。安全、快速、便捷的購票首選。
+                </p>
+            </div>
+            <div class="flex gap-16 flex-wrap">
+                <div class="flex flex-col gap-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white">關於我們</h4>
+                    <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#">公司簡介</a>
+                    <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#">人才招募</a>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white">協助</h4>
+                    <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#">客服中心</a>
+                    <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#">常見問題</a>
+                    <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#">退換票政策</a>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h4 class="font-bold text-gray-900 dark:text-white">關注我們</h4>
+                    <div class="flex gap-4">
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.584.016 4.85.073 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="mx-auto mt-12 max-w-7xl border-t border-gray-100 dark:border-[#292524] pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+            © 2024 TicketMastery. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

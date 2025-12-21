@@ -59,43 +59,44 @@
     </nav>
     <!-- ⬇大圖 -->
     <header class="container position-relative hover-box" style="margin-top: 110px;">
-        <!-- ↓ 圖片設定 -->
-        <!-- radio是為了讓圖片不管怎樣都維持在16:9，雖然老師沒教但很好用 -->
-        <div class="ratio ratio-21x9 overflow-hidden rounded-5">
-            <!-- ↓ 淺灰遮罩 -->
+        <div class="ratio hero-ratio overflow-hidden rounded-5">
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50" style="z-index: 1;"></div>
-            <!-- ↓ 只是圖片 -->
             <img class="object-fit-cover hover-zoom"
                 src="https://scontent.ftpe12-1.fna.fbcdn.net/v/t1.6435-9/42615075_2446813522212064_4251965671115587584_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9eae26&_nc_ohc=DuDCOGocruUQ7kNvwGEVl6H&_nc_oc=Adn6PdxZcVB0nRodG0gSVZPunquLdEE4L9FjxEvcltURAD4u07RD92wJoW4KCGL7-9lEf364KlLiE7duKtg5me6a&_nc_zt=23&_nc_ht=scontent.ftpe12-1.fna&_nc_gid=jjHmSxZW7wzPl6jDBKg5mw&oh=00_AfnBCaw5ux2ShrEx7ubV3akov04lH_RC3175-sywQUGiKw&oe=696DB371"
-                alt="">
+                alt="The Weeknd">
         </div>
-        <!-- ↓ 內容 -->
-        <div class="hero-content position-absolute top-50 translate-middle-y mx-5 z-1">
-            <!-- tag 小標籤 -->
-            <div class="tags mb-3">
+
+        <div class="hero-content position-absolute top-50 translate-middle-y ms-3 ms-md-5 z-1">
+            <div class="tags mb-2 mb-md-3">
                 <span class="text-golden border-golden bg-golden-light rounded-5 px-2 py-1 small">世界巡迴</span>
                 <span
-                    class="text-white border border-secondary-subtle bg-secondary bg-opacity-50 rounded-5 px-2 py-1 small mx-2">熱賣中</span>
+                    class="text-white border border-secondary-subtle bg-secondary bg-opacity-50 rounded-5 px-2 py-1 small mx-1 mx-md-2">熱賣中</span>
             </div>
-            <!-- 大標題 -->
-            <h1 class="display-3 fw-bolder text-white lh-1">The Weeknd: <br><span class="text-golden">After Hours Til
-                    Dawn</span></h1>
-            <p class="w-75 text-white fw-light mb-1">體驗全球現象級的現場演出。台北站將帶來合成器流行金曲與震撼視覺效果，絕不能錯過。</p>
-            <!-- 日期 -->
-            <div class="d-flex align-items-center mb-4">
-                <span class="fw-bold text-white">
-                    <i class="text-golden mx-2 bi bi-calendar"></i>
-                    2024年年12月25日•19:30
-                    <span class="text-secondary mx-1 fs-3 align-self-center">•</span>
-                    <i class="text-golden mx-1 bi bi-geo-alt-fill"></i>
-                    台北小巨蛋, 台灣
-                </span>
+
+            <h1 class="display-5 display-md-3 fw-bolder text-white lh-sm">
+                The Weeknd: <br class="d-md-none"><span class="text-golden">After Hours Til Dawn</span>
+            </h1>
+
+            <p class="w-100 w-md-75 text-white fw-light mb-2 mb-md-3 small">
+                體驗全球現象級的現場演出。台北站將帶來合成器流行金曲與震撼視覺效果。
+            </p>
+
+            <div
+                class="d-flex flex-column flex-md-row align-items-start align-items-md-center mb-3 mb-md-4 text-white small">
+                <div>
+                    <i class="text-golden bi bi-calendar me-2"></i>2024年12月25日
+                </div>
+                <span class="d-none d-md-inline text-secondary mx-2 fs-5">•</span>
+                <div class="mt-1 mt-md-0">
+                    <i class="text-golden bi bi-geo-alt-fill me-2"></i>台北小巨蛋, 台灣
+                </div>
             </div>
-            <!-- button 按鈕區 -->
-            <div class="actions">
-                <button type="button" class="shadow-sm rounded-5 btn btn-golden px-5 py-3"> 立即購票 </button>
+
+            <div class="actions d-flex align-items-center">
+                <button type="button" class="shadow-sm rounded-5 btn btn-golden px-4 px-md-5 py-2 py-md-3 fw-bold"> 立即購票
+                </button>
                 <button type="button"
-                    class="shadow-sm btn text-white border border-secondary-subtle bg-secondary bg-opacity-50 btn-circle mx-3">
+                    class="shadow-sm btn text-white border border-secondary-subtle bg-secondary bg-opacity-50 btn-circle ms-3">
                     <i class="bi bi-share"></i>
                 </button>
             </div>
