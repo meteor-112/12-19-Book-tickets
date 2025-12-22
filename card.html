@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/booking.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/navFooter.css">
+</head>
+
+<body class="bg-gray">
+    <!-- ⬇nav -->
+    <nav class="navbar-custom">
+        <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
+
+            <div class="d-flex align-items-center">
+                <a href="#" class="logo-group me-4 me-lg-5">
+                    <div class="logo-circle">
+                        <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery
+                    </h1>
+                </a>
+
+                <nav class="d-none d-lg-flex text-nowrap">
+                    <a href="#" class="nav-link-custom">歌手</a>
+                    <a href="#" class="nav-link-custom">音樂節</a>
+                    <a href="#" class="nav-link-custom">劇院</a>
+                    <a href="#" class="nav-link-custom">運動</a>
+                </nav>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="search-container d-none d-md-block">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
+                </div>
+
+                <a href="#" class="my-ticket-link d-none d-sm-flex">
+                    <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
+                    我的票券
+                </a>
+
+                <div class="d-flex gap-2 gap-md-3">
+                    <button class="btn-nav-dark">登入</button>
+                    <button class="btn-nav-gold">註冊</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto" style="margin-top: 110px;">
+        <!-- ⬇ 搜尋區 -->
+        <section class="search mb-4 mx-auto">
+            <div class="mb-4 text-center">
+                <h1 class="text-white">探索您的下一場 <span class="text-golden">現場體驗</span></h1>
+            </div>
+            <!-- 🔍 搜尋欄 -->
+            <div class="position-relative mb-4">
+                <i
+                    class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-secondary-color"></i>
+                <input type="text" class="form-control input-bg rounded-5 ps-5" placeholder="搜尋歌手、活動或場館...">
+            </div>
+            <!-- 💣 篩選列 -->
+            <div class="btn-group gap-2 gap-md-4 d-flex justify-content-center" role="group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2" for="btnradio1">全部</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2" for="btnradio2">流行</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2 " for="btnradio3">搖滾</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2 " for="btnradio4">獨立</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2 " for="btnradio5">電音</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2 " for="btnradio6">K-POP</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+                <label class="btn rounded-5 btn-tag px-md-4 py-md-2 " for="btnradio7"><i
+                        class="bi bi-calendar"></i>&nbsp本週未</label>
+            </div>
+
+        </section>
+        <!-- ⬇ 卡片區 -->
+        <section>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1548778052-311f4bc2b502?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                8月24日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">The Eras Tour</h5>
+                            <p class="card-text mb-2">Taylor Swift</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北大巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1512671584073-0ed5878c5679?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZHBsYXl8ZW58MHx8MHx8fDA%3D"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                11月11日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">搖滾</small>
+                            <h5 class="card-title fw-bold">Music of the Spheres</h5>
+                            <p class="card-text mb-2">Coldplay</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                高雄巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://media.gq.com.tw/photos/6847b40484588bde7d58872b/1:1/w_630,h_630,c_limit/485671990_1239939200834553_4634830752852304792_n.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                9月15日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Chromatica Ball</h5>
+                            <p class="card-text mb-2">Lady Gaga</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北小巨蛋
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-sold-out d-flex justify-content-center align-items-center gap-2"
+                                    type="button" disabled>
+                                    <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                    已售罄
+                                    <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://media6.imgyb.xyz/media/v1/image/e9f3001b8a87078f108d18f02cc6145b.png"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                10月02日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">節奏藍調</small>
+                            <h5 class="card-title fw-bold">Renaissance Tour</h5>
+                            <p class="card-text mb-2">Beyoncé</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                桃園體育場
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                12月18日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">節奏藍調</small>
+                            <h5 class="card-title fw-bold">After Hours</h5>
+                            <p class="card-text mb-2">The Weeknd</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                南港展覽館
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.biosmonthly.com/storage/upload/article/tw_article_coverphoto_20200304150618_s4c.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                1月20日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Love on Tour</h5>
+                            <p class="card-text mb-2">Harry Styles</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                台北流行音樂中心
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://images.ft.com/v3/image/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F38694690-89e5-4cf1-9fae-024db86c8a30.jpg?source=next-article&fit=scale-down&quality=highest&width=700&dpr=1"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                2月14日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Mathematics Tour</h5>
+                            <p class="card-text mb-2">Ed Sheeran</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                Legacy臺北
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <button
+                                    class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                    type="button"> 立即購票
+                                    <i class="fs-4 bi-ticket-perforated"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card shadow overflow-hidden rounded-5">
+                        <!-- 上半部 -->
+                        <div class="position-relative">
+                            <img src="https://www.classicpopmag.com/wp-content/uploads/2023/01/2c0e6305765ecc5ab2d7950746094e7e-madonna-albums-my-music.jpg"
+                                class="card-img-top" alt="...">
+                            <div
+                                class="position-absolute top-0 end-0 text-golden fw-bold bg-opacity-75 bg-black rounded-5 px-2 py-1 m-3 small">
+                                3月30日</div>
+                        </div>
+                        <!-- 下半部 -->
+                        <div class="card-body text-light">
+                            <small class="card-subtitle text-golden">流行</small>
+                            <h5 class="card-title fw-bold">Celebration Tour</h5>
+                            <p class="card-text mb-2">Madonna</p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i>
+                                Zepp新北
+                            </p>
+                            <!-- ⬇ 按鈕 -->
+                            <div class="d-grid gap-2">
+                                <div class="d-grid gap-2">
+                                    <button
+                                        class="shadow-sm rounded-5 btn btn-sold-out d-flex justify-content-center align-items-center gap-2"
+                                        type="button" disabled>
+                                        <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                        已售罄
+                                        <i class="fs-4 bi-ticket-perforated invisible"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="d-grid col-2 mx-auto">
+                <button
+                    class="btn btn-more text-white border border-1 border-secondary rounded-5 py-3 card-border type="
+                    button">
+                    載入更多活動
+                    <i class="fa-solid fa-angle-down text-white"></i>
+                </button>
+            </div>
+
+
+        </section>
+    </main>
+
+    <!-- ⬇夫特 -->
+    <footer class="bg-black pt-5 pb-4 mt-5 border-top border-secondary border-opacity-25">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center gap-2 text-white mb-3">
+                        <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
+                        <span class="fw-bold">TicketMastery</span>
+                    </div>
+                    <p class="small text-secondary-light lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
+                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">人才招募</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4 class="text-white fw-bold mb-3 h6">協助</h4>
+                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">退換票政策</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
+                <p class="small text-secondary-light mb-0">© 2025 TicketMastery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
