@@ -360,11 +360,8 @@
   <script>
     // 左半邊的座位點擊
     const vipContainer = document.querySelector('#vip-container');
-    const vipBtn = document.querySelector('#vip-btn');
     const zoneAContainer = document.querySelector('#zone-a-container');
-    const zoneABtn = document.querySelector('#zone-a-btn');
     const zoneBContainer = document.querySelector('#zone-b-container');
-    const zoneBBtn = document.querySelector('#zone-b-btn');
 
     // vip區
     vipContainer.innerHTML = '';
@@ -391,7 +388,6 @@
       const vipSeatNumber = i + 1;
       const vipPrice = 5800;
       const vipSeatId = `vip-${vipRow}-${vipSeatNumber}`;
-      // console.log(vipSeatAll[i]);
       vipSeatAll[i].addEventListener('click', function () {
         console.log(`你選擇了VIP區第 ${i + 1} 號座位`);
         const vipInfo = document.querySelector('#vip-info');
