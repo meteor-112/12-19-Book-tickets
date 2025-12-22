@@ -142,7 +142,7 @@
                 <!-- 底部 -->
                 <div class="row pt-4">
                     <div class="col-lg-6 text-secondary-color"><i class="fa-regular fa-envelope"></i>&nbsp;電子票券與收據已發送至
-                        <span class="text-white">user@example.com</span>
+                        <span id="userMail" class="text-white">user@example.com</span>
                     </div>
                     <a href=""
                         class="col-lg-6 text-lg-end theme-text fw-bold link-offset-2 link-underline link-underline-opacity-0"><i
@@ -253,6 +253,16 @@
             window.location.href = './helping.html';
         });
     </script>
+
+    <script>
+        // 取出使用者資料
+        const data = JSON.parse(localStorage.getItem('userData'));
+        console.log(data); 
+        // 印出郵件位址
+        const mail=document.querySelector('#userMail');
+        mail.innerHTML=`${data.email}`
+    </script>
+
     <script>
         lucide.createIcons();
     </script>

@@ -76,17 +76,17 @@
                         <div class="col-lg-6">
                             <label for="inputEmail4" class="form-label text-secondary-color">真實姓名</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputName"
-                                placeholder="請輸入姓名">
+                                placeholder="請輸入姓名" required>
                         </div>
                         <div class="col-lg-6">
                             <label for="inputPassword4" class="form-label text-secondary-color">手機號碼</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputPhone"
-                                placeholder="09-xx-xx">
+                                placeholder="09-xx-xx" required>
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label text-secondary-color">電子郵件</label>
                             <input type="email" class="form-control input-bg rounded-5" id="inputEmail"
-                                placeholder="123@mail.com">
+                                placeholder="123@mail.com" required>
                             <div class="form-text text-secondary-color p-2" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
                         </div>
                     </form>
@@ -112,27 +112,27 @@
                         <div class="col-12">
                             <label for="inputAddress" class="form-label text-secondary-color">信用卡號碼</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputNumber"
-                                placeholder="0000 0000 0000 0000">
+                                placeholder="0000 0000 0000 0000" required>
                         </div>
                         <div class="col-lg-6">
                             <label for="inputEmail4" class="form-label text-secondary-color">有效期限(MM/YY)</label>
                             <input type="text" class="form-control input-bg rounded-5 text-center" id="inputDate"
-                                placeholder="MM/YY">
+                                placeholder="MM/YY" required>
                         </div>
                         <div class="col-lg-6">
                             <label for="inputPassword4" class="form-label text-secondary-color">CVC/CVV</label>
                             <input type="text" class="form-control input-bg rounded-5 text-center" id="inputCVC"
-                                placeholder="123">
+                                placeholder="123" required>
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label text-secondary-color">持卡人姓名</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputName2"
-                                placeholder="同信用卡正面姓名">
+                                placeholder="同信用卡正面姓名" required>
                         </div>
                     </form>
                 </div>
                 <label for="agree" class="text-secondary-color">
-                    <input type="checkbox" name="" id="agree">
+                    <input type="checkbox" name="" id="agree" required>
                     我已閱讀並同意&nbsp;<span class="theme-text">服務條款</span>&nbsp;與&nbsp;<span
                         class="theme-text">&nbsp;隱私權政策</span>。我了解訂單一經確認後即無法修改座位。
                 </label>
@@ -291,10 +291,58 @@
     </script>
 
     <script>
+        // input
+        const userName = document.querySelector('#inputName');
+        const phone = document.querySelector('#inputPhone');
+        const email = document.querySelector('#inputEmail');
+        const cardNumber = document.querySelector('#inputNumber');
+        const inputDate = document.querySelector('#inputDate');
+        const inputCVC = document.querySelector('#inputCVC');
+        const inputName2 = document.querySelector('#inputName2');
+        const agree = document.querySelector('#agree');
+
         const nextBtn = document.querySelector('#next-btn')
+
+        // 點擊「確認並付款」按鈕
         nextBtn.addEventListener(('click'), function () {
             // updateSummary();
-            window.location.href = './booking-end.html';
+
+            // 如果沒填寫資料，跳警告
+            if (!userName.checkValidity()) {
+                userName.reportValidity();
+            } else if (!phone.checkValidity()) {
+                phone.reportValidity();
+            } else if (!email.checkValidity()) {
+                email.reportValidity();
+            } else if (!cardNumber.checkValidity()) {
+                cardNumber.reportValidity();
+            } else if (!inputDate.checkValidity()) {
+                inputDate.reportValidity();
+            } else if (!inputCVC.checkValidity()) {
+                inputCVC.reportValidity();
+            } else if (!inputName2.checkValidity()) {
+                inputName2.reportValidity();
+            } else if (!agree.checkValidity()) {
+                agree.reportValidity();
+            } else {
+                // 收集資料
+                const userData =
+                {
+                    userName: userName.value,
+                    phone: phone.value,
+                    email: email.value,
+                    cardNumber: cardNumber.value,
+                    inputDate: inputDate.value,
+                    inputCVC: inputCVC.value,
+                    inputName2: inputName2.value,
+                }
+                console.log(userData);
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+                // 跳轉頁面
+                window.location.href = './booking-end.html';
+            }
+
         });
     </script>
 
