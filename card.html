@@ -115,7 +115,7 @@
                                 台北大巨蛋
                             </p>
                             <!-- ⬇ 按鈕 -->
-                            <div class="d-grid gap-2">
+                            <div class="d-grid gap-2" id="next-btn">
                                 <button
                                     class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
                                     type="button"> 立即購票
@@ -408,7 +408,13 @@
     <script>
         lucide.createIcons();
     </script>
-
+    <script>
+        const nextBtn = document.querySelector('#next-btn')
+        nextBtn.addEventListener(('click'), function () {
+            // updateSummary();
+            window.location.href = './details.html';
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

@@ -90,7 +90,9 @@
             </div>
 
             <div class="actions d-flex align-items-center">
-                <button type="button" class="shadow-sm rounded-5 btn btn-golden px-4 px-md-5 py-2 py-md-3 fw-bold"> 立即購票
+                <button type="button" class="shadow-sm rounded-5 btn btn-golden px-4 px-md-5 py-2 py-md-3 fw-bold"
+                    id="next-btn">
+                    立即購票
                 </button>
                 <button type="button"
                     class="shadow-sm btn text-white border border-secondary-subtle bg-secondary bg-opacity-50 btn-circle ms-3">
@@ -424,6 +426,14 @@
         });
     </script>
     <!-- ⬆ 萬惡的js程式碼，只為了讓被選中的卡片有特效 -->
+
+    <script>
+        const nextBtn = document.querySelector('#next-btn')
+        nextBtn.addEventListener(('click'), function () {
+            // updateSummary();
+            window.location.href = './booking-1.html';
+        });
+    </script>
     <script>
         lucide.createIcons();
     </script>

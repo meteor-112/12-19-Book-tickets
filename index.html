@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <title>TicketMastery - The Weeknd: After Hours Til Dawn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <style>
     /* =========================================
        變數與全域設定
        ========================================= */
     :root {
-      --color-gold: #DEA15A;       
-      --color-gold-hover: #c48b4a; 
-      --color-dark-bg: #121212;    
-      --color-card-bg: #2b2b2b;    
-      --color-newsletter-bg: #36302C; 
-      --color-input-bg: #494541;   
-      --color-nav-input: #27272a;  
-      --color-nav-btn-dark: #27272a; 
+      --color-gold: #DEA15A;
+      --color-gold-hover: #c48b4a;
+      --color-dark-bg: #121212;
+      --color-card-bg: #2b2b2b;
+      --color-newsletter-bg: #36302C;
+      --color-input-bg: #494541;
+      --color-nav-input: #27272a;
+      --color-nav-btn-dark: #27272a;
     }
 
     body {
@@ -37,9 +38,18 @@
     }
 
     /* 工具類 */
-    .text-gold { color: var(--color-gold) !important; }
-    .bg-gold { background-color: var(--color-gold) !important; color: black !important; }
-    .text-nowrap { white-space: nowrap !important; }
+    .text-gold {
+      color: var(--color-gold) !important;
+    }
+
+    .bg-gold {
+      background-color: var(--color-gold) !important;
+      color: black !important;
+    }
+
+    .text-nowrap {
+      white-space: nowrap !important;
+    }
 
     /* =========================================
        1. Header 導航欄
@@ -60,6 +70,7 @@
       text-decoration: none;
       flex-shrink: 0;
     }
+
     .logo-circle {
       width: 40px;
       height: 40px;
@@ -80,14 +91,17 @@
       margin-right: 24px;
       transition: color 0.2s;
     }
-    .nav-link-custom:hover { color: var(--color-gold); }
+
+    .nav-link-custom:hover {
+      color: var(--color-gold);
+    }
 
     /* 搜尋框 */
     .search-container {
       position: relative;
       margin-right: 20px;
     }
-    
+
     .search-input {
       background-color: var(--color-nav-input);
       border: none;
@@ -96,13 +110,13 @@
       padding: 10px 16px 10px 40px;
       font-size: 14px;
       outline: none;
-      width: 280px;         
-      max-width: 100%;      
+      width: 280px;
+      max-width: 100%;
       transition: width 0.3s;
     }
 
     .search-input::placeholder {
-      color: #6c757d; 
+      color: #6c757d;
       opacity: 1;
     }
 
@@ -117,7 +131,9 @@
     }
 
     @media (max-width: 1200px) {
-      .search-input { width: 180px; }
+      .search-input {
+        width: 180px;
+      }
     }
 
     /* 按鈕 */
@@ -132,7 +148,11 @@
       transition: 0.2s;
       white-space: nowrap;
     }
-    .btn-nav-dark:hover { background-color: #3f3f46; color: white; }
+
+    .btn-nav-dark:hover {
+      background-color: #3f3f46;
+      color: white;
+    }
 
     .btn-nav-gold {
       background-color: var(--color-gold);
@@ -145,7 +165,10 @@
       transition: 0.2s;
       white-space: nowrap;
     }
-    .btn-nav-gold:hover { background-color: var(--color-gold-hover); }
+
+    .btn-nav-gold:hover {
+      background-color: var(--color-gold-hover);
+    }
 
     .my-ticket-link {
       color: white;
@@ -161,54 +184,142 @@
       height: 24px;
       white-space: nowrap;
     }
-    .my-ticket-link:hover { color: var(--color-gold); }
+
+    .my-ticket-link:hover {
+      color: var(--color-gold);
+    }
 
 
     /* =========================================
        2. Hero 區塊 (背景圖修復)
        ========================================= */
-    .hero-card-container { margin-top: 100px; }
-    
+    .hero-card-container {
+      margin-top: 100px;
+    }
+
     .hero-card {
       /* 強制設定背景色，若圖片載入失敗至少有深色底 */
       background-color: #1a1a1a;
-      
+
       /* 使用 background 縮寫語法，確保相容性最高 */
       /* 漸層：從左邊黑色(0.9) 到右邊稍微透明(0.4)，讓文字清楚，右邊能看到舞台 */
       /* URL：更換為一張非常穩定的演唱會圖片 */
-      background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 100%), 
-                  url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
-      
-      background-size: cover; /* 確保圖片填滿 */
-      
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+
+      background-size: cover;
+      /* 確保圖片填滿 */
+
       border-radius: 32px;
       min-height: 500px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
-    
-    .badge-outline { border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); color: #fff; font-weight: normal; padding: 6px 12px; }
-    .badge-solid { background: rgba(255,255,255,0.2); color: #fff; font-weight: normal; padding: 6px 12px; backdrop-filter: blur(4px); }
-    .btn-gold { background-color: var(--color-gold); color: #000; font-weight: bold; border-radius: 50px; padding: 12px 32px; border: none; transition: all 0.3s ease; }
-    .btn-gold:hover { background-color: var(--color-gold-hover); transform: scale(1.05); }
-    .btn-circle-glass { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-    .btn-circle-glass:hover { background: rgba(255,255,255,0.2); transform: scale(1.05); }
+
+    .badge-outline {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-weight: normal;
+      padding: 6px 12px;
+    }
+
+    .badge-solid {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-weight: normal;
+      padding: 6px 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-gold {
+      background-color: var(--color-gold);
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 12px 32px;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--color-gold-hover);
+      transform: scale(1.05);
+    }
+
+    .btn-circle-glass {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-circle-glass:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
 
     /* =========================================
        3. 內容與卡片
        ========================================= */
-    .category-btn { background: #1f1f1f; color: #888; border: 1px solid #333; transition: all 0.2s; }
-    .category-btn:hover, .category-btn.active { background: var(--color-gold); color: black; border-color: var(--color-gold); box-shadow: 0 0 15px rgba(222, 161, 90, 0.3); }
-    
-    .event-card { background-color: var(--color-card-bg); border: 1px solid #333; border-radius: 20px; overflow: hidden; transition: all 0.3s; }
-    .event-card:hover { transform: translateY(-5px); border-color: rgba(222, 161, 90, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-    .card-zoom { overflow: hidden; height: 200px; position: relative; }
-    .card-zoom img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .event-card:hover .card-zoom img { transform: scale(1.1); }
-    .text-secondary-light { color: #a1a1aa !important; }
+    .category-btn {
+      background: #1f1f1f;
+      color: #888;
+      border: 1px solid #333;
+      transition: all 0.2s;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--color-gold);
+      color: black;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 15px rgba(222, 161, 90, 0.3);
+    }
+
+    .event-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid #333;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(222, 161, 90, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-zoom {
+      overflow: hidden;
+      height: 200px;
+      position: relative;
+    }
+
+    .card-zoom img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .event-card:hover .card-zoom img {
+      transform: scale(1.1);
+    }
+
+    .text-secondary-light {
+      color: #a1a1aa !important;
+    }
 
     /* =========================================
        4. 訂閱區塊
@@ -220,17 +331,28 @@
       display: flex;
       flex-direction: column;
     }
+
     @media (min-width: 768px) {
-        .newsletter-box {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
+      .newsletter-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
-    
-    .newsletter-title { font-size: 24px; font-weight: bold; margin-bottom: 8px; color: white; }
-    .newsletter-desc { color: #aaa; font-size: 14px; margin-bottom: 0; }
-    
+
+    .newsletter-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .newsletter-desc {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
     .newsletter-action-group {
       display: flex;
       align-items: center;
@@ -238,7 +360,13 @@
       margin-top: 16px;
       flex-wrap: wrap;
     }
-    @media (min-width: 768px) { .newsletter-action-group { margin-top: 0; flex-wrap: nowrap; } }
+
+    @media (min-width: 768px) {
+      .newsletter-action-group {
+        margin-top: 0;
+        flex-wrap: nowrap;
+      }
+    }
 
     .newsletter-input-field {
       background-color: #4B4642;
@@ -250,10 +378,17 @@
       outline: none;
       font-size: 14px;
     }
-    @media (min-width: 768px) { .newsletter-input-field { width: 280px; } }
-    
-    .newsletter-input-field::placeholder { color: #999; }
-    
+
+    @media (min-width: 768px) {
+      .newsletter-input-field {
+        width: 280px;
+      }
+    }
+
+    .newsletter-input-field::placeholder {
+      color: #999;
+    }
+
     .newsletter-submit-btn {
       background-color: var(--color-gold);
       color: black;
@@ -264,7 +399,10 @@
       transition: 0.3s;
       white-space: nowrap;
     }
-    .newsletter-submit-btn:hover { background-color: var(--color-gold-hover); }
+
+    .newsletter-submit-btn:hover {
+      background-color: var(--color-gold-hover);
+    }
   </style>
 </head>
 
@@ -274,12 +412,12 @@
     <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <a href="./index.html" class="logo-group me-4 me-lg-5">
-             <div class="logo-circle">
-                 <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
-             </div>
-             <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery</h1>
+          <div class="logo-circle">
+            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+          </div>
+          <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery</h1>
         </a>
-        
+
         <nav class="d-none d-lg-flex text-nowrap">
           <a href="#" class="nav-link-custom">歌手</a>
           <a href="#" class="nav-link-custom">音樂節</a>
@@ -290,18 +428,18 @@
 
       <div class="d-flex align-items-center">
         <div class="search-container d-none d-md-block">
-            <i data-lucide="search" class="search-icon"></i>
-            <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
         </div>
 
         <a href="#" class="my-ticket-link d-none d-sm-flex">
-            <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
-            我的票券
+          <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
+          我的票券
         </a>
 
         <div class="d-flex gap-2 gap-md-3">
-            <button class="btn-nav-dark">登入</button>
-            <button class="btn-nav-gold">註冊</button>
+          <button class="btn-nav-dark">登入</button>
+          <button class="btn-nav-gold">註冊</button>
         </div>
       </div>
     </div>
@@ -332,7 +470,7 @@
               </div>
             </div>
             <div class="d-flex align-items-center gap-3">
-              <button class="btn-gold">立即購票</button>
+              <button class="btn-gold" id="next-btn">立即購票</button>
               <button class="btn-circle-glass"><i data-lucide="share-2" style="width: 20px;"></i></button>
             </div>
           </div>
@@ -357,106 +495,130 @@
     <section class="mb-5">
       <div class="d-flex align-items-center justify-content-between mb-4">
         <h2 class="h3 fw-bold d-flex align-items-center gap-2 m-0 text-white">
-            <span class="rounded-pill bg-gold" style="width: 4px; height: 24px;"></span>
-            熱門活動
+          <span class="rounded-pill bg-gold" style="width: 4px; height: 24px;"></span>
+          熱門活動
         </h2>
         <a href="./card.html" class="text-decoration-none text-gold small d-flex align-items-center gap-1">
-            查看全部 <i data-lucide="arrow-right" style="width: 16px;"></i>
+          查看全部 <i data-lucide="arrow-right" style="width: 16px;"></i>
         </a>
       </div>
-      
+
       <div class="row g-4">
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="event-card h-100 d-flex flex-column">
-                <div class="card-zoom">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop">
-                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">流行音樂</div>
-                </div>
-                <div class="p-4 flex-grow-1 d-flex flex-column">
-                    <h5 class="fw-bold text-white mb-2">搖滾銀河 The Galactic</h5>
-                    <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold" style="width: 14px;"></i>2025-07-20</div>
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold" style="width: 14px;"></i>台北小巨蛋</div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
-                        <span class="text-gold fw-bold fs-5">NT$ 2,800</span>
-                        <button class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i data-lucide="plus" style="width: 16px;"></i></button>
-                    </div>
-                </div>
+          <div class="event-card h-100 d-flex flex-column">
+            <div class="card-zoom">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop">
+              <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded"
+                style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">流行音樂</div>
             </div>
+            <div class="p-4 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold text-white mb-2">搖滾銀河 The Galactic</h5>
+              <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
+                <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold"
+                    style="width: 14px;"></i>2025-07-20</div>
+                <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold"
+                    style="width: 14px;"></i>台北小巨蛋</div>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
+                <span class="text-gold fw-bold fs-5">NT$ 2,800</span>
+                <button
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
+                    data-lucide="plus" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="event-card h-100 d-flex flex-column">
-                <div class="card-zoom">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop">
-                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">電子音樂</div>
-                </div>
-                <div class="p-4 flex-grow-1 d-flex flex-column">
-                    <h5 class="fw-bold text-white mb-2">夏日電音祭 Vibes</h5>
-                    <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold" style="width: 14px;"></i>2025-08-05</div>
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold" style="width: 14px;"></i>大佳河濱公園</div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
-                        <span class="text-gold fw-bold fs-5">NT$ 1,500</span>
-                        <button class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i data-lucide="plus" style="width: 16px;"></i></button>
-                    </div>
-                </div>
+          <div class="event-card h-100 d-flex flex-column">
+            <div class="card-zoom">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop">
+              <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded"
+                style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">電子音樂</div>
             </div>
+            <div class="p-4 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold text-white mb-2">夏日電音祭 Vibes</h5>
+              <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
+                <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold"
+                    style="width: 14px;"></i>2025-08-05</div>
+                <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold"
+                    style="width: 14px;"></i>大佳河濱公園</div>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
+                <span class="text-gold fw-bold fs-5">NT$ 1,500</span>
+                <button
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
+                    data-lucide="plus" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="event-card h-100 d-flex flex-column">
-                <div class="card-zoom">
-                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop">
-                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">搖滾</div>
-                </div>
-                <div class="p-4 flex-grow-1 d-flex flex-column">
-                    <h5 class="fw-bold text-white mb-2">搖滾之夜 Rock Nights</h5>
-                    <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold" style="width: 14px;"></i>2025-09-10</div>
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold" style="width: 14px;"></i>高雄流行音樂中心</div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
-                        <span class="text-gold fw-bold fs-5">NT$ 1,600</span>
-                        <button class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i data-lucide="plus" style="width: 16px;"></i></button>
-                    </div>
-                </div>
+          <div class="event-card h-100 d-flex flex-column">
+            <div class="card-zoom">
+              <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop">
+              <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded"
+                style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">搖滾</div>
             </div>
+            <div class="p-4 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold text-white mb-2">搖滾之夜 Rock Nights</h5>
+              <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
+                <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold"
+                    style="width: 14px;"></i>2025-09-10</div>
+                <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold"
+                    style="width: 14px;"></i>高雄流行音樂中心</div>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
+                <span class="text-gold fw-bold fs-5">NT$ 1,600</span>
+                <button
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
+                    data-lucide="plus" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="event-card h-100 d-flex flex-column">
-                <div class="card-zoom">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop">
-                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">不插電</div>
-                </div>
-                <div class="p-4 flex-grow-1 d-flex flex-column">
-                    <h5 class="fw-bold text-white mb-2">吉他之夜 Acoustic</h5>
-                    <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold" style="width: 14px;"></i>2025-10-12</div>
-                        <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold" style="width: 14px;"></i>Legacy Taipei</div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
-                        <span class="text-gold fw-bold fs-5">NT$ 1,200</span>
-                        <button class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i data-lucide="plus" style="width: 16px;"></i></button>
-                    </div>
-                </div>
+          <div class="event-card h-100 d-flex flex-column">
+            <div class="card-zoom">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop">
+              <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded"
+                style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">不插電</div>
             </div>
+            <div class="p-4 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold text-white mb-2">吉他之夜 Acoustic</h5>
+              <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
+                <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold"
+                    style="width: 14px;"></i>2025-10-12</div>
+                <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold"
+                    style="width: 14px;"></i>Legacy Taipei</div>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
+                <span class="text-gold fw-bold fs-5">NT$ 1,200</span>
+                <button
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
+                    data-lucide="plus" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="mb-5">
-        <div class="newsletter-box">
-            <div>
-                <h3 class="newsletter-title">訂閱電子報</h3>
-                <p class="newsletter-desc">第一時間獲得早鳥票與獨家折扣通知。</p>
-            </div>
-            
-            <div class="newsletter-action-group">
-                <input type="email" placeholder="輸入您的 Email" class="newsletter-input-field">
-                <button class="newsletter-submit-btn">訂閱</button>
-            </div>
+      <div class="newsletter-box">
+        <div>
+          <h3 class="newsletter-title">訂閱電子報</h3>
+          <p class="newsletter-desc">第一時間獲得早鳥票與獨家折扣通知。</p>
         </div>
+
+        <div class="newsletter-action-group">
+          <input type="email" placeholder="輸入您的 Email" class="newsletter-input-field">
+          <button class="newsletter-submit-btn">訂閱</button>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -466,33 +628,39 @@
       <div class="row g-4 mb-5">
         <div class="col-12 col-md-6 col-lg-3">
           <div class="d-flex align-items-center gap-2 text-white mb-3">
-              <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
-              <span class="fw-bold">TicketMastery</span>
+            <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
+            <span class="fw-bold">TicketMastery</span>
           </div>
           <p class="small text-secondary-light lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
         </div>
         <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
           <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
           <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">人才招募</a></li>
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">人才招募</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-3 col-lg-2">
           <h4 class="text-white fw-bold mb-3 h6">協助</h4>
           <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">退換票政策</a></li>
-              <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">退換票政策</a></li>
+            <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
           </ul>
         </div>
         <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
           <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
           <div class="d-flex gap-3">
-              <a href="#" class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
-              <a href="#" class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
-              <a href="#" class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
+            <a href="#"
+              class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+              style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
+            <a href="#"
+              class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+              style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
+            <a href="#"
+              class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+              style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
           </div>
         </div>
       </div>
@@ -502,9 +670,16 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <script>
+    const nextBtn = document.querySelector('#next-btn')
+    nextBtn.addEventListener(('click'), function () {
+      // updateSummary();
+      window.location.href = './details.html';
+    });
+  </script>
   <script>
     lucide.createIcons();
   </script>
 </body>
+
 </html>
