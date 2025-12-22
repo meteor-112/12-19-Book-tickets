@@ -9,9 +9,51 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="./css/helping.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/navFooter.css">
 </head>
 
 <body class="bg-color">
+    <nav>
+        <header class="navbar-custom">
+            <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
+
+                <div class="d-flex align-items-center">
+                    <a href="#" class="logo-group me-4 me-lg-5">
+                        <div class="logo-circle">
+                            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">
+                            TicketMastery</h1>
+                    </a>
+
+                    <nav class="d-none d-lg-flex text-nowrap">
+                        <a href="#" class="nav-link-custom">歌手</a>
+                        <a href="#" class="nav-link-custom">音樂節</a>
+                        <a href="#" class="nav-link-custom">劇院</a>
+                        <a href="#" class="nav-link-custom">運動</a>
+                    </nav>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="search-container d-none d-md-block">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
+                    </div>
+
+                    <a href="#" class="my-ticket-link d-none d-sm-flex">
+                        <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
+                        我的票券
+                    </a>
+
+                    <div class="d-flex gap-2 gap-md-3">
+                        <button class="btn-nav-dark">登入</button>
+                        <button class="btn-nav-gold">註冊</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </nav>
     <main class="container">
         <!-- 標題大圖 -->
         <section class="bg-img position-relative mb-5">
@@ -163,11 +205,60 @@
         </section>
 
     </main>
-
+    <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center gap-2 text-white mb-3">
+                        <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
+                        <span class="fw-bold">TicketMastery</span>
+                    </div>
+                    <p class="small text-secondary-light lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
+                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">人才招募</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4 class="text-white fw-bold mb-3 h6">協助</h4>
+                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">退換票政策</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
+                        <a href="#"
+                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
+                            style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
+                <p class="small text-secondary-light mb-0">© 2025 TicketMastery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
