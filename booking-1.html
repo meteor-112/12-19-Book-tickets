@@ -279,7 +279,7 @@
           <div class="text-secondary-color">金額詳情</div>
           <div class="d-flex justify-content-between border-b py-2">
             <div class="text-secondary-color">
-              <div id="ticket-sheet"></div>
+              <div id="ticket-sheet">票價小計</div>
               <div>手續費</div>
             </div>
             <div class="text-end">
@@ -360,19 +360,21 @@
   <script>
     // 左半邊的座位點擊
     const vipContainer = document.querySelector('#vip-container');
-    const vipBtn = document.querySelector('#vip-btn');
     const zoneAContainer = document.querySelector('#zone-a-container');
-    const zoneABtn = document.querySelector('#zone-a-btn');
     const zoneBContainer = document.querySelector('#zone-b-container');
-    const zoneBBtn = document.querySelector('#zone-b-btn');
+
     // vip區
     vipContainer.innerHTML = '';
     for (let i = 0; i < Number(10); i++) {
       // hover文字
-      const vipRow = Math.floor(i / 10) + 1;
-      const vipSeatNumber = i + 1;
-      const vipPrice = 5800;
-      const vipHoverText = `第 ${vipRow} 排 ${vipSeatNumber} 號 售價 $${vipPrice}`;
+      const vipAllinfo = [
+        vipRow = Math.floor(i / 10) + 1,
+        vipSeatNumber = i + 1,
+        vipPrice = 5800,
+        vipHoverText = `第 ${vipRow} 排 ${vipSeatNumber} 號 售價 $${vipPrice}`,
+        vipSeatId = `vip-${vipRow}-${vipSeatNumber}`,
+      ]
+
       if (i === 0 || i === 9) {
         vipContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
       } else {
@@ -385,19 +387,11 @@
     const vipSeatAll = document.querySelectorAll('.vip-seat');
     // 打勾效果
 
-vipSeatAll.forEach
-
-
     for (let i = 0; i < vipSeatAll.length; i++) {
-      const vipRow = Math.floor(i / 10) + 1;
-      const vipSeatNumber = i + 1;
-      const vipPrice = 5800;
-      const vipSeatId = `vip-${vipRow}-${vipSeatNumber}`;
       // console.log(vipSeatAll[i]);
       vipSeatAll[i].addEventListener('click', function () {
-        console.log(`你選擇了VIP區第 ${i + 1} 號座位`);
+        console.log(`你選擇了VIP區第 ${vipSeatNumber} 號座位`);
         const vipInfo = document.querySelector('#vip-info');
-
         if (vipSeatAll[i].classList.contains('theme-color')) {
           vipSeatAll[i].classList.remove('theme-color');
           vipSeatAll[i].innerHTML = ''
@@ -425,20 +419,23 @@ vipSeatAll.forEach
         updateSummary()
       });
     };
-    console.log(vipSeatAll);
+    // console.log(vipSeatAll);
+
 
     // zone-a區
     zoneAContainer.innerHTML = '';
     for (let j = 10; j < Number(30); j++) {
-      // 第幾排 = /10
-      const aRow = Math.floor(j / 10) + 2;
-      const aSeatNumber = j + 1;
-      const aPrice = 4800;
-      const aHoverText = `第 ${aRow} 排 ${aSeatNumber} 號 售價$${aPrice}`;
-      // 做球一排１０顆
-      // 第11顆跟第12顆被預定(作假的)，被預訂的球加上灰色不能點的效果
+      const zoneAInfo = [
+        // 做球一排１０顆 第幾排=/10
+        aRow = Math.floor(j / 10) + 2,
+        aSeatNumber = j + 1,
+        aPrice = 4800,
+        aHoverText = `第 ${aRow} 排 ${aSeatNumber} 號 售價$${aPrice}`,
+        aSeatId = `a-${aRow}-${aSeatNumber}`,
+      ]
+      // 第11顆跟第12顆被預定(假的)，被預訂的球加上灰色不能點的效果
       // 可以點的加上該區塊的顏色
-      // data-bs-toggle="tooltip" data-bs-placement="top" title="${vipHoverText} = bootstrap的預設JS
+      // data-bs-toggle="tooltip" data-bs-placement="top" title="${vipHoverText} = bootstrap的hover預設JS
       if (j === 10 || j === 11) {
         zoneAContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient zone-a-seat booked"></div>`
       } else {
@@ -447,16 +444,12 @@ vipSeatAll.forEach
        data-seat="${aSeatNumber}"></div>`
       }
     };
+
     const zoneASeatAll = document.querySelectorAll('.zone-a-seat');
     for (let j = 0; j < zoneASeatAll.length; j++) {
       // console.log(zoneASeatAll[i]);
       zoneASeatAll[j].addEventListener('click', function () {
-        // 感覺這裡可以改裡面外面重複宣告兩次
-        // 但裡面沒放就印不出來==我想到再改
-        const aRow = Math.floor(j / 10) + 2;
-        const aSeatNumber = j + 10;
-        const aPrice = 4800;
-        const aSeatId = `a-${aRow}-${aSeatNumber}`;
+
         console.log(`你選擇了A區第${aRow}排的第${aSeatNumber}號座位`);
         const aInfo = document.querySelector('#vip-info');
 
@@ -479,7 +472,7 @@ vipSeatAll.forEach
                   <div class="ms-4">
                     <span class="fs-6 fw-bold zone-a-text-color">ZONE A</span>
                     <br><span>第${aRow}排, ${aSeatNumber}號</span>
-                    <br><span class="fs-6 text-secondary-color">VIP票</span>
+                    <br><span class="fs-6 text-secondary-color">一般票</span>
                     <span class="float-end">$${aPrice}</span>
                   </div>
                 </div>
@@ -489,17 +482,22 @@ vipSeatAll.forEach
         updateSummary()
       });
     };
-    console.log(zoneASeatAll);
+    // console.log(zoneASeatAll);
 
 
 
     // zone-b區
     zoneBContainer.innerHTML = '';
     for (let k = 30; k < Number(50); k++) {
-      const bRow = Math.floor(k / 10) + 1;
-      const bSeatNumber = k + 3;
-      const bPrice = 3800;
-      const bHoverText = `第 ${bRow} 排 ${bSeatNumber} 號 售價$${bPrice}`;
+
+      const vipAllinfo = [
+        bRow = Math.floor(k / 10) + 1,
+        bSeatNumber = k + 3,
+        bPrice = 3800,
+        bHoverText = `第 ${bRow} 排 ${bSeatNumber} 號 售價$${bPrice}`,
+        bSeatId = `b-${bRow}-${bSeatNumber}`,
+      ]
+
       // 做球
       if (k === 49) {
         zoneBContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient zone-b-seat booked"></div>`
@@ -516,13 +514,8 @@ vipSeatAll.forEach
     // 打勾效果
     for (let k = 0; k < zoneBSeatAll.length; k++) {
       zoneBSeatAll[k].addEventListener('click', function () {
-        const bRow = Math.floor(k / 10) + 3;
-        const bSeatNumber = k + 30;
-        const bPrice = 3800;
-        const bSeatId = `b-${bRow}-${bSeatNumber}`;
-        console.log(`你選擇了B區第${bRow}排的第${bSeatNumber}號座位`);
+        // console.log(`你選擇了B區第${bRow}排的第${bSeatNumber}號座位`);
         const bInfo = document.querySelector('#b-info');
-
         if (zoneBSeatAll[k].classList.contains('theme-color')) {
           zoneBSeatAll[k].classList.remove('theme-color');
           zoneBSeatAll[k].innerHTML = ''
@@ -561,29 +554,30 @@ vipSeatAll.forEach
       const vipSeats = document.querySelectorAll('.vip-seat.theme-color');
       const aSeats = document.querySelectorAll('.zone-a-seat.theme-color');
       const bSeats = document.querySelectorAll('.zone-b-seat.theme-color');
-      const ticketSheet = document.querySelector('#ticket-sheet')
       const addOn = document.querySelector('#add-on')
-
-      // 票價小計(2張)
-      const vipPrice = 5800;
-      const aPrice = 4800;
-      const bPrice = 3800;
       const addOnPrice = 800;
+      const ticketSheet = document.querySelector('#ticket-sheet')
       const fee = 100;
+      let addOnTotal = 0;
+      if (addOn.checked) {
+        addOnTotal = addOnPrice;
+      }
 
       const vipTotal = vipSeats.length * vipPrice;
       const aTotal = aSeats.length * aPrice;
       const bTotal = bSeats.length * bPrice;
       const ticketTotal = vipTotal + aTotal + bTotal;
-      const allTotal = ticketTotal + fee;
+      const allTotal = ticketTotal + fee + addOnTotal;
+      const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
 
-      // <div>票價小計(2張)</div>
+      ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
+      document.querySelector('#add-on').addEventListener('change', updateSummary);
       document.querySelector('#ticket-price').textContent = `$${ticketTotal}`;
       document.querySelector('#fee').textContent = `$${fee}`;
       document.querySelector('#all-total').textContent = `$${allTotal}`;
 
-      const selectedSeats = [];
 
+      const selectedSeats = [];
       vipSeats.forEach(seat => {
         selectedSeats.push({
           zone: 'VIP',
@@ -622,7 +616,6 @@ vipSeatAll.forEach
       // console.clear();
       // console.log('目前選擇的座位資訊：', infoData);
     }
-
   </script>
 
   <script>
