@@ -1,21 +1,6 @@
-        /* 分隔線 */
-        .border-b {
-            border-bottom: 1px solid rgb(74 68 62);
-        }
-
-        /* 主題色 */
-        .theme-color {
-            background-color: #d4a473;
-        }
-
-        /* 主題色-文字 */
-        .theme-text {
+        /* 文字顏色 */
+        .text-golden {
             color: #d4a473;
-        }
-
-        /* 進度條-高度 */
-        .progress {
-            height: 8px
         }
 
         /* 背景色 */
@@ -23,19 +8,19 @@
             background-color: rgb(38 35 25);
         }
 
-        /* 次要背景色 */
+        /* 方塊背景色 */
         .box-bg-color {
             background-color: #332f2b;
         }
 
-        /* 外框 */
+        /* 邊框-default */
         .box-border {
             border: 1px solid rgb(74 68 62);
         }
 
         /* 次要字體色 */
         .text-secondary-color {
-            color: rgb(168 162 158);
+            color: rgb(184 176 169);
         }
 
         /* 輸入框預設文字 */
@@ -59,26 +44,6 @@
             box-shadow: none;
         }
 
-        /* radio按鈕 一般狀態 */
-        .btn.btn-outline-golden,
-        .btn.btn-outline-golden:hover {
-            /* padding: 12px 16px; */
-            color: rgb(168 162 158);
-            border: 1px solid rgb(74 68 62);
-        }
-
-        /* radio按鈕 hover變色 */
-        .btn.btn-outline-golden:hover {
-            background-color: rgb(255 255 255 / 0.05);
-        }
-
-        /* radio 被選中時（真正的 active） */
-        .btn-check:checked+.btn-outline-golden {
-            color: #fff;
-            background-color: rgb(212 163 115 / 0.1);
-            border-color: #d4a473;
-        }
-
         /* 按鈕-defult */
         .btn-golden {
             background-color: #d4a473;
@@ -93,6 +58,7 @@
             border-color: #b88a5d;
             color: black;
         }
+
         /* 按鈕-active */
         .btn.btn-golden:active {
             background-color: transparent;
@@ -100,14 +66,8 @@
             color: #fff;
         }
 
-        /* 完成icon的shadow */
-        .icon-shadow {
-            width: 80px;
-            height: 80px;
-            background-color: #d4a37354;
-        }
+        /* ===============頂部大圖========================== */
 
-        /* ===============協助頁面========================== */
         /* 大圖 */
         .bg-img {
             background-color: pink;
@@ -132,6 +92,9 @@
             z-index: -1;
         }
 
+
+        /* ===============   右側select    ====================== */
+
         /* 文字輸入框高度 */
         #inputMessage {
             height: 120px;
@@ -151,7 +114,37 @@
             color: #ffffff;
         }
 
-        /* Q&A 默認不顯示 */
+        /* ============    二張卡片   ================== */
+
+        /* 卡面邊框 */
+        .card-border {
+            border: 0.3px solid #765433;
+        }
+
+        /* 當 card-event 被 hover 時，改變自身邊框與內部 icon-circle */
+        .card-event:hover {
+            border-color: #d4a473 !important;
+        }
+
+        .card-event:hover .icon-circle {
+            background-color: #d4a473 !important;
+            color: #292524 !important;
+        }
+
+        /* 變色時間 */
+        .card-event,
+        .icon-circle {
+            transition: all 0.3s ease;
+        }
+
+        /* icon-圓圈大小 */
+        .icon-circle{
+            width: 48px; 
+            height: 48px;
+        }
+        /* ============     Q&A區域  ================= */
+
+        /* 下拉內容默認不顯示 */
         .answer {
             display: none;
         }
@@ -187,4 +180,14 @@
         /* Q&A的hover效果 */
         .question:hover {
             background-color: #3D3A36;
+        }
+
+        /* 標籤背景色(淡金) */
+        .bg-golden-light {
+            background-color: rgba(212, 164, 115, 0.2) !important;
+        }
+
+        /* 標籤邊框 -金色*/
+        .border-golden {
+            border: 1px solid #d4a473;
         }
