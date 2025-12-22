@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填寫訂購人資料</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/booking.css">
+</head>
+
+<body class="bg-color">
+    <nav></nav>
+
+    <main class="container">
+        <section class="py-2 mb-4">
+            <div class="text-area d-flex justify-content-between mb-2">
+                <div class="section-now text-white">步驟2/3：填寫資料</div>
+                <div class="section-next text-secondary-color">下一步：確認付款</div>
+            </div>
+            <div class="progress box-bg-color" role="progressbar">
+                <div class="progress-bar w-75 theme-color"></div>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="left col-md-8">
+                <div class="title fs-3 fw-bold text-white mb-4">填寫訂購人資料</div>
+                <div class="information box-bg-color box-border rounded-5 p-4 mb-3 ">
+                    <form class="row g-3">
+                        <div class="header text-white fs-4 border-b pb-2"><i class="fa-regular fa-user theme-text"></i>
+                            聯絡人資訊</div>
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label text-secondary-color">真實姓名</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputName"
+                                placeholder="請輸入姓名">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label text-secondary-color">手機號碼</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputPhone"
+                                placeholder="09-xx-xx">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label text-secondary-color">電子郵件</label>
+                            <input type="email" class="form-control input-bg rounded-5" id="inputEmail"
+                                placeholder="123@mail.com">
+                            <div class="form-text text-secondary-color p-2" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="payment p-4 box-bg-color box-border rounded-5 mb-3">
+                    <form class="row g-3">
+                        <div class="header text-white fs-4 border-b pb-2 fw-bold"><i
+                                class="fa-regular fa-credit-card theme-text"></i> 付款方式</div>
+                        <div class="btn-group gap-2 gap-md-4" role="group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                                checked>
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio1"><i
+                                    class="fa-regular fa-credit-card"></i>&nbsp;信用卡</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio2"><i
+                                    class="fa-solid fa-wallet"></i>&nbsp;Line Pay</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2 " for="btnradio3"><i
+                                    class="fa-solid fa-shop"></i>&nbsp;超商代碼</label>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label text-secondary-color">信用卡號碼</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputNumber"
+                                placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label text-secondary-color">有效期限(MM/YY)</label>
+                            <input type="text" class="form-control input-bg rounded-5 text-center" id="inputDate"
+                                placeholder="MM/YY">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label text-secondary-color">CVC/CVV</label>
+                            <input type="text" class="form-control input-bg rounded-5 text-center" id="inputCVC"
+                                placeholder="123">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label text-secondary-color">持卡人姓名</label>
+                            <input type="text" class="form-control input-bg rounded-5" id="inputName2"
+                                placeholder="同信用卡正面姓名">
+                        </div>
+                    </form>
+                </div>
+                <label for="agree" class="text-secondary-color">
+                    <input type="checkbox" name="" id="agree">
+                    我已閱讀並同意&nbsp;<span class="theme-text">服務條款</span>&nbsp;與&nbsp;<span
+                        class="theme-text">&nbsp;隱私權政策</span>。我了解訂單一經確認後即無法修改座位。
+                </label>
+            </div>
+            <div class="right col-md-4">
+                <div class="card overflow-hidden rounded-5 w-100 box-border">
+                    <div class="position-relative"><img src="./img/unnamed.png" class="card-img-top object-fit-cover"
+                            style="height: 192px ;">
+                        <div class="position-absolute bottom-0 text-start p-3">
+                            <div class="text-white fw-bold">The Galactic Tour 2024</div>
+                            <div class="theme-text fw-bold">The Weeknd Live in Taipei</div>
+                        </div>
+                    </div>
+                    <div class="card-body box-bg-color text-light p -4">
+                        <div class="d-flex flex-column gap-2 pb-2 border-b mb-2">
+                            <div><i class="fa-regular fa-calendar"></i>&nbsp;2024/12/24 (五) 19:30</div>
+                            <div><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋 Taipai Arena</div>
+                        </div>
+                        <div id="info-list">
+                            <div class="mb-2 text-secondary-color">座位資訊</div>
+                            <!-- <div class="mb-2 text-secondary-color">座位資訊</div>
+                            <div class="d-flex gap-2 text-center mb-3">
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">區域</div>
+                                    <div id="zone" class="fs-5 fw-bold"></div>
+                                </div>
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">排</div>
+                                    <div id="row" class="fs-5 fw-bold">01</div>
+                                </div>
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">號碼</div>
+                                    <div id="number" class="fs-5 fw-bold">4</div>
+                                </div>
+                            </div> -->
+
+                        </div>
+                        <div id="total-list">
+                            <div class="text-secondary-color">金額詳情</div>
+                            <div class="d-flex justify-content-between border-b py-2">
+                                <div class="text-secondary-color">
+                                    <div>票價(x2)</div>
+                                    <div>手續費</div>
+                                </div>
+                                <div class="text-end">
+                                    <div id="ticket-price"></div>
+                                    <div id="fee"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
+                                <div>總金額</div>
+                                <div id="total" class="theme-text fs-5"></div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button
+                                class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
+                                type="button" id="next-btn">確認並付款
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+    <script>
+        let infoData = JSON.parse(localStorage.getItem('infoData'));
+        infoData.seats.forEach(item => {
+            const infoList = document.querySelector('#info-list')
+            infoList.innerHTML += `
+                            <div class="d-flex gap-2 text-center mb-3">
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">區域</div>
+                                    <div id="zone" class="fs-5 fw-bold">${item.zone}</div>
+                                </div>
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">排</div>
+                                    <div id="row" class="fs-5 fw-bold">${item.row}</div>
+                                </div>
+                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                                    <div class="text-secondary-color">號碼</div>
+                                    <div id="number" class="fs-5 fw-bold">${item.seat}</div>
+                                </div>
+                            </div>
+                            `
+        });
+        document.querySelector('#ticket-price').textContent = `$${infoData.subtotal}`;
+        document.querySelector('#fee').textContent = `$${infoData.fee}`;
+        document.querySelector('#total').textContent = `$${infoData.total}`
+
+        localStorage.setItem('infoData', JSON.stringify(infoData));
+        console.clear();
+
+        //     let seatInfo = infoData.seats[0];
+
+        //     document.querySelector('#zone').textContent = firstSeat.zone;
+        //     document.querySelector('#row').textContent = firstSeat.row;
+        //     document.querySelector('#number').textContent = firstSeat.seat;
+        //     document.querySelector('#ticket-price').textContent = `$${infoData.subtotal}`;
+        //     document.querySelector('#fee').textContent = `$${infoData.fee}`;
+        //     document.querySelector('#total').textContent = `$${infoData.total}`;
+        // 
+    </script>
+
+    <script>
+        const nextBtn = document.querySelector('#next-btn')
+        nextBtn.addEventListener(('click'), function () {
+            // updateSummary();
+            window.location.href = './booking-end.html';
+        });
+    </script>
+</body>
+
+</html>
