@@ -23,12 +23,20 @@
     }
 
     .stage-shape-top {
+      background: linear-gradient(to bottom, rgb(44, 37, 31) 0%, rgb(27, 24, 18) 70%);
       height: 120px;
       width: 90%;
       border-radius: 400px 400px 0 0;
     }
 
+    .stage-border {
+      border-bottom: 3px solid;
+      border-image-source: linear-gradient(to right, transparent 0%, #d4a473 50%, transparent 100%);
+      border-image-slice: 1;
+    }
+
     .stage-shape-down {
+      background: linear-gradient(to bottom, rgb(32, 27, 23) 0%, rgb(27, 24, 18) 70%);
       width: 90%;
     }
 
@@ -43,6 +51,20 @@
       cursor: pointer;
     }
 
+    @media (max-width:540px) {
+      .seat-circle {
+        transform: scale(0.8);
+        margin: 0px;
+      }
+    }
+
+    @media (max-width:420px) {
+      .seat-circle {
+        transform: scale(0.7);
+        margin: 0px;
+      }
+    }
+
     .seat-circle:hover {
       transform: scale(1.1);
       box-shadow: 1px 0px 20px #d4a473;
@@ -50,58 +72,54 @@
 
 
     .vip-text-color {
-      color: gold;
+      color: #FFD700;
     }
 
     .vip {
-      background-color: gold;
+      background-color: #FFD700;
     }
 
     .vip-border {
-      border: 2px solid gold;
+      border: 2px solid #FFD700;
     }
 
     .vip-border-start {
-      border-left: 5px solid gold;
+      border-left: 5px solid #FFD700;
     }
 
     .zone-a-text-color {
-      color: pink;
+      color: #FF69B4;
     }
 
     .zone-a {
-      background-color: pink;
+      background-color: #FF69B4;
     }
 
     .zone-a-border {
-      border: 2px solid pink;
+      border: 2px solid #FF69B4;
     }
 
     .zone-a-border-start {
-      border-left: 5px solid pink;
+      border-left: 5px solid #FF69B4;
     }
 
     .zone-b {
-      background-color: lightblue;
+      background-color: #40E0D0;
     }
 
     .zone-b-text-color {
-      color: lightblue;
+      color: #40E0D0;
     }
 
     .zone-b-border-start {
-      border-left: 5px solid lightblue;
+      border-left: 5px solid #40E0D0;
     }
 
     .booked {
       pointer-events: none;
     }
 
-    #zone-a-container {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-    }
-
+    #zone-a-container,
     #zone-b-container {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
@@ -159,16 +177,18 @@
       <!-- 左半邊內容 -->
       <div class="col-lg-8 text-white">
         <h2 class="fw-bold flex">The Galactic Tour 2024</h2>
-        <div class="d-flex justify-content-between">
-          <p><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋&nbsp;·&nbsp;
-            <i class="fa-regular fa-calendar"></i>&nbsp;2024年12月24日&nbsp;·&nbsp;19:30
-          </p>
-          <div class="d-flex align-items-start gap-2">
+        <div class="d-flex row mb-4">
+          <div class="d-flex col-md-7 align-items-center lh-sm">
+            <p class="mb-3 mb-md-0"><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋&nbsp;·&nbsp;
+              <i class="fa-regular fa-calendar"></i>&nbsp;2024年12月24日&nbsp;·&nbsp;19:30
+            </p>
+          </div>
+          <div class="d-flex col-md-5 justify-content-center justify-content-md-start gap-2">
             <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
-              <i class="fa-solid fa-circle"></i>&nbsp;可選位
+              <i class="fa-solid fa-circle text-white"></i>&nbsp;可選位
             </button>
             <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
-              <i class="fa-solid fa-circle"></i>&nbsp;已選
+              <i class="fa-solid fa-circle theme-text"></i>&nbsp;已選
             </button>
             <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
               <i class="fa-solid fa-circle"></i>&nbsp;已售出
@@ -176,44 +196,41 @@
           </div>
         </div>
         <!-- 選位btn -->
-        <div class="d-flex gap-2">
-          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
+        <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-md-start">
+          <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center" type="button">
             <i class="fa-solid fa-circle"></i>&nbsp;全部
           </button>
           <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button"
             id="vip-btn">
-            <i class="fa-solid fa-circle"></i>&nbsp;VIP ($5800)
+            <i class="fa-solid fa-circle vip-text-color"></i>&nbsp;VIP ($5800)
           </button>
           <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button"
             id="zone-a-btn">
-            <i class="fa-solid fa-circle"></i>&nbsp;A區 ($4800)
+            <i class="fa-solid fa-circle zone-a-text-color"></i>&nbsp;A區 ($4800)
           </button>
           <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
-            <i class="fa-solid fa-circle"></i>&nbsp;B區 ($3800)
+            <i class="fa-solid fa-circle zone-b-text-color"></i>&nbsp;B區 ($3800)
           </button>
         </div>
         <!-- 座位要用程式做 -->
+        <!-- bg-color-dark bg-gradient -->
         <div class="w-100 bg-color-dark py-5 my-4 rounded-5 d-flex justify-content-center flex-wrap">
-          <div class="stage-shape-top bg-color-dark bg-gradient text-white d-flex align-items-center justify-content-center
-          border-bottom">
+          <div class="stage-shape-top  text-white d-flex align-items-center justify-content-center
+          border-bottom stage-border">
             <span class="fs-3 fw-bold">STAGE</span>
           </div>
-          <div class="stage-shape-down bg-color-dark bg-gradient">
+          <div class="stage-shape-down">
             <div class="text-center my-3 fw-bold">
               <span class="vip-text-color">VIP ZONE</span>
               <div class="d-flex justify-content-center" id="vip-container"></div>
             </div>
             <div class="text-center my-3 fw-bold d-flex flex-column align-items-center">
               <span class="zone-a-text-color">ZONE A</span>
-              <div class="d-flex">
-                <div class="w-50" id="zone-a-container"></div>
-              </div>
+              <div id="zone-a-container"></div>
             </div>
             <div class="text-center my-3 fw-bold d-flex flex-column align-items-center">
               <span class="zone-b-text-color">ZONE B</span>
-              <div class="d-flex">
-                <div class="w-50" id="zone-b-container"></div>
-              </div>
+              <div id="zone-b-container"></div>
             </div>
           </div>
         </div>
@@ -249,10 +266,10 @@
           </div>
           <div class="border-b py-4 mb-3">
             <h6>加購項目</h6>
-            <div class="form-check px-5">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-              <label class="form-check-label" for="radioDefault1">
-                <span>紀念T恤<br><span>現場領取 - L Size</span></span>
+            <div class="form-check">
+              <label for="agree" class="text-white">
+                <input type="checkbox" name="" id="add-on">
+                <span>紀念T恤<br><span class="text-secondary-color ms-3">現場領取 - L Size</span>
               </label>
               <span class="float-end">+$800</span>
             </div>
