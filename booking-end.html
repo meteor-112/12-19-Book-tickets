@@ -156,10 +156,10 @@
             <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button"><i
                     class="fa-solid fa-ticket"></i>&nbsp;查看我的訂單
             </button>
-            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button"><i
+            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="index-btn"><i
                     class="fa-regular fa-house"></i>&nbsp;回到首頁
             </button>
-            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button"><i
+            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="next-btn"><i
                     class="fa-regular fa-envelope"></i>&nbsp;聯絡我們
             </button>
         </section>
@@ -242,7 +242,17 @@
         document.querySelector('#fee').textContent = `$${infoData.fee}`;
         document.querySelector('#total').textContent = `$${infoData.total}`
     </script>
+    <script>
+        const indexBtn = document.querySelector('#index-btn')
+        indexBtn.addEventListener(('click'), function () {
+            window.location.href = './index.html';
+        });
 
+        const nextBtn = document.querySelector('#next-btn')
+        nextBtn.addEventListener(('click'), function () {
+            window.location.href = './helping.html';
+        });
+    </script>
     <script>
         lucide.createIcons();
     </script>
