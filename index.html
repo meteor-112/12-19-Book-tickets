@@ -1,11 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <title>TicketMastery - 感受現場音樂的震撼魅力</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    /* =========================================
+       自定義樣式區 (嚴格還原視覺效果)
+       ========================================= */
     
+    :root {
+      --color-orange-500: #f97316;
+      --color-orange-600: #ea580c;
+      --color-zinc-900: #18181b;
+      --color-zinc-800: #27272a;
+      --color-zinc-700: #3f3f46;
+      --color-black-80: rgba(0, 0, 0, 0.8);
+    }
+
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    ::selection {
+      background-color: var(--color-orange-500);
+      color: white;
+    }
+
+    /* --- 通用顏色與背景工具類 --- */
+    .text-orange-500 { color: var(--color-orange-500) !important; }
+    .bg-orange-500 { background-color: var(--color-orange-500) !important; }
+    .bg-zinc-900 { background-color: var(--color-zinc-900) !important; }
+    .bg-zinc-800 { background-color: var(--color-zinc-800) !important; }
+    .border-zinc-800 { border-color: var(--color-zinc-800) !important; }
+    .border-zinc-700 { border-color: var(--color-zinc-700) !important; }
+    
+    /* Hover 效果 */
+    .btn-orange:hover {
+      background-color: var(--color-orange-600) !important;
+      transform: scale(1.05);
+    }
+    .hover-bg-zinc-700:hover { background-color: var(--color-zinc-700) !important; }
+    .hover-text-orange:hover { color: var(--color-orange-500) !important; }
+    .hover-text-white:hover { color: white !important; }
+    .hover-bg-orange:hover { background-color: var(--color-orange-500) !important; }
+
+    /* --- 特效類 --- */
+    .navbar-blur {
+      background-color: var(--color-black-80);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1050;
+      border-bottom: 1px solid var(--color-zinc-800);
+    }
+
+    .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #fb923c, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-zoom { overflow: hidden; }
+    .card-zoom img { transition: transform 0.5s ease; }
+    .group:hover .card-zoom img { transform: scale(1.05); }
+    
+    .form-control-dark {
+      background-color: var(--color-zinc-900);
+      border: 1px solid var(--color-zinc-700);
+      color: white;
+      border-radius: 9999px;
+    }
+    .form-control-dark:focus {
+      background-color: var(--color-zinc-900);
+      color: white;
+      border-color: var(--color-orange-500);
+      box-shadow: none;
+    }
+
+    .shadow-glow { box-shadow: 0 0 15px rgba(249,115,22,0.4); }
+    
+    /* 輔助類：Transition */
+    .transition { transition: all 0.2s ease; }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar-blur">
+    <div class="container d-flex align-items-center justify-content-between h-100 py-3">
+      
+      <div class="d-flex align-items-center gap-4">
+        <div class="d-flex align-items-center gap-2 text-orange-500">
+             <i data-lucide="ticket" style="width: 24px; height: 24px;"></i>
+             <h1 class="m-0 fs-4 fw-bold text-white tracking-wide">TicketMastery</h1>
+        </div>
+        
+        <nav class="d-none d-md-flex gap-4 small text-secondary">
+          <a href="#" class="text-decoration-none text-secondary hover-text-orange transition">演唱會</a>
+          <a href="#" class="text-decoration-none text-secondary hover-text-orange transition">音樂劇</a>
+          <a href="#" class="text-decoration-none text-secondary hover-text-orange transition">體育</a>
+          <a href="#" class="text-decoration-none text-secondary hover-text-orange transition">親子</a>
+        </nav>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="position-relative d-none d-sm-block">
+            <i data-lucide="search" class="position-absolute text-secondary" style="width: 16px; height: 16px; left: 12px; top: 50%; transform: translateY(-50%);"></i>
+            <input type="text" placeholder="搜尋活動..." class="form-control form-control-dark py-1 ps-5 pe-3 small" style="width: 200px;">
+        </div>
+        
+        <button class="btn btn-link text-secondary text-decoration-none small p-0 hover-text-white">繁體中文</button>
+        <button class="btn bg-orange-500 text-white btn-sm px-4 py-2 fw-medium shadow-glow border-0 btn-orange rounded-2">
+          登入/註冊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg pt-5">
+    <div class="text-center px-3 container">
+      <h2 class="display-4 fw-bold mb-4 lh-sm">
+        感受現場音樂的<br>
+        <span class="text-gradient">震撼魅力</span>
+      </h2>
+      <p class="fs-5 text-secondary mb-5 mx-auto" style="max-width: 600px;">
+        立即購買 2025 年最熱門的演唱會、音樂節與體育賽事門票。不錯過任何令人激動的現場體驗！
+      </p>
+      
+      <div class="d-flex justify-content-center gap-3">
+        <button class="btn bg-orange-500 text-white rounded-pill px-5 py-3 fw-bold border-0 btn-orange shadow">
+          立即購票
+        </button>
+        <button class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(4px); border-color: rgba(255,255,255,0.3);">
+          瀏覽活動
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container py-5 position-relative" style="margin-top: -40px; z-index: 10;">
+    
+    <section class="mb-5 d-flex justify-content-center">
+      <div class="d-flex flex-wrap justify-content-center gap-2 bg-black border border-zinc-800 p-3 rounded-4 shadow-lg" style="background-color: rgba(0,0,0,0.6); backdrop-filter: blur(12px);">
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-orange-500 text-white shadow">流行音樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">爵士樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">古典音樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">電子音樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">嘻哈 Hip Hop</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">大眾音樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">另類音樂</button>
+        <button class="btn rounded-pill px-4 py-2 small fw-bold border-0 transition bg-zinc-800 text-secondary hover-bg-zinc-700 hover-text-white">鄉村 Country</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="h3 fw-bold d-flex align-items-center gap-2 m-0">
+            <span class="rounded-pill bg-orange-500" style="width: 4px; height: 24px;"></span>
+            熱門活動
+        </h2>
+        <a href="#" class="text-decoration-none text-orange-500 small d-flex align-items-center gap-1">
+            查看全部 <i data-lucide="arrow-right" style="width: 16px;"></i>
+        </a>
+      </div>
+      
+      <div class="row g-4">
+        
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="group h-100 bg-zinc-900 rounded-4 overflow-hidden border border-zinc-800 d-flex flex-column" style="transition: all 0.3s ease;">
+                <div class="position-relative card-zoom" style="height: 192px;">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop" class="w-100 h-100 object-fit-cover">
+                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded border border-white border-opacity-10" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">
+                        流行音樂
+                    </div>
+                </div>
+                <div class="p-4 flex-grow-1 d-flex flex-column">
+                    <h3 class="h5 fw-bold text-white mb-2 hover-text-orange transition">搖滾銀河 The Galactic Tour</h3>
+                    <div class="d-flex flex-column gap-2 small text-secondary mb-4 flex-grow-1">
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="calendar" class="text-orange-500" style="width: 14px;"></i>2025-07-20
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="map-pin" class="text-orange-500" style="width: 14px;"></i>台北小巨蛋
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-zinc-800">
+                        <span class="text-orange-500 fw-bold fs-5">NT$ 2,800</span>
+                        <button class="btn bg-zinc-800 text-white rounded d-flex align-items-center justify-content-center hover-bg-orange transition" style="width: 32px; height: 32px; padding: 0;">
+                            <i data-lucide="plus" style="width: 16px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="group h-100 bg-zinc-900 rounded-4 overflow-hidden border border-zinc-800 d-flex flex-column" style="transition: all 0.3s ease;">
+                <div class="position-relative card-zoom" style="height: 192px;">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop" class="w-100 h-100 object-fit-cover">
+                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded border border-white border-opacity-10" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">
+                        電子音樂
+                    </div>
+                </div>
+                <div class="p-4 flex-grow-1 d-flex flex-column">
+                    <h3 class="h5 fw-bold text-white mb-2 hover-text-orange transition">夏日電音祭 Summer Vibes</h3>
+                    <div class="d-flex flex-column gap-2 small text-secondary mb-4 flex-grow-1">
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="calendar" class="text-orange-500" style="width: 14px;"></i>2025-08-05
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="map-pin" class="text-orange-500" style="width: 14px;"></i>大佳河濱公園
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-zinc-800">
+                        <span class="text-orange-500 fw-bold fs-5">NT$ 1,500</span>
+                        <button class="btn bg-zinc-800 text-white rounded d-flex align-items-center justify-content-center hover-bg-orange transition" style="width: 32px; height: 32px; padding: 0;">
+                            <i data-lucide="plus" style="width: 16px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="group h-100 bg-zinc-900 rounded-4 overflow-hidden border border-zinc-800 d-flex flex-column" style="transition: all 0.3s ease;">
+                <div class="position-relative card-zoom" style="height: 192px;">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop" class="w-100 h-100 object-fit-cover">
+                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded border border-white border-opacity-10" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">
+                        搖滾
+                    </div>
+                </div>
+                <div class="p-4 flex-grow-1 d-flex flex-column">
+                    <h3 class="h5 fw-bold text-white mb-2 hover-text-orange transition">搖滾之夜 Rock Nights</h3>
+                    <div class="d-flex flex-column gap-2 small text-secondary mb-4 flex-grow-1">
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="calendar" class="text-orange-500" style="width: 14px;"></i>2025-09-10
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="map-pin" class="text-orange-500" style="width: 14px;"></i>高雄流行音樂中心
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-zinc-800">
+                        <span class="text-orange-500 fw-bold fs-5">NT$ 1,600</span>
+                        <button class="btn bg-zinc-800 text-white rounded d-flex align-items-center justify-content-center hover-bg-orange transition" style="width: 32px; height: 32px; padding: 0;">
+                            <i data-lucide="plus" style="width: 16px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="group h-100 bg-zinc-900 rounded-4 overflow-hidden border border-zinc-800 d-flex flex-column" style="transition: all 0.3s ease;">
+                <div class="position-relative card-zoom" style="height: 192px;">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop" class="w-100 h-100 object-fit-cover">
+                    <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded border border-white border-opacity-10" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">
+                        不插電
+                    </div>
+                </div>
+                <div class="p-4 flex-grow-1 d-flex flex-column">
+                    <h3 class="h5 fw-bold text-white mb-2 hover-text-orange transition">吉他之夜 Acoustic Sessions</h3>
+                    <div class="d-flex flex-column gap-2 small text-secondary mb-4 flex-grow-1">
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="calendar" class="text-orange-500" style="width: 14px;"></i>2025-10-12
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i data-lucide="map-pin" class="text-orange-500" style="width: 14px;"></i>Legacy Taipei
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-zinc-800">
+                        <span class="text-orange-500 fw-bold fs-5">NT$ 1,200</span>
+                        <button class="btn bg-zinc-800 text-white rounded d-flex align-items-center justify-content-center hover-bg-orange transition" style="width: 32px; height: 32px; padding: 0;">
+                            <i data-lucide="plus" style="width: 16px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <section class="bg-zinc-900 border-top border-bottom border-zinc-800 py-5 mt-5">
+    <div class="container text-center" style="max-width: 800px;">
+        <h3 class="h3 fw-bold mb-3">訂閱電子報</h3>
+        <p class="text-secondary mb-4">第一時間獲取搶票資訊與獨家優惠</p>
+        <div class="d-flex mx-auto" style="max-width: 450px;">
+            <input type="email" placeholder="輸入您的 Email" class="form-control bg-black border-zinc-700 text-white py-3 px-4 rounded-0 rounded-start border-end-0 shadow-none">
+            <button class="btn bg-orange-500 text-white fw-bold px-4 rounded-0 rounded-end btn-orange border-0">
+                訂閱
+            </button>
+        </div>
+    </div>
+  </section>
+
+  <footer class="bg-black pt-5 pb-4 border-top border-zinc-800">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="d-flex align-items-center gap-2 text-white mb-3">
+              <i data-lucide="ticket" class="text-orange-500" style="width: 20px;"></i>
+              <span class="fw-bold">TicketMastery</span>
+          </div>
+          <p class="small text-secondary lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
+        </div>
+        
+        <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+          <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
+          <ul class="list-unstyled small text-secondary d-flex flex-column gap-2">
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">公司簡介</a></li>
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">人才招募</a></li>
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">新聞中心</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="text-white fw-bold mb-3 h6">協助</h4>
+          <ul class="list-unstyled small text-secondary d-flex flex-column gap-2">
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">聯絡客服</a></li>
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">退換票政策</a></li>
+              <li><a href="#" class="text-decoration-none text-secondary hover-text-orange">隱私權條款</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
+          <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
+          <div class="d-flex gap-3">
+              <a href="#" class="bg-zinc-800 rounded p-2 text-white hover-bg-orange transition d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;"><i data-lucide="facebook" style="width: 16px;"></i></a>
+              <a href="#" class="bg-zinc-800 rounded p-2 text-white hover-bg-orange transition d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;"><i data-lucide="instagram" style="width: 16px;"></i></a>
+              <a href="#" class="bg-zinc-800 rounded p-2 text-white hover-bg-orange transition d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;"><i data-lucide="twitter" style="width: 16px;"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-top border-zinc-900 pt-4 text-center">
+        <p class="small text-secondary mb-0">© 2025 TicketMastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // 這裡只保留 Icon 初始化
+    // 必須呼叫這個函式，HTML 裡的 <i data-lucide="..."> 才會變成圖片
+    lucide.createIcons();
+  </script>
 </body>
 </html>
