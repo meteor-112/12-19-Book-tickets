@@ -446,7 +446,6 @@
       // console.log(zoneASeatAll[i]);
       zoneASeatAll[j].addEventListener('click', function () {
         // 感覺這裡可以改裡面外面重複宣告兩次
-        // 但裡面沒放就印不出來==我想到再改
         const aRow = Math.floor(j / 10) + 2;
         const aSeatNumber = j + 10;
         const aPrice = 4800;
@@ -563,11 +562,9 @@
         addOnTotal = addOnPrice;
       }
 
-      // 票價小計(2張)
       const vipPrice = 5800;
       const aPrice = 4800;
       const bPrice = 3800;
-      
       const fee = 100;
 
       const vipTotal = vipSeats.length * vipPrice;
@@ -577,7 +574,6 @@
       const allTotal = ticketTotal + fee + addOnTotal;
       const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
       ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
-
 
       document.querySelector('#add-on').addEventListener('change', updateSummary);
       document.querySelector('#ticket-price').textContent = `$${ticketTotal}`;
@@ -621,8 +617,6 @@
       };
 
       localStorage.setItem('infoData', JSON.stringify(infoData));
-      // console.clear();
-      // console.log('目前選擇的座位資訊：', infoData);
     }
 
   </script>
