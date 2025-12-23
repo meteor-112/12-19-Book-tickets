@@ -68,33 +68,35 @@
             </div>
         </section>
 
+        <!-- <form> -->
         <section class="row">
             <div class="left col-lg-8 mb-4 mb-lg-0">
                 <div class="title fs-3 fw-bold text-white mb-4">填寫訂購人資料</div>
                 <div class="information box-bg-color box-border rounded-5 p-4 mb-3 ">
-                    <form class="row g-3">
+                    <div class="row g-3">
                         <div class="header text-white fs-4 border-b pb-2"><i class="fa-regular fa-user theme-text"></i>
                             聯絡人資訊</div>
                         <div class="col-lg-6">
                             <label for="inputName" class="form-label text-secondary-color">真實姓名</label>
-                            <input type="text" class="form-control input-bg rounded-5" id="inputName"
-                                placeholder="請輸入姓名" required>
+                            <input type="text" name="userName" class="inputs form-control input-bg rounded-5"
+                                id="inputName" placeholder="請輸入姓名" required>
                         </div>
                         <div class="col-lg-6">
                             <label for="inputPhone" class="form-label text-secondary-color">手機號碼</label>
-                            <input type="text" class="form-control input-bg rounded-5" id="inputPhone"
+                            <input type="text" name="phone" class="form-control input-bg rounded-5" id="inputPhone"
                                 placeholder="09-xx-xx" required>
                         </div>
                         <div class="col-12">
                             <label for="inputEmail" class="form-label text-secondary-color">電子郵件</label>
-                            <input type="email" class="form-control input-bg rounded-5" id="inputEmail"
+                            <input type="email" class="inputs form-control input-bg rounded-5" id="inputEmail"
                                 placeholder="123@mail.com" required>
-                            <div class="form-text text-secondary-color p-2" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
+                            <div class="form-text text-secondary-color p-2" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="payment p-4 box-bg-color box-border rounded-5 mb-3">
-                    <form class="row g-3">
+                    <div class="row g-3">
                         <div class="header text-white fs-4 border-b pb-2 fw-bold">
                             <i class="fa-regular fa-credit-card theme-text"></i> 付款方式
                         </div>
@@ -138,7 +140,7 @@
                             <input type="text" class="form-control input-bg rounded-5" id="inputName2"
                                 placeholder="同信用卡正面姓名" required>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <label for="agree" class="text-secondary-color">
                     <input type="checkbox" name="" id="agree" required>
@@ -209,6 +211,8 @@
 
                 </div>
         </section>
+        <!-- </form> -->
+
 
 
     </main>
@@ -275,21 +279,21 @@
         infoData.seats.forEach(item => {
             const infoList = document.querySelector('#info-list')
             infoList.innerHTML += `
-                            <div class="d-flex gap-2 text-center mb-3">
-                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                    <div class="text-secondary-color">區域</div>
-                                    <div id="zone" class="fs-5 fw-bold">${item.zone}</div>
-                                </div>
-                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                    <div class="text-secondary-color">排</div>
-                                    <div id="row" class="fs-5 fw-bold">${item.row}</div>
-                                </div>
-                                <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                    <div class="text-secondary-color">號碼</div>
-                                    <div id="number" class="fs-5 fw-bold">${item.seat}</div>
-                                </div>
-                            </div>
-                            `
+                <div class="d-flex gap-2 text-center mb-3">
+                    <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                        <div class="text-secondary-color">區域</div>
+                        <div id="zone" class="fs-5 fw-bold">${item.zone}</div>
+                    </div>
+                    <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                        <div class="text-secondary-color">排</div>
+                        <div id="row" class="fs-5 fw-bold">${item.row}</div>
+                    </div>
+                    <div class="box-border bg-color flex-fill  py-2 rounded-5">
+                        <div class="text-secondary-color">號碼</div>
+                        <div id="number" class="fs-5 fw-bold">${item.seat}</div>
+                    </div>
+                </div>
+                `
         });
         document.querySelector('#ticket-price').textContent = `$${infoData.subtotal}`;
         document.querySelector('#fee').textContent = `$${infoData.fee}`;
@@ -311,58 +315,80 @@
 
     <script>
         // input
-        const userName = document.querySelector('#inputName');
-        const phone = document.querySelector('#inputPhone');
-        const email = document.querySelector('#inputEmail');
-        const cardNumber = document.querySelector('#inputNumber');
-        const inputDate = document.querySelector('#inputDate');
-        const inputCVC = document.querySelector('#inputCVC');
-        const inputName2 = document.querySelector('#inputName2');
-        const agree = document.querySelector('#agree');
+        // const userName = document.querySelector('#inputName');
+        // const phone = document.querySelector('#inputPhone');
+        // const email = document.querySelector('#inputEmail');
+        // const cardNumber = document.querySelector('#inputNumber');
+        // const inputDate = document.querySelector('#inputDate');
+        // const inputCVC = document.querySelector('#inputCVC');
+        // const inputName2 = document.querySelector('#inputName2');
+        // const agree = document.querySelector('#agree');
 
         const nextBtn = document.querySelector('#next-btn')
 
-        // 點擊「確認並付款」按鈕
         nextBtn.addEventListener(('click'), function () {
-            // updateSummary();
+            const userData = {};
+            const inputs = document.querySelectorAll('.inputs');
 
-            // 如果沒填寫資料，跳警告
-            if (!userName.checkValidity()) {
-                userName.reportValidity();
-            } else if (!phone.checkValidity()) {
-                phone.reportValidity();
-            } else if (!email.checkValidity()) {
-                email.reportValidity();
-            } else if (!cardNumber.checkValidity()) {
-                cardNumber.reportValidity();
-            } else if (!inputDate.checkValidity()) {
-                inputDate.reportValidity();
-            } else if (!inputCVC.checkValidity()) {
-                inputCVC.reportValidity();
-            } else if (!inputName2.checkValidity()) {
-                inputName2.reportValidity();
-            } else if (!agree.checkValidity()) {
-                agree.reportValidity();
-            } else {
-                // 收集資料
-                const userData =
-                {
-                    userName: userName.value,
-                    phone: phone.value,
-                    email: email.value,
-                    cardNumber: cardNumber.value,
-                    inputDate: inputDate.value,
-                    inputCVC: inputCVC.value,
-                    inputName2: inputName2.value,
+            inputs.forEach((item) => {
+                if (!item.checkValidity()) {
+                    console.log(item);
+                    item.reportValidity();
+                    return;
                 }
-                console.log(userData);
-                localStorage.setItem('userData', JSON.stringify(userData));
+                userData[item.name] = item.value;
 
+            });
+            // Object.entries(userData) -> 把物件轉成陣列
+            // console.log(inputs.length, Object.entries(userData));
+            if (inputs.length === Object.entries(userData).length) {
+                localStorage.setItem('userData', JSON.stringify(userData));
                 // 跳轉頁面
                 window.location.href = './booking-end.html';
+                console.log(userData);
             }
-
         });
+        // 點擊「確認並付款」按鈕
+        // nextBtn.addEventListener(('click'), function () {
+        //     // updateSummary();
+
+        //     // 如果沒填寫資料，跳警告
+        //     if (!userName.checkValidity()) {
+        //         userName.reportValidity();
+        //     } else if (!phone.checkValidity()) {
+        //         phone.reportValidity();
+        //     } else if (!email.checkValidity()) {
+        //         email.reportValidity();
+        //     } else if (!cardNumber.checkValidity()) {
+        //         cardNumber.reportValidity();
+        //     } else if (!inputDate.checkValidity()) {
+        //         inputDate.reportValidity();
+        //     } else if (!inputCVC.checkValidity()) {
+        //         inputCVC.reportValidity();
+        //     } else if (!inputName2.checkValidity()) {
+        //         inputName2.reportValidity();
+        //     } else if (!agree.checkValidity()) {
+        //         agree.reportValidity();
+        //     } else {
+        //         // 收集資料
+        //         const userData =
+        //         {
+        //             userName: userName.value,
+        //             phone: phone.value,
+        //             email: email.value,
+        //             cardNumber: cardNumber.value,
+        //             inputDate: inputDate.value,
+        //             inputCVC: inputCVC.value,
+        //             inputName2: inputName2.value,
+        //         }
+        //         console.log(userData);
+        //         localStorage.setItem('userData', JSON.stringify(userData));
+
+        //         // 跳轉頁面
+        //         window.location.href = './booking-end.html';
+        //     }
+
+        // });
     </script>
 
 </body>

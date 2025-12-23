@@ -376,28 +376,48 @@
   </script>
 
   <script>
+    var tagconent = {
+      'vip': {
+        price: 5800,
+        count: 0,
+      },
+      'zone-a': {
+        price: 3800,
+        count: 0,
+      },
+      'zone-b': {
+        price: 1800,
+        count: 0,
+      },
+    };
     // 左半邊的座位點擊
     const vipContainer = document.querySelector('#vip-container');
     const zoneAContainer = document.querySelector('#zone-a-container');
     const zoneBContainer = document.querySelector('#zone-b-container');
-
+    
+    function conent(a = 0, b = 10, name = 'vip') {
+      // 這裡會有一個物件
+      longlongtext = '';
+      for (let i = a; i < Number(b); i++) {
+        // hover文字
+        const Row = Math.floor(i / 10) + 1;
+        const SeatNumber = i + 1;
+        const Price = tagconent[name].price;
+        const HoverText = `第 ${Row} 排 ${SeatNumber} 號 售價 $${Price}`;
+        // const HoverText = `區 第 ${Row} 排 ${SeatNumber} 號 售價$ ${Price}`;
+        if (i === 0 || i === 9) {
+          longlongtext += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
+        } else {
+          longlongtext += ` <div class="seat-circle ${name} ${name}-seat seats" title="${HoverText}" 
+            data-bs-toggle="tooltip" data-bs-placement="top"
+            data-row="${Row}" data-seat="${SeatNumber}" data-zone="${name}" data-price="${Price}" 
+            ></div>`
+        }
+      };
+      return longlongtext;
+    }
     // vip區
-    vipContainer.innerHTML = '';
-    for (let i = 0; i < Number(10); i++) {
-      // hover文字
-      const vipRow = Math.floor(i / 10) + 1;
-      const vipSeatNumber = i + 1;
-      const vipPrice = 5800;
-      const vipHoverText = `第 ${vipRow} 排 ${vipSeatNumber} 號 售價 $${vipPrice}`;
-      // const vipHoverText = `VIP區 第 ${vipRow} 排 ${vipSeatNumber} 號 售價$ ${vipPrice}`;
-      if (i === 0 || i === 9) {
-        vipContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
-      } else {
-        vipContainer.innerHTML += ` <div class="seat-circle vip vip-seat" data-bs-toggle="tooltip" data-bs-placement="top"
-         title="${vipHoverText}" data-row="${vipRow}"
-       data-seat="${vipSeatNumber}"></div>
-      ` }
-    };
+    vipContainer.innerHTML = conent();
 
     const vipSeatAll = document.querySelectorAll('.vip-seat');
     // 打勾效果
@@ -416,11 +436,13 @@
           vipSeatAll[i].classList.add('vip');
           console.log(`你取消了VIP區第 ${i + 1} 號座位`);
           const cancleSeat = document.querySelector(`#${vipSeatId}`);
+          checkindex('vip', -1);
           if (cancleSeat) cancleSeat.remove();
         } else {
           vipSeatAll[i].classList.remove('vip');
           vipSeatAll[i].innerHTML = `<i class="fa-solid fa-check"></i>`;
           vipSeatAll[i].classList.add('theme-color');
+          checkindex('vip', 1);
           if (!document.querySelector(`#${vipSeatId}`)) {
             vipInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${vipSeatId}">
                 <div class="vip-border-start">
@@ -440,25 +462,7 @@
     console.log(vipSeatAll);
 
     // zone-a區
-    zoneAContainer.innerHTML = '';
-    for (let j = 10; j < Number(30); j++) {
-      // 第幾排 = /10
-      const aRow = Math.floor(j / 10) + 2;
-      const aSeatNumber = j + 1;
-      const aPrice = 4800;
-      const aHoverText = `第 ${aRow} 排 ${aSeatNumber} 號 售價$${aPrice}`;
-      // 做球一排１０顆
-      // 第11顆跟第12顆被預定(作假的)，被預訂的球加上灰色不能點的效果
-      // 可以點的加上該區塊的顏色
-      // data-bs-toggle="tooltip" data-bs-placement="top" title="${vipHoverText} = bootstrap的預設JS
-      if (j === 10 || j === 11) {
-        zoneAContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient zone-a-seat booked"></div>`
-      } else {
-        zoneAContainer.innerHTML += `<div class="seat-circle zone-a zone-a-seat" data-bs-toggle="tooltip" data-bs-placement="top"
-       title="${aHoverText}" data-row="${aRow}"
-       data-seat="${aSeatNumber}"></div>`
-      }
-    };
+    zoneAContainer.innerHTML = conent(10, 30, 'zone-a');
     const zoneASeatAll = document.querySelectorAll('.zone-a-seat');
     for (let j = 0; j < zoneASeatAll.length; j++) {
       // console.log(zoneASeatAll[i]);
@@ -480,11 +484,13 @@
           zoneASeatAll[j].classList.add('zone-a');
           console.log(`你取消了A區第${aRow}排的第${aSeatNumber}號座位`);
           const cancleSeat = document.querySelector(`#${aSeatId}`);
+          checkindex('zone-a', -1);
           if (cancleSeat) cancleSeat.remove();
         } else {
           zoneASeatAll[j].classList.remove('zone-a');
           zoneASeatAll[j].innerHTML = `<i class="fa-solid fa-check"></i>`;
           zoneASeatAll[j].classList.add('theme-color');
+          checkindex('zone-a', 1);
           if (!document.querySelector(`#${aSeatId}`)) {
             aInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${aSeatId}">
                 <div class="zone-a-border-start">
@@ -503,27 +509,13 @@
     };
     console.log(zoneASeatAll);
 
-
-
     // zone-b區
-    zoneBContainer.innerHTML = '';
-    for (let k = 30; k < Number(50); k++) {
-      const bRow = Math.floor(k / 10) + 1;
-      const bSeatNumber = k + 3;
-      const bPrice = 3800;
-      const bHoverText = `第 ${bRow} 排 ${bSeatNumber} 號 售價$${bPrice}`;
-      // 做球
-      if (k === 49) {
-        zoneBContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient zone-b-seat booked"></div>`
-      } else {
-        zoneBContainer.innerHTML +=
-          `<div class="seat-circle zone-b zone-b-seat" data-bs-toggle="tooltip" 
-        data-bs-placement="top" title="${bHoverText}" 
-       data-price="${bPrice}" data-row="${bRow}"
-       data-seat="${bSeatNumber}"></div>`
-      }
+    zoneBContainer.innerHTML = conent(30, 50, 'zone-b');
+    function checkindex(name = 'vip', num = 1) {
+      tagconent[name].count += num;
+      console.log(tagconent);
+    }
 
-    };
     const zoneBSeatAll = document.querySelectorAll('.zone-b-seat');
     // 打勾效果
     for (let k = 0; k < zoneBSeatAll.length; k++) {
@@ -541,11 +533,14 @@
           zoneBSeatAll[k].classList.add('zone-b');
           console.log(`你取消了B區第${bRow}排的第${bSeatNumber}號座位`);
           const cancleSeat = document.querySelector(`#${bSeatId}`);
+          checkindex('zone-b', -1);
           if (cancleSeat) cancleSeat.remove();
+
         } else {
           zoneBSeatAll[k].classList.remove('zone-b');
           zoneBSeatAll[k].innerHTML = `<i class="fa-solid fa-check"></i>`;
           zoneBSeatAll[k].classList.add('theme-color');
+          checkindex('zone-b', 1);
           if (!document.querySelector(`#${bSeatId}`)) {
             bInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${bSeatId}">
                 <div class="zone-b-border-start">
@@ -570,30 +565,24 @@
 
     // localStorage.removeItem('infoData');
     function updateSummary() {
-      const vipSeats = document.querySelectorAll('.vip-seat.theme-color');
-      const aSeats = document.querySelectorAll('.zone-a-seat.theme-color');
-      const bSeats = document.querySelectorAll('.zone-b-seat.theme-color');
+      const seats = document.querySelectorAll('.seats');
       const addOn = document.querySelector('#add-on')
       const addOnPrice = 800;
       const ticketSheet = document.querySelector('#ticket-sheet')
       let addOnTotal = 0;
+
       if (addOn.checked) {
         addOnTotal = addOnPrice;
       }
 
-      // 票價小計(2張)
-      const vipPrice = 5800;
-      const aPrice = 4800;
-      const bPrice = 3800;
-
       const fee = 100;
 
-      const vipTotal = vipSeats.length * vipPrice;
-      const aTotal = aSeats.length * aPrice;
-      const bTotal = bSeats.length * bPrice;
+      const vipTotal = tagconent['vip'].count * tagconent['vip'].price;
+      const aTotal = tagconent['zone-a'].count * tagconent['zone-a'].price;
+      const bTotal = tagconent['zone-b'].count * tagconent['zone-b'].price;
       const ticketTotal = vipTotal + aTotal + bTotal;
       const allTotal = ticketTotal + fee + addOnTotal;
-      const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
+      const ticketSheetTotal = tagconent['vip'].count + tagconent['zone-a'].count + tagconent['zone-b'].count;
       ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
 
 
@@ -604,30 +593,12 @@
 
       const selectedSeats = [];
 
-      vipSeats.forEach(seat => {
+      seats.forEach(seat => {
         selectedSeats.push({
-          zone: 'VIP',
+          zone: seat.dataset.zone,
           row: seat.dataset.row,
           seat: seat.dataset.seat,
-          price: vipPrice
-        });
-      });
-
-      aSeats.forEach(seat => {
-        selectedSeats.push({
-          zone: 'A',
-          row: seat.dataset.row,
-          seat: seat.dataset.seat,
-          price: aPrice
-        });
-      });
-
-      bSeats.forEach(seat => {
-        selectedSeats.push({
-          zone: 'B',
-          row: seat.dataset.row,
-          seat: seat.dataset.seat,
-          price: bPrice
+          price: seat.dataset.price
         });
       });
 
