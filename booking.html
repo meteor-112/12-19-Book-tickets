@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>填寫訂購人資料</title>
+    <!-- 1.把所有頁面要使用的共通性套件決定好(外部連結) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./css/booking.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- 3.內部的共通性內容 -->
     <link rel="stylesheet" href="./css/navFooter.css">
+    <link rel="stylesheet" href="./css/booking.css">
 
 </head>
 
@@ -74,17 +76,17 @@
                         <div class="header text-white fs-4 border-b pb-2"><i class="fa-regular fa-user theme-text"></i>
                             聯絡人資訊</div>
                         <div class="col-lg-6">
-                            <label for="inputEmail4" class="form-label text-secondary-color">真實姓名</label>
+                            <label for="inputName" class="form-label text-secondary-color">真實姓名</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputName"
                                 placeholder="請輸入姓名" required>
                         </div>
                         <div class="col-lg-6">
-                            <label for="inputPassword4" class="form-label text-secondary-color">手機號碼</label>
+                            <label for="inputPhone" class="form-label text-secondary-color">手機號碼</label>
                             <input type="text" class="form-control input-bg rounded-5" id="inputPhone"
                                 placeholder="09-xx-xx" required>
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label text-secondary-color">電子郵件</label>
+                            <label for="inputEmail" class="form-label text-secondary-color">電子郵件</label>
                             <input type="email" class="form-control input-bg rounded-5" id="inputEmail"
                                 placeholder="123@mail.com" required>
                             <div class="form-text text-secondary-color p-2" id="basic-addon4">電子票券將發送至此信箱，請務必確認正確。</div>
@@ -93,21 +95,28 @@
                 </div>
                 <div class="payment p-4 box-bg-color box-border rounded-5 mb-3">
                     <form class="row g-3">
-                        <div class="header text-white fs-4 border-b pb-2 fw-bold"><i
-                                class="fa-regular fa-credit-card theme-text"></i> 付款方式</div>
+                        <div class="header text-white fs-4 border-b pb-2 fw-bold">
+                            <i class="fa-regular fa-credit-card theme-text"></i> 付款方式
+                        </div>
                         <div class="btn-group gap-2 gap-md-4" role="group">
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
                                 checked>
-                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio1"><i
-                                    class="fa-regular fa-credit-card"></i>&nbsp;信用卡</label>
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio1">
+                                <i class="fa-regular fa-credit-card"></i>
+                                <span>信用卡</span>
+                            </label>
 
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio2"><i
-                                    class="fa-solid fa-wallet"></i>&nbsp;Line Pay</label>
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2" for="btnradio2">
+                                <i class="fa-solid fa-wallet"></i>
+                                <span>Line Pay</span>
+                            </label>
 
                             <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2 " for="btnradio3"><i
-                                    class="fa-solid fa-shop"></i>&nbsp;超商代碼</label>
+                            <label class="btn rounded-5 btn-outline-golden px-md-3 py-md-2 " for="btnradio3">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>超商代碼</span>
+                            </label>
                         </div>
                         <div class="col-12">
                             <label for="inputAddress" class="form-label text-secondary-color">信用卡號碼</label>
@@ -133,8 +142,10 @@
                 </div>
                 <label for="agree" class="text-secondary-color">
                     <input type="checkbox" name="" id="agree" required>
-                    我已閱讀並同意&nbsp;<span class="theme-text">服務條款</span>&nbsp;與&nbsp;<span
-                        class="theme-text">&nbsp;隱私權政策</span>。我了解訂單一經確認後即無法修改座位。
+                    我已閱讀並同意
+                    <span class="theme-text">服務條款</span>與
+                    <span class="theme-text">隱私權政策</span>。
+                    我了解訂單一經確認後即無法修改座位。
                 </label>
             </div>
             <div class="right col-lg-4">
@@ -204,14 +215,14 @@
     <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
         <div class="container">
             <div class="row g-4 mb-5">
-                <div class="col-12 col-lg-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="d-flex align-items-center gap-2 text-white mb-3">
                         <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
                         <span class="fw-bold">TicketMastery</span>
                     </div>
                     <p class="small text-secondary-light lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
                 </div>
-                <div class="col-6 col-lg-3 col-lg-2 offset-lg-1">
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
                     <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
                     <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
                         <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
@@ -219,7 +230,7 @@
                         <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-lg-3 col-lg-2">
+                <div class="col-6 col-md-3 col-lg-2">
                     <h4 class="text-white fw-bold mb-3 h6">協助</h4>
                     <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
                         <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
@@ -227,7 +238,7 @@
                         <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-lg-4 col-lg-3 offset-lg-1">
+                <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
                     <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
                     <div class="d-flex gap-3">
                         <a href="#"
@@ -248,9 +259,17 @@
         </div>
     </footer>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- 除了在一開始要在html產生執行的才放上面，其他的放下面 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+
     <script>
         let infoData = JSON.parse(localStorage.getItem('infoData'));
         infoData.seats.forEach(item => {
@@ -346,9 +365,6 @@
         });
     </script>
 
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 
 </html>

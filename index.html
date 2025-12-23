@@ -6,8 +6,14 @@
   <title>TicketMastery - The Weeknd: After Hours Til Dawn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- 1.把所有頁面要使用的共通性套件決定好(外部連結) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- 3.內部的共通性內容 -->
+  <link rel="stylesheet" href="./css/navFooter.css">
 
   <style>
     /* =========================================
@@ -50,145 +56,6 @@
     .text-nowrap {
       white-space: nowrap !important;
     }
-
-    /* =========================================
-       1. Header 導航欄
-       ========================================= */
-    .navbar-custom {
-      background-color: var(--color-dark-bg);
-      padding: 12px 24px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1050;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-group {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .logo-circle {
-      width: 40px;
-      height: 40px;
-      background-color: var(--color-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: black;
-      margin-right: 12px;
-    }
-
-    .nav-link-custom {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      margin-right: 24px;
-      transition: color 0.2s;
-    }
-
-    .nav-link-custom:hover {
-      color: var(--color-gold);
-    }
-
-    /* 搜尋框 */
-    .search-container {
-      position: relative;
-      margin-right: 20px;
-    }
-
-    .search-input {
-      background-color: var(--color-nav-input);
-      border: none;
-      border-radius: 50px;
-      color: white;
-      padding: 10px 16px 10px 40px;
-      font-size: 14px;
-      outline: none;
-      width: 280px;
-      max-width: 100%;
-      transition: width 0.3s;
-    }
-
-    .search-input::placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #999;
-      width: 16px;
-      height: 16px;
-    }
-
-    @media (max-width: 1200px) {
-      .search-input {
-        width: 180px;
-      }
-    }
-
-    /* 按鈕 */
-    .btn-nav-dark {
-      background-color: var(--color-nav-btn-dark);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 8px 24px;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-nav-dark:hover {
-      background-color: #3f3f46;
-      color: white;
-    }
-
-    .btn-nav-gold {
-      background-color: var(--color-gold);
-      color: black;
-      border: none;
-      border-radius: 50px;
-      padding: 8px 24px;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-nav-gold:hover {
-      background-color: var(--color-gold-hover);
-    }
-
-    .my-ticket-link {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin: 0 16px;
-      border-right: 1px solid #333;
-      padding-right: 16px;
-      height: 24px;
-      white-space: nowrap;
-    }
-
-    .my-ticket-link:hover {
-      color: var(--color-gold);
-    }
-
 
     /* =========================================
        2. Hero 區塊 (背景圖修復)
@@ -408,42 +275,45 @@
 
 <body>
 
-  <header class="navbar-custom">
-    <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center">
-        <a href="./index.html" class="logo-group me-4 me-lg-5">
-          <div class="logo-circle">
-            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+  <nav>
+    <header class="navbar-custom">
+      <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <a href="./index.html" class="logo-group me-4 me-lg-5">
+            <div class="logo-circle">
+              <!-- 盡量一開始別寫道語意標籤的屬性，這個給後續的JS使用 -->
+              <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+            </div>
+            <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">
+              TicketMastery</h1>
+          </a>
+          <nav class="d-none d-lg-flex text-nowrap">
+            <a href="#" class="nav-link-custom">歌手</a>
+            <a href="#" class="nav-link-custom">音樂節</a>
+            <a href="#" class="nav-link-custom">劇院</a>
+            <a href="#" class="nav-link-custom">運動</a>
+          </nav>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <div class="search-container d-none d-md-block">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
           </div>
-          <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery</h1>
-        </a>
 
-        <nav class="d-none d-lg-flex text-nowrap">
-          <a href="#" class="nav-link-custom">歌手</a>
-          <a href="#" class="nav-link-custom">音樂節</a>
-          <a href="#" class="nav-link-custom">劇院</a>
-          <a href="#" class="nav-link-custom">運動</a>
-        </nav>
-      </div>
+          <a href="#" class="my-ticket-link d-none d-sm-flex">
+            <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
+            我的票券
+          </a>
 
-      <div class="d-flex align-items-center">
-        <div class="search-container d-none d-md-block">
-          <i data-lucide="search" class="search-icon"></i>
-          <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
-        </div>
-
-        <a href="#" class="my-ticket-link d-none d-sm-flex">
-          <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
-          我的票券
-        </a>
-
-        <div class="d-flex gap-2 gap-md-3">
-          <button class="btn-nav-dark">登入</button>
-          <button class="btn-nav-gold">註冊</button>
+          <div class="d-flex gap-2 gap-md-3">
+            <button class="btn-nav-dark" type="button">登入</button>
+            <button class="btn-nav-gold">註冊</button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+  </nav>
 
   <div class="container hero-card-container mb-5">
     <div class="hero-card">
@@ -499,7 +369,8 @@
           熱門活動
         </h2>
         <a href="./card.html" class="text-decoration-none text-gold small d-flex align-items-center gap-1">
-          查看全部 <i data-lucide="arrow-right" style="width: 16px;"></i>
+          <span>查看全部</span>
+          <i data-lucide="arrow-right" style="width: 16px;"></i>
         </a>
       </div>
 
@@ -507,7 +378,8 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="event-card h-100 d-flex flex-column">
             <div class="card-zoom">
-              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop"
+                alt="說明文字">
               <div class="position-absolute top-0 end-0 m-3 small text-white px-2 py-1 rounded"
                 style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);">流行音樂</div>
             </div>
@@ -573,8 +445,9 @@
                 class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
                 <span class="text-gold fw-bold fs-5">NT$ 1,600</span>
                 <button
-                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
-                    data-lucide="plus" style="width: 16px;"></i></button>
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold">
+                  <i data-lucide="plus" style="width: 16px;"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -589,17 +462,22 @@
             <div class="p-4 flex-grow-1 d-flex flex-column">
               <h5 class="fw-bold text-white mb-2">吉他之夜 Acoustic</h5>
               <div class="d-flex flex-column gap-2 small text-secondary-light mb-4 flex-grow-1">
-                <div class="d-flex align-items-center gap-2"><i data-lucide="calendar" class="text-gold"
-                    style="width: 14px;"></i>2025-10-12</div>
-                <div class="d-flex align-items-center gap-2"><i data-lucide="map-pin" class="text-gold"
-                    style="width: 14px;"></i>Legacy Taipei</div>
+                <div class="d-flex align-items-center gap-2">
+                  <i data-lucide="calendar" class="text-gold" style="width: 14px;"></i>
+                  <span>2025-10-12</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i data-lucide="map-pin" class="text-gold" style="width: 14px;"></i>
+                  <span>Legacy Taipei</span>
+                </div>
               </div>
               <div
                 class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-secondary border-opacity-25">
                 <span class="text-gold fw-bold fs-5">NT$ 1,200</span>
                 <button
-                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold"><i
-                    data-lucide="plus" style="width: 16px;"></i></button>
+                  class="btn bg-dark text-white rounded-circle p-1 border border-secondary border-opacity-25 hover-text-gold">
+                  <i data-lucide="plus" style="width: 16px;"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -654,13 +532,19 @@
           <div class="d-flex gap-3">
             <a href="#"
               class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-              style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
+              style="width: 36px; height: 36px;">
+              <i data-lucide="facebook" style="width: 18px;"></i>
+            </a>
             <a href="#"
               class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-              style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
+              style="width: 36px; height: 36px;">
+              <i data-lucide="instagram" style="width: 18px;"></i>
+            </a>
             <a href="#"
               class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-              style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
+              style="width: 36px; height: 36px;">
+              <i data-lucide="twitter" style="width: 18px;"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -669,16 +553,23 @@
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <!-- 除了在一開始要在html產生執行的才放上面，其他的放下面 -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
   <script>
     const nextBtn = document.querySelector('#next-btn')
     nextBtn.addEventListener(('click'), function () {
       // updateSummary();
       window.location.href = './details.html';
     });
-  </script>
-  <script>
-    lucide.createIcons();
   </script>
 </body>
 

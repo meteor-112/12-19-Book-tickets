@@ -5,53 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 1.把所有頁面要使用的共通性套件決定好(外部連結) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- 3.內部的共通性內容 -->
+    <link rel="stylesheet" href="./css/navFooter.css">
+
     <link rel="stylesheet" href="./css/booking.css">
     <link rel="stylesheet" href="./css/card.css">
-    <link rel="stylesheet" href="./css/navFooter.css">
 </head>
 
 <body class="bg-gray">
     <!-- ⬇nav -->
-    <nav class="navbar-custom">
-        <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-                <a href="./index.html" class="logo-group me-4 me-lg-5">
-                    <div class="logo-circle">
-                        <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+    <nav>
+        <header class="navbar-custom">
+            <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <a href="./index.html" class="logo-group me-4 me-lg-5">
+                        <div class="logo-circle">
+                            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+                        </div>
+                        <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">
+                            TicketMastery</h1>
+                    </a>
+                    <nav class="d-none d-lg-flex text-nowrap">
+                        <a href="#" class="nav-link-custom">歌手</a>
+                        <a href="#" class="nav-link-custom">音樂節</a>
+                        <a href="#" class="nav-link-custom">劇院</a>
+                        <a href="#" class="nav-link-custom">運動</a>
+                    </nav>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="search-container d-none d-md-block">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
                     </div>
-                    <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery
-                    </h1>
-                </a>
-                <nav class="d-none d-lg-flex text-nowrap">
-                    <a href="#" class="nav-link-custom">歌手</a>
-                    <a href="#" class="nav-link-custom">音樂節</a>
-                    <a href="#" class="nav-link-custom">劇院</a>
-                    <a href="#" class="nav-link-custom">運動</a>
-                </nav>
-            </div>
 
-            <div class="d-flex align-items-center">
-                <div class="search-container d-none d-md-block">
-                    <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
-                </div>
+                    <a href="#" class="my-ticket-link d-none d-sm-flex">
+                        <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
+                        我的票券
+                    </a>
 
-                <a href="#" class="my-ticket-link d-none d-sm-flex">
-                    <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
-                    我的票券
-                </a>
-
-                <div class="d-flex gap-2 gap-md-3">
-                    <button class="btn-nav-dark">登入</button>
-                    <button class="btn-nav-gold">註冊</button>
+                    <div class="d-flex gap-2 gap-md-3">
+                        <button class="btn-nav-dark">登入</button>
+                        <button class="btn-nav-gold">註冊</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
     </nav>
 
     <main class="container mx-auto" style="margin-top: 110px;">
@@ -68,25 +73,26 @@
             </div>
             <!-- 💣 篩選列 -->
             <div class="btn-group gap-2 gap-lg-4 d-flex flex-wrap justify-content-center" role="group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="all" autocomplete="off"
+                    checked>
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2" for="btnradio1">全部</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2" for="btnradio2">流行</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2 " for="btnradio3">搖滾</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2 " for="btnradio4">獨立</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2 " for="btnradio5">電音</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio6" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2 " for="btnradio6">K-POP</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio7" value="all" autocomplete="off">
                 <label class="btn rounded-5 btn-tag px-lg-2 py-lg-2 " for="btnradio7"><i
                         class="bi bi-calendar"></i>&nbsp;本週未</label>
             </div>
@@ -344,7 +350,9 @@
             </div>
 
             <!-- 按鈕 -->
-            <button class="btn btn-more text-white border border-1 border-secondary rounded-5 px-4 py-3 card-border mx-auto d-block" type="
+            <button
+                class="btn btn-more text-white border border-1 border-secondary rounded-5 px-4 py-3 card-border mx-auto d-block"
+                type="
                     button">
                 載入更多活動
                 <i class="fa-solid fa-angle-down text-white"></i>
@@ -355,7 +363,7 @@
     </main>
 
     <!-- ⬇夫特 -->
-    <footer class="bg-black pt-5 pb-4 mt-5 border-top border-secondary border-opacity-25">
+    <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
         <div class="container">
             <div class="row g-4 mb-5">
                 <div class="col-12 col-md-6 col-lg-3">
@@ -402,9 +410,15 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- 除了在一開始要在html產生執行的才放上面，其他的放下面 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
+
     <script>
         const nextBtn = document.querySelector('#next-btn')
         nextBtn.addEventListener(('click'), function () {
@@ -412,9 +426,6 @@
             window.location.href = './details.html';
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
