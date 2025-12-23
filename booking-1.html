@@ -386,23 +386,21 @@
 
     const vipSeatAll = document.querySelectorAll('.vip-seat');
     // 打勾效果
-
-    for (let i = 0; i < vipSeatAll.length; i++) {
-      // console.log(vipSeatAll[i]);
-      vipSeatAll[i].addEventListener('click', function () {
-        console.log(`你選擇了VIP區第 ${vipSeatNumber} 號座位`);
+    vipSeatAll.forEach(function (item, index) {
+      item.addEventListener('click', function () {
+        console.log(`99,你選擇了VIP區第 ${index} 號座位`);
         const vipInfo = document.querySelector('#vip-info');
-        if (vipSeatAll[i].classList.contains('theme-color')) {
-          vipSeatAll[i].classList.remove('theme-color');
-          vipSeatAll[i].innerHTML = ''
-          vipSeatAll[i].classList.add('vip');
-          console.log(`你取消了VIP區第 ${i + 1} 號座位`);
+        if (item.classList.contains('theme-color')) {
+          item.classList.remove('theme-color');
+          item.innerHTML = ''
+          item.classList.add('vip');
+          console.log(`99,你取消了VIP區第 ${vipSeatNumber} 號座位`);
           const cancleSeat = document.querySelector(`#${vipSeatId}`);
           if (cancleSeat) cancleSeat.remove();
         } else {
-          vipSeatAll[i].classList.remove('vip');
-          vipSeatAll[i].innerHTML = `<i class="fa-solid fa-check"></i>`;
-          vipSeatAll[i].classList.add('theme-color');
+          item.classList.remove('vip');
+          item.innerHTML = `<i class="fa-solid fa-check"></i>`;
+          item.classList.add('theme-color');
           if (!document.querySelector(`#${vipSeatId}`)) {
             vipInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${vipSeatId}">
                 <div class="vip-border-start">
@@ -418,8 +416,7 @@
         }
         updateSummary()
       });
-    };
-    // console.log(vipSeatAll);
+    });
 
 
     // zone-a區
@@ -561,6 +558,7 @@
       let addOnTotal = 0;
       if (addOn.checked) {
         addOnTotal = addOnPrice;
+
       }
 
       const vipTotal = vipSeats.length * vipPrice;
@@ -571,6 +569,7 @@
       const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
 
       ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
+
       document.querySelector('#add-on').addEventListener('change', updateSummary);
       document.querySelector('#ticket-price').textContent = `$${ticketTotal}`;
       document.querySelector('#fee').textContent = `$${fee}`;
