@@ -279,7 +279,7 @@
           <div class="text-secondary-color">金額詳情</div>
           <div class="d-flex justify-content-between border-b py-2">
             <div class="text-secondary-color">
-              <div id="ticket-sheet"></div>
+              <div id="ticket-sheet">票價小計</div>
               <div>手續費</div>
             </div>
             <div class="text-end">
@@ -555,24 +555,31 @@
       const vipSeats = document.querySelectorAll('.vip-seat.theme-color');
       const aSeats = document.querySelectorAll('.zone-a-seat.theme-color');
       const bSeats = document.querySelectorAll('.zone-b-seat.theme-color');
-      const ticketSheet = document.querySelector('#ticket-sheet')
       const addOn = document.querySelector('#add-on')
+      const addOnPrice = 800;
+      const ticketSheet = document.querySelector('#ticket-sheet')
+      let addOnTotal = 0;
+      if (addOn.checked) {
+        addOnTotal = addOnPrice;
+      }
 
       // 票價小計(2張)
       const vipPrice = 5800;
       const aPrice = 4800;
       const bPrice = 3800;
-      const addOnPrice = 800;
+      
       const fee = 100;
 
       const vipTotal = vipSeats.length * vipPrice;
       const aTotal = aSeats.length * aPrice;
       const bTotal = bSeats.length * bPrice;
       const ticketTotal = vipTotal + aTotal + bTotal;
-      const allTotal = ticketTotal + fee;
+      const allTotal = ticketTotal + fee + addOnTotal;
+      const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
+      ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
 
 
-      // <div>票價小計(2張)</div>
+      document.querySelector('#add-on').addEventListener('change', updateSummary);
       document.querySelector('#ticket-price').textContent = `$${ticketTotal}`;
       document.querySelector('#fee').textContent = `$${fee}`;
       document.querySelector('#all-total').textContent = `$${allTotal}`;
