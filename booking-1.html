@@ -367,20 +367,31 @@
     vipContainer.innerHTML = '';
     for (let i = 0; i < Number(10); i++) {
       // hover文字
-      const vipAllinfo = [
-        vipRow = Math.floor(i / 10) + 1,
-        vipSeatNumber = i + 1,
-        vipPrice = 5800,
-        vipHoverText = `第 ${vipRow} 排 ${vipSeatNumber} 號 售價 $${vipPrice}`,
-        vipSeatId = `vip-${vipRow}-${vipSeatNumber}`,
-      ]
+      // const vipAllinfo = [
+      //   vipRow = Math.floor(i / 10) + 1,
+      //   vipSeatNumber = i + 1,
+      //   vipPrice = 5800,
+      //   vipHoverText = `第 ${vipRow} 排 ${vipSeatNumber} 號 售價 $${vipPrice}`,
+      //   vipSeatId = `vip-${vipRow}-${vipSeatNumber}`,
+      // ]
+      const vipAllInfo = [];
 
-      if (i === 0 || i === 9) {
+      const vipinfo2 = {
+        vipRow: "Math.floor(i / 10) + 1",
+        vipSeatNumber: "i + 1",
+        vipPrice: "5800",
+        vipHoverText: "第`${vipRow}` 排 ${vipSeatNumber} 號 售價 $${vipPrice}",
+        vipSeatId: "`vip-${vipRow}-${vipSeatNumber}`",
+      }
+
+      vipAllInfo.push(vipinfo2)
+
+        if(i === 0 || i === 9) {
         vipContainer.innerHTML += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
       } else {
         vipContainer.innerHTML += ` <div class="seat-circle vip vip-seat" data-bs-toggle="tooltip" data-bs-placement="top"
-         title="${vipHoverText}" data-row="${vipRow}"
-       data-seat="${vipSeatNumber}"></div>
+         title="${vipinfo2.vipHoverText}" data-row="${vipinfo2.vipRow}"
+       data-seat="${vipinfo2.vipSeatNumber}"></div>
       ` }
     };
 
