@@ -385,7 +385,7 @@
 
     // 生成座位的函式
     function seatcircle(a = 0, b = 10, name = 'vip') {
-      container = '';
+      let container = '';
       for (let i = a; i < Number(b); i++) {
         const row = Math.floor(i / 10) + 1;
         const seatNumber = i + 1;
@@ -393,14 +393,26 @@
         // 已經被選過的座位 = 灰色+不能點擊
         // (先暫時做這樣，之後再回來補紀錄過的座位狀態)
         // 其他依name生顏色
+        // if (i === 0 || i === 9) {
+        //   container += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
+        // } else if (name === 'vip') {
+        //   container += ` <div class="seat-circle vip" data-zone="${name}"  data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
+        // } else if (name === 'zone-a') {
+        //   container += ` <div class="seat-circle zone-a" data-zone="${name}" data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
+        // } else {
+        //   container += ` <div class="seat-circle zone-b" data-zone="${name}" data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
+        // };
+        // 把name帶入class裡面(問AIㄉ)
         if (i === 0 || i === 9) {
-          container += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
-        } else if (name === 'vip') {
-          container += ` <div class="seat-circle vip vip-seat" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
-        } else if (name === 'zone-a') {
-          container += ` <div class="seat-circle zone-a zone-a-seat " data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
+          container += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`;
         } else {
-          container += ` <div class="seat-circle zone-b zone-b-seat" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
+          container += `<div class="seat-circle ${name}"
+            data-zone="${name}"
+            data-row="${row}"
+            data-seat="${seatNumber}"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="${hoverText}"></div>`;
         }
       };
       return container;
@@ -412,15 +424,16 @@
     zoneBContainer.innerHTML = seatcircle(30, 50, 'zone-b');
 
 
-    // 點擊座位顯示打勾並改為金色背景的函式
+    // 點擊座位顯示/取消，打勾+金色背景的函式
     function clickedState(event) {
       const currentSeat = event.currentTarget;
+      const zoneName = currentSeat.dataset.zone;
       if (currentSeat.classList.contains('theme-color')) {
         currentSeat.classList.remove('theme-color');
         currentSeat.innerHTML = ''
-        currentSeat.classList.add('vip');
+        currentSeat.classList.add(zoneName);
       } else {
-        currentSeat.classList.remove('vip');
+        currentSeat.classList.remove(zoneName);
         currentSeat.innerHTML = `<i class="fa-solid fa-check"></i>`;
         currentSeat.classList.add('theme-color');
       };
@@ -428,12 +441,42 @@
 
     // 顯示出來
     const allSeatCircle = document.querySelectorAll('.seat-circle');
-    allSeatCircle.forEach(function () {
+    allSeatCircle.forEach(function (seat) {
       seat.addEventListener('click', clickedState);
     });
 
+    // ==============左半部顯示詳細訂票資料的部分=================
+    const vipInfo = document.querySelector('#vip-info');
+    const aInfo = document.querySelector('#a-info');
+    const bInfo = document.querySelector('#b-info');
+
+    function showDetail(event) {
+      const currentSeat = event.currentTarget;
+      if (name === 'vip') {
+        vipInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${seatId}">
+                <div class="zone-b-border-start">
+                  <div class="ms-4">
+                    <span class="fs-6 fw-bold zone-b-text-color">ZONE B</span>
+                    <br><span>第${row}排, ${seatNumber}號</span>
+                    <br><span class="fs-6 text-secondary-color">一般票</span>
+                    <span class="float-end">$${price}</span>
+                  </div>
+                </div>
+              </div>`;
+      };
+    };
 
 
+    // bInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${seatId}">
+    //             <div class="zone-b-border-start">
+    //               <div class="ms-4">
+    //                 <span class="fs-6 fw-bold zone-b-text-color">ZONE B</span>
+    //                 <br><span>第${row}排, ${seatNumber}號</span>
+    //                 <br><span class="fs-6 text-secondary-color">一般票</span>
+    //                 <span class="float-end">$${price}</span>
+    //               </div>
+    //             </div>
+    //           </div>`;
 
 
     // if (!document.querySelector(`#${aSeatId}`)) {
@@ -587,16 +630,16 @@
     //       zoneBSeatAll[k].innerHTML = `<i class="fa-solid fa-check"></i>`;
     //       zoneBSeatAll[k].classList.add('theme-color');
     //       if (!document.querySelector(`#${bSeatId}`)) {
-    //         bInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${bSeatId}">
-    //             <div class="zone-b-border-start">
-    //               <div class="ms-4">
-    //                 <span class="fs-6 fw-bold zone-b-text-color">ZONE B</span>
-    //                 <br><span>第${bRow}排, ${bSeatNumber}號</span>
-    //                 <br><span class="fs-6 text-secondary-color">一般票</span>
-    //                 <span class="float-end">$${bPrice}</span>
-    //               </div>
-    //             </div>
-    //           </div>`;
+    bInfo.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${bSeatId}">
+                <div class="zone-b-border-start">
+                  <div class="ms-4">
+                    <span class="fs-6 fw-bold zone-b-text-color">ZONE B</span>
+                    <br><span>第${bRow}排, ${bSeatNumber}號</span>
+                    <br><span class="fs-6 text-secondary-color">一般票</span>
+                    <span class="float-end">$${bPrice}</span>
+                  </div>
+                </div>
+              </div>`;
     //       }
     //     }
     //     updateSummary();
