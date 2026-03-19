@@ -252,14 +252,14 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
     <script>
-        let infoData = JSON.parse(localStorage.getItem('infoData'));
-        infoData.seats.forEach(item => {
+        const orderData = JSON.parse(localStorage.getItem('myTicketOrder'));
+        orderData.seats.forEach(item => {
             const infoList = document.querySelector('#info-list')
             infoList.innerHTML += `
                             <div class="d-flex gap-2 text-center mb-3">
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">區域</div>
-                                    <div id="zone" class="fs-5 fw-bold">${item.zone}</div>
+                                    <div id="zone" class="fs-5 fw-bold">${item.zoneName}</div>
                                 </div>
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">排</div>

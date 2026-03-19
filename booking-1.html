@@ -366,8 +366,9 @@
       } else {
         clearInterval(countdownInterval);
         alert('保留時間已到，請重新選擇座位。');
-      }
-    }
+      };
+      // 有空再回來做這裡的彈出視窗
+    };
 
     const countdownInterval = setInterval(updateCountdown, 1000);
   </script>
@@ -405,7 +406,7 @@
         const hoverText = `第 ${row} 排 ${seatNumber} 號 售價 $${setInfo[name].price}`;
         // 已經被選過的座位 = 灰色+不能點擊
         // (先暫時做這樣，之後再回來補紀錄過的座位狀態)
-        // 其他依name生顏色
+        // 依name生顏色的版本
         // if (i === 0 || i === 9) {
         //   container += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
         // } else if (name === 'vip') {
@@ -534,51 +535,60 @@
   </script>
 
   <script>
+    function updateSummary() {
+      // 建立一個物件，用來打包所有要傳遞到下一頁的訂單資訊
+      const orderData = {
+        seats: [],
+        addOn: 0,
+        fee: 0,
+        totalPrice: 0,
+      };
 
+      orderData.seats = Object.keys(setInfo)
+        .filter(function (zone) {
+          return setInfo[zone].count > 0;
+        })
+        .map(function (zone) {
+          return {
+            zoneName: zone,
+            price: setInfo[zone].price,
+            count: setInfo[zone].count,
+            subtotal: setInfo[zone].price * setInfo[zone].count
+          };
+        });
 
-    //   const selectedSeats = [];
+      // 計算總張數
+      const totalTicketCount = orderData.seats.reduce(function (total, seat) {
+        return total + seat.count;
+      }, 0);
 
-    //   vipSeats.forEach(seat => {
-    //     selectedSeats.push({
-    //       zone: 'VIP',
-    //       row: seat.dataset.row,
-    //       seat: seat.dataset.seat,
-    //       price: vipPrice
-    //     });
-    //   });
+      // 如果沒選票，跳出提示
+      if (totalTicketCount === 0) {
+        alert('請至少選擇一個座位！');
+        return false;
+      };
 
-    //   aSeats.forEach(seat => {
-    //     selectedSeats.push({
-    //       zone: 'A',
-    //       row: seat.dataset.row,
-    //       seat: seat.dataset.seat,
-    //       price: aPrice
-    //     });
-    //   });
+      const addOnPriceValue = document.querySelector('#add-on-checkbox').checked ? 800 : 0;
+      const feeValue = totalTicketCount > 0 ? 100 : 0;
+      let seatsTotal = orderData.seats.reduce((total, seat) => total + seat.subtotal, 0);
 
-    //   bSeats.forEach(seat => {
-    //     selectedSeats.push({
-    //       zone: 'B',
-    //       row: seat.dataset.row,
-    //       seat: seat.dataset.seat,
-    //       price: bPrice
-    //     });
-    //   });
+      // 將算好的數字塞進 orderData 中
+      orderData.addOn = addOnPriceValue;
+      orderData.fee = feeValue;
+      orderData.totalPrice = seatsTotal + addOnPriceValue + feeValue;
 
-    //   const infoData = {
-    //     seats: selectedSeats,
-    //     subtotal: ticketTotal,
-    //     fee: fee,
-    //     total: allTotal
-    //   };
-
-    //   localStorage.setItem('infoData', JSON.stringify(infoData));
-    // }
-
-    const nextBtn = document.querySelector('#next-btn')
-    nextBtn.addEventListener(('click'), function () {
-      updateSummary();
-      window.location.href = './booking.html';
+      // 7. 存檔到 localStorage
+      localStorage.setItem('myTicketOrder', JSON.stringify(orderData));
+      return true; 
+    };
+    
+    // ==============進下一頁按鈕=================
+    const nextBtn = document.querySelector('#next-btn');
+    nextBtn.addEventListener('click', function () {
+      const isReadyToCheckout = updateSummary(); 
+      if (isReadyToCheckout) {
+        window.location.href = './booking.html';
+      }
     });
   </script>
 
