@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>選擇座位</title>
+  <title>步驟一：選擇座位</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -257,9 +257,13 @@
           <div class="border-b py-4 mb-3">
             <h6>加購項目</h6>
             <div class="form-check">
-              <label for="agree" class="text-white">
-                <input type="checkbox" name="" id="add-on">
-                <span>紀念T恤<br><span class="text-secondary-color ms-3">現場領取 - L Size</span>
+              <label for="add-on-checkbox" class="text-white">
+                <input type="checkbox" name="" id="add-on-checkbox">
+                <span>紀念T恤</span>
+                <br>
+                <span class="text-secondary-color ms-3">現場領取 - L Size</span>
+                <br>
+                <span class="text-secondary-color ms-3">※每筆訂單限加購一次</span>
               </label>
               <span class="float-end">+$800</span>
             </div>
@@ -269,12 +273,14 @@
           <div class="text-secondary-color">金額詳情</div>
           <div class="d-flex justify-content-between border-b py-2">
             <div class="text-secondary-color">
-              <div id="ticket-sheet">票價小計</div>
+              <div id="show-ticket-count">票價小計</div>
+              <div>加購品項</div>
               <div>手續費</div>
             </div>
             <div class="text-end">
-              <div id="ticket-price"></div>
-              <div id="fee"></div>
+              <div id="show-ticket-price">$0</div>
+              <div id="show-add-on-price">$0</div>
+              <div id="show-fee">$0</div>
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
@@ -472,50 +478,63 @@
     function ticketCount(name = 'vip', number = 1) {
       setInfo[name].count += number;
       console.log(setInfo[name].count);
+      totalAll();
     }
   </script>
 
 
   <script>
-    const addonprice = 800;
+    // ==============右半部金額計算及顯示=================
+    // 抓顯示文字的區塊
+    const showTicketCount = document.querySelector('#show-ticket-count');
+    const showTicketPrice = document.querySelector('#show-ticket-price');
+    const showFee = document.querySelector('#show-fee');
+    const showAddOnPrice = document.querySelector('#show-add-on-price');
+    const showAllTotal = document.querySelector('#all-total');
+    // 加購項目
+    const addOn = document.querySelector('#add-on-checkbox');
+    addOn.addEventListener('change', totalAll);
+    const addOnPrice = 800;
+    let addOnTotal = 0;
     const fee = 100;
 
-    function totalAll(params) {
-      const ticketTotal = setInfo[zoneName].count * setInfo[zoneName].price;
-      
-    }
+    // 總價函式
+    function totalAll() {
+      // 張數
+      const ticketCountTotal = Object.values(setInfo).reduce(function (total, zone) {
+        return total + zone.count;
+      }, 0);
+      showTicketCount.textContent = `票價小計 ${ticketCountTotal} 張`;
 
+      // 票價小計
+      const ticketPriceTotal = Object.values(setInfo).reduce(function (total, zone) {
+        return total + (zone.count * zone.price);
+      }, 0);
+      showTicketPrice.textContent = `$${ticketPriceTotal}`;
 
-    // localStorage.removeItem('infoData');
-    // function updateSummary() {
-    //   const vipSeats = document.querySelectorAll('.vip-seat.theme-color');
-    //   const aSeats = document.querySelectorAll('.zone-a-seat.theme-color');
-    //   const bSeats = document.querySelectorAll('.zone-b-seat.theme-color');
-    //   const addOn = document.querySelector('#add-on')
-    //   const addOnPrice = 800;
-    //   const ticketSheet = document.querySelector('#ticket-sheet')
-    //   let addOnTotal = 0;
-    //   if (addOn.checked) {
-    //     addOnTotal = addOnPrice;
-    //   }
+      // 加購品項
+      if (addOn.checked) {
+        addOnTotal = addOnPrice;
+      } else {
+        addOnTotal = 0;
+      };
+      showAddOnPrice.textContent = `$${addOnTotal}`;
 
-    //   const vipPrice = 5800;
-    //   const aPrice = 4800;
-    //   const bPrice = 3800;
-    //   const fee = 100;
+      // 手續費
+      if (ticketCountTotal > 0) {
+        showFee.textContent = `$${fee}`;
+      } else {
+        showFee.textContent = `$0`;
+      };
 
-    //   const vipTotal = vipSeats.length * vipPrice;
-    //   const aTotal = aSeats.length * aPrice;
-    //   const bTotal = bSeats.length * bPrice;
-    //   const ticketTotal = vipTotal + aTotal + bTotal;
-    //   const allTotal = ticketTotal + fee + addOnTotal;
-    //   const ticketSheetTotal = vipSeats.length + aSeats.length + bSeats.length;
-    //   ticketSheet.textContent = `票價小計 ${ticketSheetTotal} 張`
+      // 總價
+      const allTotal = ticketPriceTotal + addOnTotal + (ticketCountTotal > 0 ? fee : 0);
+      showAllTotal.textContent = `$${allTotal}`;
+    };
+  </script>
 
-    //   document.querySelector('#add-on').addEventListener('change', updateSummary);
-    //   document.querySelector('#ticket-price').textContent = `$${ticketTotal}`;
-    //   document.querySelector('#fee').textContent = `$${fee}`;
-    //   document.querySelector('#all-total').textContent = `$${allTotal}`;
+  <script>
+
 
     //   const selectedSeats = [];
 
@@ -556,9 +575,6 @@
     //   localStorage.setItem('infoData', JSON.stringify(infoData));
     // }
 
-  </script>
-
-  <script>
     const nextBtn = document.querySelector('#next-btn')
     nextBtn.addEventListener(('click'), function () {
       updateSummary();
