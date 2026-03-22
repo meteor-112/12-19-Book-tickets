@@ -1,12 +1,12 @@
         /* 分隔線 */
         .border-b {
-            border-bottom: 1px solid rgb(74 68 62);
+            border-bottom: 1px solid #4a443e;
         }
 
         /* 主題色 */
-        .theme-color {
+        /* .theme-color {
             background-color: #d4a473;
-        }
+        } */
 
         /* 主題色-文字 */
         .theme-text {
@@ -20,7 +20,7 @@
 
         /* 背景色 */
         .bg-color {
-            background-color: rgb(38 35 25);
+            background-color: #262319;
         }
 
         /* 次要背景色 */
@@ -30,12 +30,12 @@
 
         /* 外框 */
         .box-border {
-            border: 1px solid rgb(74 68 62);
+            border: 1px solid #4a443e;
         }
 
         /* 次要字體色 */
         .text-secondary-color {
-            color: rgb(168 162 158);
+            color: #a8a29e;
         }
 
         /* 輸入框預設文字 */
@@ -63,8 +63,8 @@
         .btn.btn-outline-golden,
         .btn.btn-outline-golden:hover {
             /* padding: 12px 16px; */
-            color: rgb(168 162 158);
-            border: 1px solid rgb(74 68 62);
+            color: #a8a29f;
+            border: 1px solid #4a443e;
         }
 
         /* radio按鈕 hover變色 */
