@@ -1,0 +1,40 @@
+:root {
+    --color-theme: #DEA15A;
+    --color-vip: #FFD700;
+    --color-zone-a: #FF69B4;
+    --color-zone-b: #40E0D0;
+
+
+}
+
+.bg-theme {
+    background-color: var(--color-theme);
+}
+
+.text-theme {
+    color: var(--color-theme);
+}
+
+.bg-vip {
+    background-color: var(--color-vip);
+}
+
+.text-vip {
+    color: var(--color-vip);
+}
+
+.bg-zone-a {
+    background-color: var(--color-zone-a);
+}
+
+.text-zone-a {
+    color: var(--color-zone-a);
+}
+
+.bg-zone-b {
+    background-color: var(--color-zone-b);
+}
+
+.text-zone-b {
+    color: var(--color-zone-b);
+}
