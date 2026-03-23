@@ -1,0 +1,127 @@
+:root {
+    --color-theme: #DEA15A;
+    --color-vip: #FFD700;
+    --color-zone-a: #FF69B4;
+    --color-zone-b: #40E0D0;
+    --color-my-bg-gray: #262319;
+    --color-my-bg-dark-gray: #201b17;
+    --color-my-bg-dep-gray: #121212;
+    --color-secondary-gray: #332f2b;
+    --color-third-gray: #4a443e;
+    --color-light-gray: #a8a29e;
+}
+
+.bg-theme {
+    background-color: var(--color-theme);
+}
+
+.bg-vip {
+    background-color: var(--color-vip);
+}
+
+.bg-zone-a {
+    background-color: var(--color-zone-a);
+}
+
+.bg-zone-b {
+    background-color: var(--color-zone-b);
+}
+
+.bg-my-gray {
+    background-color: var(--color-my-bg-gray);
+}
+.bg-my-dark-gray {
+    background-color: var(--color-my-bg-dark-gray);
+}
+.bg-my-dep-gray {
+    background-color: var(--color-my-bg-dep-gray);
+}
+
+
+
+.bg-secondary-gray {
+    background-color: var(--color-secondary-gray);
+}
+
+.bg-third-gray {
+    background-color: var(--color-third-gray);
+}
+
+.bg-light-gray {
+    background-color: var(--color-light-gray);
+}
+
+/* ===========文字顏色=========== */
+
+.text-theme {
+    color: var(--color-theme);
+}
+
+.text-vip {
+    color: var(--color-vip);
+}
+
+.text-zone-a {
+    color: var(--color-zone-a);
+}
+
+.text-zone-b {
+    color: var(--color-zone-b);
+}
+
+.text-my-gray {
+    color: var(--color-my-bg-gray);
+}
+
+.text-secondary-gray {
+    color: var(--color-secondary-gray);
+}
+
+.text-third-gray {
+    color: var(--color-third-gray);
+}
+
+.text-light-gray {
+    color: var(--color-light-gray);
+}
+
+/* ===========邊框顏色=========== */
+
+.border-theme {
+    border-color: var(--color-theme);
+}
+
+.border-vip {
+    border-color: var(--color-vip);
+}
+
+.border-zone-a {
+    border-color: var(--color-zone-a);
+}
+
+.border-zone-b {
+    border-color: var(--color-zone-b);
+}
+
+.border-my-gray {
+    border-color: var(--color-my-bg-gray);
+}
+
+.border-secondary-gray {
+    border-color: var(--color-secondary-gray);
+}
+
+.border-third-gray-1 {
+    border: 1px solid;
+    border-color: var(--color-third-gray);
+}
+
+.border-light-gray-1 {
+    border: 1px solid;
+    border-color: var(--color-light-gray);
+}
+
+
+.mt-80{
+    margin-top: 80px;
+}

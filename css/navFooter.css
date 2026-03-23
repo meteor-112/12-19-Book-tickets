@@ -1,7 +1,32 @@
 /* *************************** Nav & Footer ****************************** */
-/* =========================================
-       變數與全域設定
-       ========================================= */
+
+.logo-circle-size {
+    width: 40px;
+    height: 40px;
+}
+
+.text-hover {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.text-hover:hover {
+    color: var(--color-theme);
+}
+
+.dec-line-size {
+    width: 6px;
+}
+
+.sub-icon {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
 :root {
     --color-gold: #DEA15A;
     --color-gold-hover: #c48b4a;
@@ -14,10 +39,7 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
-    background-color: var(--color-dark-bg);
-    color: white;
-    font-weight: 500;
+    background-color: var(--color-my-bg-gray);
     overflow-x: hidden;
 }
 
@@ -26,63 +48,8 @@ body {
     color: black;
 }
 
-/* 工具類 */
-.text-gold {
-    color: var(--color-gold) !important;
-}
-
-.bg-gold {
-    background-color: var(--color-gold) !important;
-    color: black !important;
-}
-
 .text-nowrap {
     white-space: nowrap !important;
-}
-
-/* =========================================
-       1. Header 導航欄
-       ========================================= */
-.navbar-custom {
-    background-color: var(--color-dark-bg);
-    padding: 12px 24px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1050;
-    border-bottom: 1px solid #222;
-}
-
-.logo-group {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.logo-circle {
-    width: 40px;
-    height: 40px;
-    background-color: var(--color-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    margin-right: 12px;
-}
-
-.nav-link-custom {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    margin-right: 24px;
-    transition: color 0.2s;
-}
-
-.nav-link-custom:hover {
-    color: var(--color-gold);
 }
 
 /* 搜尋框 */
@@ -90,7 +57,6 @@ body {
     position: relative;
     margin-right: 20px;
 }
-
 .search-input {
     background-color: var(--color-nav-input);
     border: none;
@@ -103,12 +69,10 @@ body {
     max-width: 100%;
     transition: width 0.3s;
 }
-
 .search-input::placeholder {
     color: #6c757d;
     opacity: 1;
 }
-
 .search-icon {
     position: absolute;
     left: 14px;
@@ -118,66 +82,11 @@ body {
     width: 16px;
     height: 16px;
 }
-
 @media (max-width: 1200px) {
     .search-input {
         width: 180px;
     }
 }
-
-/* 按鈕 */
-.btn-nav-dark {
-    background-color: var(--color-nav-btn-dark);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 8px 24px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.2s;
-    white-space: nowrap;
-}
-
-.btn-nav-dark:hover {
-    background-color: #3f3f46;
-    color: white;
-}
-
-.btn-nav-gold {
-    background-color: var(--color-gold);
-    color: black;
-    border: none;
-    border-radius: 50px;
-    padding: 8px 24px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.2s;
-    white-space: nowrap;
-}
-
-.btn-nav-gold:hover {
-    background-color: var(--color-gold-hover);
-}
-
-.my-ticket-link {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 0 16px;
-    border-right: 1px solid #333;
-    padding-right: 16px;
-    height: 24px;
-    white-space: nowrap;
-}
-
-.my-ticket-link:hover {
-    color: var(--color-gold);
-}
-
 
 /* =========================================
        2. Hero 區塊 (背景圖修復)
@@ -239,20 +148,15 @@ body {
     transform: scale(1.05);
 }
 
-.btn-circle-glass {
+.copy-link {
     width: 48px;
     height: 48px;
-    border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    transition: color 0.2s;
 }
 
-.btn-circle-glass:hover {
+.copy-link:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
 }
@@ -305,13 +209,8 @@ body {
 .event-card:hover .card-zoom img {
     transform: scale(1.1);
 }
-
-.text-secondary-light {
-    color: #a1a1aa !important;
-}
-
 /* =========================================
-       4. 訂閱區塊
+        4. 訂閱區塊
        ========================================= */
 .newsletter-box {
     background-color: var(--color-newsletter-bg);
