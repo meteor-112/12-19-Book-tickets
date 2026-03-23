@@ -4,6 +4,7 @@
     --color-zone-a: #FF69B4;
     --color-zone-b: #40E0D0;
     --color-my-bg-gray: #262319;
+    --color-my-bg-dark-gray: #201b17;
     --color-secondary-gray: #332f2b;
     --color-third-gray: #4a443e;
     --color-light-gray: #a8a29e;
@@ -27,6 +28,9 @@
 
 .bg-my-gray {
     background-color: var(--color-my-bg-gray);
+}
+.bg-my-dark-gray {
+    background-color: var(--color-my-bg-dark-gray);
 }
 
 .bg-secondary-gray {
@@ -101,11 +105,13 @@
     border-color: var(--color-secondary-gray);
 }
 
-.border-third-gray {
+.border-third-gray-1 {
+    border: 1px solid;
     border-color: var(--color-third-gray);
 }
 
-.border-light-gray {
+.border-light-gray-1 {
+    border: 1px solid;
     border-color: var(--color-light-gray);
 }
 

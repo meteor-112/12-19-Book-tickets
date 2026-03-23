@@ -7,50 +7,50 @@
     <title>聯絡我們</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="./css/helping.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="./css/navFooter.css">
+    <link rel="stylesheet" href="./css/color.css">
 </head>
 
 <body class="bg-color">
-    <nav>
-        <header class="navbar-custom">
-            <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <a href="./index.html" class="logo-group me-4 me-lg-5">
-                        <div class="logo-circle">
-                            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
-                        </div>
-                        <h1 class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">
-                            TicketMastery</h1>
-                    </a>
-                    <nav class="d-none d-lg-flex text-nowrap">
-                        <a href="#" class="nav-link-custom">歌手</a>
-                        <a href="#" class="nav-link-custom">音樂節</a>
-                        <a href="#" class="nav-link-custom">劇院</a>
-                        <a href="#" class="nav-link-custom">運動</a>
-                    </nav>
-                </div>
-
-                <div class="d-flex align-items-center">
-                    <div class="search-container d-none d-md-block">
-                        <i data-lucide="search" class="search-icon"></i>
-                        <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
+    <nav class="navbar-custom">
+        <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <a href="./index.html" class="logo-group me-4 me-lg-5">
+                    <div
+                        class="logo-circle bg-theme rounded-circle d-flex justify-content-center align-items-center text-black me-3">
+                        <i class="bi bi-ticket-perforated fs-4"></i>
                     </div>
-
-                    <a href="#" class="my-ticket-link d-none d-sm-flex">
-                        <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
-                        我的票券
-                    </a>
-
-                    <div class="d-flex gap-2 gap-md-3">
-                        <button class="btn-nav-dark">登入</button>
-                        <button class="btn-nav-gold">註冊</button>
-                    </div>
+                    <div class="fs-4 fw-bold text-white text-nowrap">TicketMastery</div>
+                </a>
+                <div class="d-flex gap-4 text-nowrap">
+                    <a href="./card.html" class="nav-text-hover">探索活動</a>
+                    <a href="#" class="nav-text-hover">周邊商品</a>
+                    <a href="#" class="nav-text-hover">最新公告</a>
+                    <a href="./helping.html" class="nav-text-hover">常見問題</a>
                 </div>
             </div>
-        </header>
+            <div class="d-flex align-items-center">
+                <div class="search-container d-none d-md-block">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
+                </div>
+                <a href="#" class="nav-text-hover d-flex align-items-center gap-2 px-3">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>我的票券</span>
+                </a>
+                <div class="d-flex gap-2 gap-md-3">
+                    <button class="btn-nav-dark">登入</button>
+                    <button
+                        class="btn btn-golden d-flex justify-content-center align-items-center gap-2 shadow-sm rounded-5">
+                        註冊
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
     <main class="container mb-4" style="margin-top: 66px;">
         <!-- 標題大圖 -->

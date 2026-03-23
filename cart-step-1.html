@@ -7,21 +7,15 @@
   <title>步驟一：選擇座位</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="./css/booking.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="./css/navFooter.css">
   <link rel="stylesheet" href="./css/color.css">
-
-
   <style>
     .fa-solid.fa-circle {
       font-size: 10px;
-    }
-
-    /* 第三次要背景色(比背景色更深) */
-    .bg-color-dark {
-      background-color: #1b1812;
     }
 
     .stage-shape-top {
@@ -38,7 +32,7 @@
     }
 
     .stage-shape-down {
-      background: linear-gradient(to bottom, rgb(32, 27, 23) 0%, rgb(27, 24, 18) 70%);
+      background: linear-gradient(to bottom, #201b17 0%, rgb(27, 24, 18) 70%);
       width: 90%;
     }
 
@@ -102,30 +96,33 @@
     <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <a href="./index.html" class="logo-group me-4 me-lg-5">
-          <div class="logo-circle">
-            <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+          <div
+            class="logo-circle bg-theme rounded-circle d-flex justify-content-center align-items-center text-black me-3">
+            <i class="bi bi-ticket-perforated fs-4"></i>
           </div>
-          <div class="m-0 fs-4 fw-bold text-white text-nowrap" style="letter-spacing: -0.5px;">TicketMastery</div>
+          <div class="fs-4 fw-bold text-white text-nowrap">TicketMastery</div>
         </a>
-        <nav class="d-none d-lg-flex text-nowrap">
-          <a href="#" class="nav-link-custom">歌手</a>
-          <a href="#" class="nav-link-custom">音樂節</a>
-          <a href="#" class="nav-link-custom">劇院</a>
-          <a href="#" class="nav-link-custom">運動</a>
-        </nav>
+        <div class="d-flex gap-4 text-nowrap">
+          <a href="./card.html" class="nav-text-hover">探索活動</a>
+          <a href="#" class="nav-text-hover">周邊商品</a>
+          <a href="#" class="nav-text-hover">最新公告</a>
+          <a href="./helping.html" class="nav-text-hover">常見問題</a>
+        </div>
       </div>
       <div class="d-flex align-items-center">
         <div class="search-container d-none d-md-block">
           <i data-lucide="search" class="search-icon"></i>
           <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
         </div>
-        <a href="#" class="my-ticket-link d-none d-sm-flex">
-          <i data-lucide="ticket" style="width: 18px; height: 18px;"></i>
-          我的票券
+        <a href="#" class="nav-text-hover d-flex align-items-center gap-2 px-3">
+          <i class="bi bi-ticket-perforated"></i>
+          <span>我的票券</span>
         </a>
         <div class="d-flex gap-2 gap-md-3">
           <button class="btn-nav-dark">登入</button>
-          <button class="btn-nav-gold">註冊</button>
+          <button class="btn btn-golden d-flex justify-content-center align-items-center gap-2 shadow-sm rounded-5">
+            註冊
+          </button>
         </div>
       </div>
     </div>
@@ -133,58 +130,72 @@
   <main>
     <section class="container mb-5 mt-80">
       <section class="py-2 mb-4">
-        <div class="text-area d-flex justify-content-between mb-2">
-          <div class="section-now text-white">步驟1/3：選擇座位</div>
-          <div class="section-next text-secondary-color">下一步：填寫付款資訊</div>
+        <div class="d-flex justify-content-between mb-2">
+          <span class="text-white">步驟1/3：選擇座位</span>
+          <span class="text-light-gray">下一步：填寫付款資訊</span>
         </div>
-        <div class="progress box-bg-color" role="progressbar">
+        <div class="progress bg-secondary-gray" role="progressbar">
           <div class="progress-bar w-25 bg-theme"></div>
         </div>
       </section>
       <section class="row">
         <!-- 左半邊內容 -->
         <div class="col-lg-8 text-white">
-          <h2 class="fw-bold flex">The Galactic Tour 2024</h2>
-          <div class="d-flex row mb-4">
-            <div class="d-flex col-md-7 align-items-center">
-              <p class="mb-3 mb-md-0"><i class="fa-solid fa-location-dot"></i>&nbsp;台北小巨蛋&nbsp;·&nbsp;
-                <i class="fa-regular fa-calendar"></i>&nbsp;2024年12月24日&nbsp;·&nbsp;19:30
-              </p>
+          <h1 class="fw-bold d-flex justify-content-center justify-content-md-start">The Galactic Tour 2024</h1>
+          <div class="d-flex row justify-content-between py-3">
+            <div
+              class="d-flex col-xxl-7 align-items-center mb-3 mb-xxl-0 justify-content-center justify-content-md-start">
+              <div class="me-4">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>台北小巨蛋</span>
+              </div>
+              <div class="me-4">
+                <i class="fa-regular fa-calendar"></i>
+                <span class="me-1">2024年12月24日</span>
+                <span>19:30 開始入場</span>
+              </div>
             </div>
-            <div class="d-flex col-md-5 justify-content-center justify-content-md-start gap-2">
-              <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
-                <i class="fa-solid fa-circle text-white"></i>&nbsp;可選位
-              </button>
-              <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
-                <i class="fa-solid fa-circle theme-text"></i>&nbsp;已選
-              </button>
-              <button class="shadow-sm rounded-5 btn btn-sm btn-outline-golden d-flex align-items-center" type="button">
-                <i class="fa-solid fa-circle"></i>&nbsp;已售出
-              </button>
+            <div class="d-flex col-xxl-5 justify-content-center justify-content-md-start gap-2">
+              <div class="d-flex align-items-center px-3 py-1 rounded-pill border-third-gray-1">
+                <i class="fa-solid fa-circle text-white"></i>
+                <span class="ms-1 text-light-gray">可選位</span>
+              </div>
+              <div class="d-flex align-items-center px-3 py-1 rounded-pill border-third-gray-1">
+                <i class="fa-solid fa-circle text-theme"></i>
+                <span class="ms-1 text-light-gray">已選</span>
+              </div>
+              <div class="d-flex align-items-center px-3 py-1 rounded-pill border-third-gray-1">
+                <i class="fa-solid fa-circle text-secondary"></i>
+                <span class="ms-1 text-light-gray">已售出</span>
+              </div>
             </div>
           </div>
           <!-- 選位btn -->
           <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-md-start">
             <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center" type="button">
-              <i class="fa-solid fa-circle"></i>&nbsp;全部
+              <i class="fa-solid fa-circle"></i>
+              <span class="ms-1">全部</span>
             </button>
             <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button"
               id="vip-btn">
-              <i class="fa-solid fa-circle text-vip"></i>&nbsp;VIP ($5800)
+              <i class="fa-solid fa-circle text-vip"></i>
+              <span class="ms-1">VIP ($5800)</span>
             </button>
             <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button"
               id="zone-a-btn">
-              <i class="fa-solid fa-circle text-zone-a"></i>&nbsp;A區 ($4800)
+              <i class="fa-solid fa-circle text-zone-a"></i>
+              <span class="ms-1">A區 ($4800)</span>
             </button>
             <button class="shadow-sm rounded-5 btn btn-outline-golden d-flex align-items-center " type="button">
-              <i class="fa-solid fa-circle text-zone-b"></i>&nbsp;B區 ($3800)
+              <i class="fa-solid fa-circle text-zone-b"></i>
+              <span class="ms-1">B區 ($3800)</span>
             </button>
           </div>
           <!-- 左半圈圈點選座位區 -->
-          <div class="w-100 bg-color-dark py-5 my-4 rounded-5 d-flex justify-content-center flex-wrap">
-            <div class="stage-shape-top  text-white d-flex align-items-center justify-content-center
+          <div class="w-100 bg-my-dark-gray py-5 my-4 rounded-5 d-flex justify-content-center flex-wrap">
+            <div class="stage-shape-top text-white d-flex align-items-center justify-content-center
           border-bottom stage-border">
-              <span class="text-theme fs-3 fw-bold">STAGE</span>
+              <span class="text-white fs-3 fw-bold">STAGE</span>
             </div>
             <div class="stage-shape-down">
               <div class="text-center my-3 fw-bold d-flex flex-column align-items-center">
@@ -228,18 +239,18 @@
                   <input type="checkbox" name="" id="add-on-checkbox">
                   <span>紀念T恤</span>
                   <br>
-                  <span class="text-secondary-color ms-3">現場領取 - L Size</span>
+                  <span class="text-light-gray ms-3">現場領取 - L Size</span>
                   <br>
-                  <span class="text-secondary-color ms-3">※每筆訂單限加購一次</span>
+                  <span class="text-light-gray ms-3">※每筆訂單限加購一次</span>
                 </label>
                 <span class="float-end">+$800</span>
               </div>
             </div>
             <!-- 結帳明細區 -->
 
-            <div class="text-secondary-color">金額詳情</div>
+            <div class="text-light-gray">金額詳情</div>
             <div class="d-flex justify-content-between border-b py-2">
-              <div class="text-secondary-color">
+              <div class="text-light-gray">
                 <div id="show-ticket-count">票價小計</div>
                 <div>加購品項</div>
                 <div>手續費</div>
@@ -252,7 +263,7 @@
             </div>
             <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
               <div>總金額</div>
-              <div id="all-total" class="theme-text fs-5"></div>
+              <div id="all-total" class="text-theme fs-5">$0</div>
             </div>
             <div class="d-grid gap-2">
               <button class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
@@ -430,7 +441,7 @@
                   <div class="ms-4">
                     <span class="fs-6 fw-bold text-${zoneName}">${zoneName.toUpperCase()}</span>
                     <br><span>第${currentSeat.dataset.row}排, ${currentSeat.dataset.seat}號</span>
-                    <br><span class="fs-6 text-secondary-color">一般票</span>
+                    <br><span class="fs-6 text-light-gray">一般票</span>
                     <span class="float-end">$${setInfo[zoneName].price}</span>
                   </div>
                 </div>
