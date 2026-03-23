@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>購票詳情</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -12,28 +12,27 @@
     <link rel="stylesheet" href="./css/booking.css">
     <link rel="stylesheet" href="./css/card.css">
     <link rel="stylesheet" href="./css/detail.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="./css/navFooter.css">
     <link rel="stylesheet" href="./css/color.css">
 </head>
 
 <body class="bg-gray">
     <!-- ⬇nav -->
-    <nav class="navbar-custom">
+    <nav class="bg-my-dep-gray fixed-top z-3 px-5 py-3 shadow-sm">
         <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <a href="./index.html" class="logo-group me-4 me-lg-5">
+                <a href="./index.html" class="d-flex me-4 me-lg-5 text-decoration-none">
                     <div
-                        class="logo-circle bg-theme rounded-circle d-flex justify-content-center align-items-center text-black me-3">
+                        class="logo-circle-size bg-theme rounded-circle d-flex justify-content-center align-items-center text-black me-3">
                         <i class="bi bi-ticket-perforated fs-4"></i>
                     </div>
                     <div class="fs-4 fw-bold text-white text-nowrap">TicketMastery</div>
                 </a>
                 <div class="d-flex gap-4 text-nowrap">
-                    <a href="./card.html" class="nav-text-hover">探索活動</a>
-                    <a href="#" class="nav-text-hover">周邊商品</a>
-                    <a href="#" class="nav-text-hover">最新公告</a>
-                    <a href="./helping.html" class="nav-text-hover">常見問題</a>
+                    <a href="./card.html" class="text-hover">探索活動</a>
+                    <a href="#" class="text-hover">周邊商品</a>
+                    <a href="#" class="text-hover">最新公告</a>
+                    <a href="./helping.html" class="text-hover">常見問題</a>
                 </div>
             </div>
             <div class="d-flex align-items-center">
@@ -41,15 +40,14 @@
                     <i data-lucide="search" class="search-icon"></i>
                     <input type="text" placeholder="搜尋藝人、活動或場館..." class="search-input">
                 </div>
-                <a href="#" class="nav-text-hover d-flex align-items-center gap-2 px-3">
-                    <i class="bi bi-ticket-perforated"></i>
-                    <span>我的票券</span>
-                </a>
                 <div class="d-flex gap-2 gap-md-3">
-                    <button class="btn-nav-dark">登入</button>
-                    <button
-                        class="btn btn-golden d-flex justify-content-center align-items-center gap-2 shadow-sm rounded-5">
-                        註冊
+                    <a href="#" class="text-hover d-flex align-items-center gap-2 px-3">
+                        <i class="bi bi-ticket-perforated"></i>
+                        <span>我的票券</span>
+                    </a>
+                    <button type="submit"
+                        class="btn btn-golden fw-semibold d-flex justify-content-center align-items-center gap-2 shadow-sm rounded-5">
+                        登入
                     </button>
                 </div>
             </div>
@@ -354,52 +352,56 @@
         </section>
     </main>
     <!-- ⬇夫特 -->
-    <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
-        <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center gap-2 text-white mb-3">
-                        <i data-lucide="ticket" class="text-gold" style="width: 20px;"></i>
-                        <span class="fw-bold">TicketMastery</span>
-                    </div>
-                    <p class="small text-secondary-light lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
-                </div>
-                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
-                    <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
-                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">公司簡介</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">人才招募</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">新聞中心</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <h4 class="text-white fw-bold mb-3 h6">協助</h4>
-                    <ul class="list-unstyled small text-secondary-light d-flex flex-column gap-2">
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">聯絡客服</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">退換票政策</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary-light hover-text-gold">隱私權條款</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
-                    <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
-                    <div class="d-flex gap-3">
-                        <a href="#"
-                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-                            style="width: 36px; height: 36px;"><i data-lucide="facebook" style="width: 18px;"></i></a>
-                        <a href="#"
-                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-                            style="width: 36px; height: 36px;"><i data-lucide="instagram" style="width: 18px;"></i></a>
-                        <a href="#"
-                            class="bg-dark border border-secondary border-opacity-25 rounded p-2 text-white hover-text-gold transition d-flex align-items-center justify-content-center"
-                            style="width: 36px; height: 36px;"><i data-lucide="twitter" style="width: 18px;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
-                <p class="small text-secondary-light mb-0">© 2025 TicketMastery. All rights reserved.</p>
-            </div>
+ <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="d-flex align-items-center gap-2 text-white mb-3">
+            <i class="bi bi-ticket-perforated fs-4"></i>
+            <span class="fw-bold">TicketMastery</span>
+          </div>
+          <p class="small text-light-gray lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
         </div>
-    </footer>
+        <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+          <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
+          <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
+            <li><a href="#" class="text-decoration-none text-light-gray ">公司簡介</a></li>
+            <li><a href="#" class="text-decoration-none text-light-gray ">人才招募</a></li>
+            <li><a href="#" class="text-decoration-none text-light-gray ">新聞中心</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="text-white fw-bold mb-3 h6">協助</h4>
+          <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
+            <li><a href="#" class="text-decoration-none text-light-gray ">聯絡客服</a></li>
+            <li><a href="#" class="text-decoration-none text-light-gray ">退換票政策</a></li>
+            <li><a href="#" class="text-decoration-none text-light-gray ">隱私權條款</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
+          <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
+          <div class="d-flex gap-3">
+            <a href="https://www.facebook.com/?locale=zh_TW" target="_blank" rel="noopener noreferrer" title="前往FB粉絲專頁"
+              class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+              d-flex align-items-center justify-content-center">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="前往Instagram" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+              d-flex align-items-center justify-content-center">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" title="前往X(twitter)" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+              d-flex align-items-center justify-content-center">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
+        <p class="small text-light-gray mb-0">© 2025 TicketMastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
 
 
@@ -432,9 +434,6 @@
             // updateSummary();
             window.location.href = './cart-step-1.html';
         });
-    </script>
-    <script>
-        lucide.createIcons();
     </script>
 </body>
 
