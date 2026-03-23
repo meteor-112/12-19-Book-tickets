@@ -5,6 +5,7 @@
     --color-zone-b: #40E0D0;
     --color-my-bg-gray: #262319;
     --color-my-bg-dark-gray: #201b17;
+    --color-my-bg-dep-gray: #121212;
     --color-secondary-gray: #332f2b;
     --color-third-gray: #4a443e;
     --color-light-gray: #a8a29e;
@@ -32,6 +33,11 @@
 .bg-my-dark-gray {
     background-color: var(--color-my-bg-dark-gray);
 }
+.bg-my-dep-gray {
+    background-color: var(--color-my-bg-dep-gray);
+}
+
+
 
 .bg-secondary-gray {
     background-color: var(--color-secondary-gray);
