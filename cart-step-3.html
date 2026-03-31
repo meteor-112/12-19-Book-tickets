@@ -74,7 +74,8 @@
 
             <!-- 訂票編號 -->
             <div class="text-secondary-color box-bg-color box-border rounded-5 px-md-3 py-md-2 mb-5">
-                訂票編號&nbsp;&nbsp;<span class="text-white fw-bold">#8829302</span>
+                <span>訂票編號</span>
+                <span id="order-number" class="ms-2 text-white fw-bold"></span>
             </div>
         </section>
 
@@ -104,37 +105,26 @@
             <div class="p-4">
                 <!-- 座位資訊與付款詳情 -->
                 <div class="row border-b">
-                    <div class="col-md-6 text-secondary-color px-4" id="info-list">座位資訊
-                        <!-- <div class="d-flex gap-2 text-center py-2">
-                            <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                <div class="text-secondary-color">區域</div>
-                                <div id="section" class="fs-5 fw-bold text-white">VIP</div>
-                            </div>
-                            <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                <div class="text-secondary-color">排</div>
-                                <div id="row" class="fs-5 fw-bold text-white">01</div>
-                            </div>
-                            <div class="box-border bg-color flex-fill  py-2 rounded-5">
-                                <div class="text-secondary-color">號碼</div>
-                                <div id="number" class="fs-5 fw-bold text-white">4</div>
-                            </div>
-                        </div> -->
-
+                    <div class="col-md-6 text-secondary-color px-4" id="info-list">
+                        座位資訊
                     </div>
                     <div class="col-md-6 text-secondary-color px-4" id="">付款詳情
                         <div class="d-flex justify-content-between border-b py-2">
                             <div class="text-secondary-color">
-                                <div>票價(x2)</div>
+                                <div id="show-ticket-count">票價小計</div>
+                                <div>加購品項</div>
                                 <div>手續費</div>
                             </div>
                             <div class="text-end">
-                                <div id="ticket-price"></div>
-                                <div id="fee"></div>
+                                <div id="show-ticket-price">$0</div>
+                                <div id="show-add-on-price">$0</div>
+                                <div id="show-fee">$0</div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
                             <div class="fs-5 text-white">總金額</div>
-                            <div id="total" class="theme-text fs-5"></div>
+                            <div id="show-total" class="theme-text fs-5"></div>
+
                         </div>
                     </div>
                 </div>
@@ -164,56 +154,57 @@
         </section>
     </main>
 
- <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
-    <div class="container">
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="d-flex align-items-center gap-2 text-white mb-3">
-            <i class="bi bi-ticket-perforated fs-4"></i>
-            <span class="fw-bold">TicketMastery</span>
-          </div>
-          <p class="small text-light-gray lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
-          <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
-          <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
-            <li><a href="#" class="text-decoration-none text-light-gray ">公司簡介</a></li>
-            <li><a href="#" class="text-decoration-none text-light-gray ">人才招募</a></li>
-            <li><a href="#" class="text-decoration-none text-light-gray ">新聞中心</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md-3 col-lg-2">
-          <h4 class="text-white fw-bold mb-3 h6">協助</h4>
-          <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
-            <li><a href="#" class="text-decoration-none text-light-gray ">聯絡客服</a></li>
-            <li><a href="#" class="text-decoration-none text-light-gray ">退換票政策</a></li>
-            <li><a href="#" class="text-decoration-none text-light-gray ">隱私權條款</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
-          <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
-          <div class="d-flex gap-3">
-            <a href="https://www.facebook.com/?locale=zh_TW" target="_blank" rel="noopener noreferrer" title="前往FB粉絲專頁"
-              class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+    <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center gap-2 text-white mb-3">
+                        <i class="bi bi-ticket-perforated fs-4"></i>
+                        <span class="fw-bold">TicketMastery</span>
+                    </div>
+                    <p class="small text-light-gray lh-lg">全球領先的現場娛樂票務平台，為您提供最安全、便捷的購票體驗。</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關於我們</h4>
+                    <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-light-gray ">公司簡介</a></li>
+                        <li><a href="#" class="text-decoration-none text-light-gray ">人才招募</a></li>
+                        <li><a href="#" class="text-decoration-none text-light-gray ">新聞中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4 class="text-white fw-bold mb-3 h6">協助</h4>
+                    <ul class="list-unstyled small text-light-gray d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-light-gray ">聯絡客服</a></li>
+                        <li><a href="#" class="text-decoration-none text-light-gray ">退換票政策</a></li>
+                        <li><a href="#" class="text-decoration-none text-light-gray ">隱私權條款</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 offset-lg-1">
+                    <h4 class="text-white fw-bold mb-3 h6">關注我們</h4>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/?locale=zh_TW" target="_blank" rel="noopener noreferrer"
+                            title="前往FB粉絲專頁" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
               d-flex align-items-center justify-content-center">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="前往Instagram" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            title="前往Instagram" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
               d-flex align-items-center justify-content-center">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" title="前往X(twitter)" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" title="前往X(twitter)" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
               d-flex align-items-center justify-content-center">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </div>
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
+                <p class="small text-light-gray mb-0">© 2025 TicketMastery. All rights reserved.</p>
+            </div>
         </div>
-      </div>
-      <div class="border-top border-secondary border-opacity-10 pt-4 text-center">
-        <p class="small text-light-gray mb-0">© 2025 TicketMastery. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
 
@@ -221,14 +212,20 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
     <script>
-        let infoData = JSON.parse(localStorage.getItem('infoData'));
-        infoData.seats.forEach(item => {
+        const showOrderNumber = document.querySelector('#order-number');
+        const orderNumber = new Date().getTime(); // 使用當前時間戳作為訂票編號
+        showOrderNumber.textContent = `#${orderNumber}`;
+    </script>
+
+    <script>
+        const orderData = JSON.parse(localStorage.getItem('myTicketOrder'));
+        orderData.selectedDetails.forEach(item => {
             const infoList = document.querySelector('#info-list')
             infoList.innerHTML += `
                             <div class="d-flex gap-2 text-center mb-3">
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">區域</div>
-                                    <div id="zone" class="fs-5 fw-bold">${item.zone}</div>
+                                    <div id="zone" class="fs-5 fw-bold">${item.zoneName.replace(/zone-/i, "").toUpperCase()}</div>
                                 </div>
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">排</div>
@@ -236,14 +233,15 @@
                                 </div>
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">號碼</div>
-                                    <div id="number" class="fs-5 fw-bold">${item.seat}</div>
+                                    <div id="number" class="fs-5 fw-bold">${item.seatNum}</div>
                                 </div>
                             </div>
                             `
         });
-        document.querySelector('#ticket-price').textContent = `$${infoData.subtotal}`;
-        document.querySelector('#fee').textContent = `$${infoData.fee}`;
-        document.querySelector('#total').textContent = `$${infoData.total}`
+        document.querySelector('#show-ticket-price').textContent = `$${orderData.selectedDetails.reduce((total, seat) => total + seat.price, 0)}`;
+        document.querySelector('#show-ticket-count').textContent = `票價小計 ${orderData.ticketCountTotal} 張`;
+        document.querySelector('#show-fee').textContent = `$${orderData.fee}`;
+        document.querySelector('#show-total').textContent = `$${orderData.totalPrice}`
     </script>
     <script>
         const indexBtn = document.querySelector('#index-btn')
