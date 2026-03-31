@@ -51,106 +51,121 @@
             </div>
         </div>
     </nav>
-    <main class="container mb-4" style="margin-top: 80px;">
-        <!-- 進度條 -->
-        <section class="py-2 mb-4">
-            <div class="text-area d-flex justify-content-between mb-2">
-                <div class="section-now text-white">步驟3/3：訂票完成</div>
-                <div class="section-next theme-text">已確認</div>
-            </div>
-            <div class="progress box-bg-color" role="progressbar">
-                <div class="progress-bar w-100 bg-theme"></div>
-            </div>
-        </section>
-        <!-- 訂票成功 -->
-        <section class="d-flex flex-column align-items-center">
-            <!-- icon -->
-            <div
-                class="icon-shadow position-relative d-flex align-items-center justify-content-center rounded-circle mb-2">
-                <i class="fa-solid fa-circle-check fs-1 theme-text z-1"></i>
-            </div>
-            <div class="fs-1 text-white fw-bold">恭喜！訂票成功</div>
-            <div class="text-secondary-color mb-3">凖備好享受您的精彩夜晚了嗎？</div>
-
-            <!-- 訂票編號 -->
-            <div class="text-secondary-color box-bg-color box-border rounded-5 px-md-3 py-md-2 mb-5">
-                <span>訂票編號</span>
-                <span id="order-number" class="ms-2 text-white fw-bold"></span>
-            </div>
-        </section>
-
-        <!-- 卡片區 -->
-        <section class="card box-bg-color box-border rounded-5 overflow-hidden mx-auto">
-            <!-- 上半部 -->
-            <div class="row g-0 border-b">
-                <!-- 圖片(左) -->
-                <div class="col-md-5 overflow-hidden" style="max-height: 280px;">
-                    <img src="./img/unnamed.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+    <main>
+        <section class="container mb-5 mt-80">
+            <!-- 進度條 -->
+            <section class="py-2 mb-4">
+                <div class="text-area d-flex justify-content-between mb-2">
+                    <div class="section-now text-white">步驟3/3：訂票完成</div>
+                    <div class="section-next theme-text">已確認</div>
                 </div>
-                <!-- 活動資訊(右) -->
-                <div class="col-md-7">
-                    <div class="card-body">
-                        <div class=" text-start p-3">
-                            <div class="text-white fw-bold fs-2">The Galactic Tour 2024</div>
-                            <div class="theme-text fw-bold fs-5">The Weeknd Live in Taipei</div>
-                        </div>
-                        <div class="d-flex flex-column gap-2 px-3 text-white">
-                            <div><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;2024/12/24 (五) 19:30</div>
-                            <div><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;台北小巨蛋 Taipai Arena</div>
-                        </div>
-                    </div>
+                <div class="progress box-bg-color" role="progressbar">
+                    <div class="progress-bar w-100 bg-theme"></div>
                 </div>
-            </div>
-            <!-- 下半部 -->
-            <div class="p-4">
-                <!-- 座位資訊與付款詳情 -->
-                <div class="row border-b">
-                    <div class="col-md-6 text-secondary-color px-4" id="info-list">
-                        座位資訊
+            </section>
+            <!-- 訂票成功 -->
+            <section class="d-flex flex-column align-items-center">
+                <!-- icon -->
+                <div
+                    class="icon-shadow position-relative d-flex align-items-center justify-content-center rounded-circle mb-2">
+                    <i class="fa-solid fa-circle-check fs-1 theme-text z-1"></i>
+                </div>
+                <div class="fs-1 text-white fw-bold">恭喜！訂票成功</div>
+                <div class="text-secondary-color mb-3">凖備好享受您的精彩夜晚了嗎？</div>
+
+                <!-- 訂票編號 -->
+                <div class="text-secondary-color box-bg-color box-border rounded-5 px-md-3 py-md-2 mb-5">
+                    <span>訂票編號</span>
+                    <span id="order-number" class="ms-2 text-white fw-bold"></span>
+                </div>
+            </section>
+
+            <!-- 卡片區 -->
+            <section class="card box-bg-color box-border rounded-5 overflow-hidden mx-auto">
+                <!-- 上半部 -->
+                <div class="row g-0 border-b">
+                    <!-- 圖片(左) -->
+                    <div class="col-md-5 overflow-hidden" style="max-height: 280px;">
+                        <img src="./img/unnamed.png" class="w-100 h-100 object-fit-cover"
+                            style="object-position: center;">
                     </div>
-                    <div class="col-md-6 text-secondary-color px-4" id="">付款詳情
-                        <div class="d-flex justify-content-between border-b py-2">
-                            <div class="text-secondary-color">
-                                <div id="show-ticket-count">票價小計</div>
-                                <div>加購品項</div>
-                                <div>手續費</div>
+                    <!-- 活動資訊(右) -->
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <div class=" text-start p-3">
+                                <div class="text-white fw-bold fs-2">The Galactic Tour 2024</div>
+                                <div class="theme-text fw-bold fs-5">The Weeknd Live in Taipei</div>
                             </div>
-                            <div class="text-end">
-                                <div id="show-ticket-price">$0</div>
-                                <div id="show-add-on-price">$0</div>
-                                <div id="show-fee">$0</div>
+                            <div class="d-flex flex-column gap-2 px-3 text-white">
+                                <div>
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>2024/12/24 (五) 19:30</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span></span>台北小巨蛋 Taipai Arena</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
-                            <div class="fs-5 text-white">總金額</div>
-                            <div id="show-total" class="theme-text fs-5"></div>
-
+                    </div>
+                </div>
+                <!-- 下半部 -->
+                <div class="p-4">
+                    <!-- 座位資訊與付款詳情 -->
+                    <div class="row border-b">
+                        <div class="col-md-6 text-secondary-color px-4" id="info-list">
+                            座位資訊
+                        </div>
+                        <div class="col-md-6 text-secondary-color px-4" id="">
+                            <span>付款詳情</span>
+                            <div class="d-flex justify-content-between border-b py-2">
+                                <div class="text-secondary-color">
+                                    <div id="show-ticket-count">票價小計</div>
+                                    <div>加購品項</div>
+                                    <div>手續費</div>
+                                </div>
+                                <div class="text-end">
+                                    <div id="show-ticket-price">$0</div>
+                                    <div id="show-add-on-price">$0</div>
+                                    <div id="show-fee">$0</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
+                                <div class="fs-5 text-white">總金額</div>
+                                <div id="show-total" class="theme-text fs-5"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 底部 -->
-                <div class="row pt-4">
-                    <div class="col-lg-6 text-secondary-color"><i class="fa-regular fa-envelope"></i>&nbsp;電子票券與收據已發送至
-                        <span id="userMail" class="text-white">user@example.com</span>
+                    <!-- 底部 -->
+                    <div class="row pt-4">
+                        <div class="col-lg-6 text-secondary-color">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>電子票券與收據已發送至</span>
+                            <span id="userMail" class="text-white">user@example.com</span>
+                        </div>
+                        <a href=""
+                            class="col-lg-6 text-lg-end theme-text fw-bold link-offset-2 link-underline link-underline-opacity-0">
+                            <i class="fa-solid fa-download"></i>
+                            <span>下載電子票券</span>
+                        </a>
                     </div>
-                    <a href=""
-                        class="col-lg-6 text-lg-end theme-text fw-bold link-offset-2 link-underline link-underline-opacity-0"><i
-                            class="fa-solid fa-download"></i>下載電子票券</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- 按鈕區 -->
-        <section class="row gap-4 justify-content-center p-4">
-            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button"><i
-                    class="fa-solid fa-ticket"></i>&nbsp;查看我的訂單
-            </button>
-            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="index-btn"><i
-                    class="fa-regular fa-house"></i>&nbsp;回到首頁
-            </button>
-            <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="next-btn"><i
-                    class="fa-regular fa-envelope"></i>&nbsp;聯絡我們
-            </button>
+            </section>
+            <!-- 按鈕區 -->
+            <section class="row gap-4 justify-content-center p-4 mt-4">
+                <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>查看我的訂單</span>
+                </button>
+                <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="index-btn">
+                    <i class="fa-regular fa-house"></i>
+                    <span>回到首頁</span>
+                </button>
+                <button class="col-md-3 rounded-5 btn btn-golden py-2" type="button" id="next-btn">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>聯絡我們</span>
+                </button>
+            </section>
         </section>
     </main>
 
@@ -185,16 +200,16 @@
                     <div class="d-flex gap-3">
                         <a href="https://www.facebook.com/?locale=zh_TW" target="_blank" rel="noopener noreferrer"
                             title="前往FB粉絲專頁" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
-              d-flex align-items-center justify-content-center">
+                            d-flex align-items-center justify-content-center">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
                             title="前往Instagram" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
-              d-flex align-items-center justify-content-center">
+                            d-flex align-items-center justify-content-center">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                         <a href="https://x.com/" target="_blank" rel="noopener noreferrer" title="前往X(twitter)" class="text-hover sub-icon bg-dark p-2 border border-secondary border-opacity-25 rounded
-              d-flex align-items-center justify-content-center">
+                            d-flex align-items-center justify-content-center">
                             <i class="fa-brands fa-x-twitter"></i>
                         </a>
                     </div>
@@ -225,15 +240,15 @@
                             <div class="d-flex gap-2 text-center mb-3">
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">區域</div>
-                                    <div id="zone" class="fs-5 fw-bold">${item.zoneName.replace(/zone-/i, "").toUpperCase()}</div>
+                                    <div id="zone" class="fs-5 fw-bold text-white">${item.zoneName.replace(/zone-/i, "").toUpperCase()}</div>
                                 </div>
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">排</div>
-                                    <div id="row" class="fs-5 fw-bold">${item.row}</div>
+                                    <div id="row" class="fs-5 fw-bold text-white">${item.row}</div>
                                 </div>
                                 <div class="box-border bg-color flex-fill  py-2 rounded-5">
                                     <div class="text-secondary-color">號碼</div>
-                                    <div id="number" class="fs-5 fw-bold">${item.seatNum}</div>
+                                    <div id="number" class="fs-5 fw-bold text-white">${item.seatNum}</div>
                                 </div>
                             </div>
                             `

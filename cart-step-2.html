@@ -286,40 +286,40 @@
         // 點擊「確認並付款」按鈕
         nextBtn.addEventListener(('click'), function () {
             // 如果沒填寫資料，跳警告
-            // if (!userName.checkValidity()) {
-            //     userName.reportValidity();
-            // } else if (!phone.checkValidity()) {
-            //     phone.reportValidity();
-            // } else if (!email.checkValidity()) {
-            //     email.reportValidity();
-            // } else if (!cardNumber.checkValidity()) {
-            //     cardNumber.reportValidity();
-            // } else if (!inputDate.checkValidity()) {
-            //     inputDate.reportValidity();
-            // } else if (!inputCVC.checkValidity()) {
-            //     inputCVC.reportValidity();
-            // } else if (!inputName2.checkValidity()) {
-            //     inputName2.reportValidity();
-            // } else if (!agree.checkValidity()) {
-            //     agree.reportValidity();
-            // } else {
-            //     收集資料
-            //     const userData =
-            //     {
-            //         userName: userName.value,
-            //         phone: phone.value,
-            //         email: email.value,
-            //         cardNumber: cardNumber.value,
-            //         inputDate: inputDate.value,
-            //         inputCVC: inputCVC.value,
-            //         inputName2: inputName2.value,
-            //     }
-            //     console.log(userData);
-            //     localStorage.setItem('userData', JSON.stringify(userData));
+            if (!userName.checkValidity()) {
+                userName.reportValidity();
+            } else if (!phone.checkValidity()) {
+                phone.reportValidity();
+            } else if (!email.checkValidity()) {
+                email.reportValidity();
+            } else if (!cardNumber.checkValidity()) {
+                cardNumber.reportValidity();
+            } else if (!inputDate.checkValidity()) {
+                inputDate.reportValidity();
+            } else if (!inputCVC.checkValidity()) {
+                inputCVC.reportValidity();
+            } else if (!inputName2.checkValidity()) {
+                inputName2.reportValidity();
+            } else if (!agree.checkValidity()) {
+                agree.reportValidity();
+            } else {
+                收集資料
+                const userData =
+                {
+                    userName: userName.value,
+                    phone: phone.value,
+                    email: email.value,
+                    cardNumber: cardNumber.value,
+                    inputDate: inputDate.value,
+                    inputCVC: inputCVC.value,
+                    inputName2: inputName2.value,
+                }
+                console.log(userData);
+                localStorage.setItem('userData', JSON.stringify(userData));
 
             // 跳轉頁面
             window.location.href = './cart-step-3.html';
-            // };
+            };
         }
         );
     </script>
