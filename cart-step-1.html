@@ -91,7 +91,7 @@
 </head>
 
 <body class="bg-my-gray">
-   <nav class="bg-my-dep-gray fixed-top z-3 px-5 py-3 shadow-sm">
+  <nav class="bg-my-dep-gray fixed-top z-3 px-5 py-3 shadow-sm">
     <div class="container-fluid px-2 px-md-4 d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <a href="./index.html" class="d-flex me-4 me-lg-5 text-decoration-none">
@@ -262,7 +262,7 @@
             </div>
             <div class="d-flex justify-content-between align-items-end py-3 fw-bold">
               <div>總金額</div>
-              <div id="all-total" class="text-theme fs-5">$0</div>
+              <div id="show-total" class="text-theme fs-5">$0</div>
             </div>
             <div class="d-grid gap-2">
               <button class="shadow-sm rounded-5 btn btn-golden d-flex justify-content-center align-items-center gap-2"
@@ -278,7 +278,7 @@
     <!-- 進度條 -->
 
   </main>
- <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
+  <footer class="bg-black pt-5 pb-4 border-top border-secondary border-opacity-25">
     <div class="container">
       <div class="row g-4 mb-5">
         <div class="col-12 col-md-6 col-lg-3">
@@ -381,6 +381,7 @@
     const zoneBContainer = document.querySelector('#zone-b-container');
 
     // 生成座位的函式
+
     function seatcircle(a = 0, b = 10, name = 'vip') {
       let container = '';
       for (let i = a; i < Number(b); i++) {
@@ -390,16 +391,6 @@
         const hoverText = `第 ${row} 排 ${seatNumber} 號 售價 $${setInfo[name].price}`;
         // 已經被選過的座位 = 灰色+不能點擊
         // (先暫時做這樣，之後再回來補紀錄過的座位狀態)
-        // 依name生顏色的版本
-        // if (i === 0 || i === 9) {
-        //   container += `<div class="seat-circle bg-secondary bg-gradient vip-seat booked"></div>`
-        // } else if (name === 'vip') {
-        //   container += ` <div class="seat-circle vip" data-zone="${name}"  data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
-        // } else if (name === 'zone-a') {
-        //   container += ` <div class="seat-circle zone-a" data-zone="${name}" data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
-        // } else {
-        //   container += ` <div class="seat-circle zone-b" data-zone="${name}" data-row="${row}" data-seat="${seatNumber}" data-bs-toggle="tooltip" data-bs-placement="top" title="${hoverText}"></div>`
-        // };
 
         // 把name直接寫在class裡面
         if (i === 0 || i === 9) {
@@ -425,31 +416,42 @@
 
 
     // 點擊座位顯示/取消，左半邊顯示打勾+金色背景；右半邊顯示票券詳情的函式
+    let selectedSeatsList = [];
     function clickedState(event) {
       const currentSeat = event.currentTarget;
-      const zoneName = currentSeat.dataset.zone;
+      const { zone, row, seat, seatId } = currentSeat.dataset;
       const showdetail = document.querySelector('#show-detail');
       if (currentSeat.classList.contains('bg-theme')) {
         currentSeat.classList.remove('bg-theme');
         currentSeat.innerHTML = ''
-        currentSeat.classList.add(`bg-${zoneName}`);
+        currentSeat.classList.add(`bg-${zone}`);
         showdetail.removeChild(document.querySelector(`#${currentSeat.dataset.seatId}`));
-        ticketCount(zoneName, -1);
+        ticketCount(zone, -1);
+        // 取消選位後，把他從清單裡面拿掉
+        selectedSeatsList = selectedSeatsList.filter(item => item.id !== seatId);
       } else {
-        currentSeat.classList.remove(`bg-${zoneName}`);
+        currentSeat.classList.remove(`bg-${zone}`);
         currentSeat.innerHTML = `<i class="fa-solid fa-check"></i>`;
         currentSeat.classList.add('bg-theme');
         showdetail.innerHTML += `<div class="px-5 py-3 rounded-pill box-border bg-color mb-2" id="${currentSeat.dataset.seatId}">
-                <div class="${zoneName}-border-start">
+                <div class="${zone}-border-start">
                   <div class="ms-4">
-                    <span class="fs-6 fw-bold text-${zoneName}">${zoneName.toUpperCase()}</span>
+                    <span class="fs-6 fw-bold text-${zone}">${zone.toUpperCase()}</span>
                     <br><span>第${currentSeat.dataset.row}排, ${currentSeat.dataset.seat}號</span>
                     <br><span class="fs-6 text-light-gray">一般票</span>
-                    <span class="float-end">$${setInfo[zoneName].price}</span>
+                    <span class="float-end">$${setInfo[zone].price}</span>
                   </div>
                 </div>
               </div>`;
-        ticketCount(zoneName, 1);
+        ticketCount(zone, 1);
+        // 把選到座位的資訊加入清單
+        selectedSeatsList.push({
+          id: seatId,
+          zoneName: zone.toUpperCase(),
+          row: row,
+          seatNum: seat,
+          price: setInfo[zone].price
+        });
       };
     };
 
@@ -462,7 +464,7 @@
     // 張數+-的函式
     function ticketCount(name = 'vip', number = 1) {
       setInfo[name].count += number;
-      console.log(setInfo[name].count);
+      // console.log(setInfo[name].count);
       totalAll();
     }
   </script>
@@ -475,7 +477,7 @@
     const showTicketPrice = document.querySelector('#show-ticket-price');
     const showFee = document.querySelector('#show-fee');
     const showAddOnPrice = document.querySelector('#show-add-on-price');
-    const showAllTotal = document.querySelector('#all-total');
+    const showAllTotal = document.querySelector('#show-total');
     // 加購項目
     const addOn = document.querySelector('#add-on-checkbox');
     addOn.addEventListener('change', totalAll);
@@ -522,39 +524,27 @@
     function updateSummary() {
       // 建立一個物件，用來打包所有要傳遞到下一頁的訂單資訊
       const orderData = {
-        seats: [],
+        selectedDetails: selectedSeatsList,
         addOn: 0,
         fee: 0,
         totalPrice: 0,
+        ticketCountTotal: Object.values(setInfo).reduce(function (total, zone) {
+          return total + zone.count;
+        }, 0),
       };
 
-      orderData.seats = Object.keys(setInfo)
-        .filter(function (zone) {
-          return setInfo[zone].count > 0;
-        })
-        .map(function (zone) {
-          return {
-            zoneName: zone,
-            price: setInfo[zone].price,
-            count: setInfo[zone].count,
-            subtotal: setInfo[zone].price * setInfo[zone].count
-          };
-        });
-
       // 計算總張數
-      const totalTicketCount = orderData.seats.reduce(function (total, seat) {
-        return total + seat.count;
-      }, 0);
+      const checkedCount = orderData.selectedDetails.length;
 
       // 如果沒選票，跳出提示
-      if (totalTicketCount === 0) {
+      if (checkedCount === 0) {
         alert('請至少選擇一個座位！');
         return false;
       };
 
       const addOnPriceValue = document.querySelector('#add-on-checkbox').checked ? 800 : 0;
-      const feeValue = totalTicketCount > 0 ? 100 : 0;
-      let seatsTotal = orderData.seats.reduce((total, seat) => total + seat.subtotal, 0);
+      const feeValue = checkedCount > 0 ? 100 : 0;
+      let seatsTotal = orderData.selectedDetails.reduce((total, seat) => total + seat.price, 0);
 
       // 將算好的數字塞進 orderData 中
       orderData.addOn = addOnPriceValue;
