@@ -1,37 +1,18 @@
-        /* 文字顏色: */
-        .text-golden {
-            color: #d4a473;
-        }
 
-        /* 按鈕顏色 */
-        .btn-golden {
-            background-color: #d4a473;
-            border-color: #d4a473;
-            color: black;
-            /* 金色背景_配黑字 */
-        }
 
-        /* 按鈕 (Hover) */
-        .btn-golden:hover,
-        .btn-golden:focus {
-            background-color: #b88a5d;
-            border-color: #b88a5d;
-            color: black;
+        .mt-120 {
+            margin-top: 120px;
         }
 
         /* 已售罄按鈕樣式 */
         .btn-sold-out {
             background-color: #3d3d3d !important;
-            /* 深灰色背景 */
             border-color: #3d3d3d !important;
             color: white !important;
-            /* 淺灰色文字 */
-            cursor: not-allowed;
             /* 滑鼠游標顯示禁用圖示 */
+            cursor: not-allowed;
             pointer-events: none;
-            /* 徹底禁用點擊事件 */
             box-shadow: none !important;
-            /* 移除陰影 */
         }
 
         .btn-more:hover{
@@ -44,33 +25,10 @@
             border: 1px solid #d4a473;
         }
 
-        /* 背景（金） */
-        .bg-golden {
-            background-color: #d4a473;
-        }
-
         /* 帶有透明度的背景 (用於圖片上的標籤，如日期標籤) */
         .bg-golden-light {
             background-color: rgba(212, 164, 115, 0.2) !important;
         }
-
-        /* 背景（深灰） */
-        .bg-gray {
-            background-color: #1d1917;
-        }
-
-        /* 外框按鈕 (只有邊框是金色) */
-        .btn-outline-golden {
-            color: #d4a473;
-            border: 1px solid #d4a473;
-            background-color: transparent;
-        }
-
-        .btn-outline-golden:hover {
-            background-color: #d4a473;
-            color: black;
-        }
-
 
         /* 卡片顏色 */
         .card {
@@ -98,7 +56,6 @@
         /* 搜尋區 */
         .search {
             width: 70%;
-
             /* tag 一般狀態 */
             .btn.btn-tag,
             .btn.btn-tag:hover {
@@ -107,7 +64,6 @@
                 border: 1px solid rgb(74 68 62);
                 background-color: rgb(42 38 34);
             }
-
             /* tag check */
             .btn-check:checked+.btn-tag {
                 color: #000;
