@@ -1,0 +1,22 @@
+[
+    {
+        "id": "event-001",
+        "musicType": "流行",
+        "title": "After Hours Til Dawn",
+        "artists": "The Weeknd",
+        "date": "2026-05-20",
+        "location": "台北小巨蛋",
+        "address": "台北市信義區松仁路123號",
+        "Organizer": "Live Nation Taiwan",
+        "prices": [
+            3800,
+            4800,
+            5800
+        ],
+        "subtitle": "體驗全球現象級的現場演出。台北站將帶來合成器流行金曲與震撼視覺效果。",
+        "description": "共度一個難忘的音樂與光影之夜。這位多白金銷量藝人將帶來他迄今為止在台灣最盛大的演出，演唱最新專輯《Dawn FM》中的熱門曲目，以及粉絲最愛的《Blinding Lights》和《Starboy》。本次巡演採用最先進的舞台製作，旨在讓觀眾沉浸在電影般的體驗中。千萬不要錯過親眼目睹這一代最具影響力藝人現場演出的機會。",
+        "headimageUrl": "images/event01.jpg",
+        "firstimageUrl": "images/event01.jpg",
+        "secondimageUrl": "images/event01_2.jpg"
+    }
+]
